@@ -1,0 +1,13 @@
+Django
+mysqlclient
+validate-email-address
+pillow
+pymysql
+django-debug-toolbar
+djangorestframework
+djangorestframework-simplejwt
+sendgrid
+psycopg2-binary
+psycopg2
+python-decouple
+django-environ
