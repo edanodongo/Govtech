@@ -25,6 +25,8 @@ EXEMPT_URLS = [
     r'^sysadmin/verifyOTPSys/.*$',
     r'^sysadmin/ChangePasswordSys/.*$',
     r'^sysadmin/saveForgetMyPasswordSys/.*$',
+    # Static files exemptions
+    r'^static/.*$',            # All static files (JS, CSS, images, fonts, etc.)
 ]
 
 class LoginRequiredMiddleware:
