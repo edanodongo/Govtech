@@ -1,5 +1,4 @@
-from django.conf import settings
-from django.conf.urls.static import static
+
 from django.urls import path
 
 from .views import multi_step_registration, individual_reg, index, authlogout, \
@@ -24,5 +23,3 @@ urlpatterns = [
     path('markAsRead/<int:pk>/', markAsRead, name='markAsRead'),
     path('viewMynotifications/<int:pk>/', viewMynotifications, name='viewMynotifications'),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
