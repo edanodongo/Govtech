@@ -1,4 +1,7 @@
 {% extends 'index.html' %}
+{% load static %}
+
+
 {% block content %}
     <style>
         #profile-preview {
@@ -25,7 +28,7 @@
                 <label class="form-label d-block"><b>Click to edit profile picture</b></label>
                 <div class="position-relative d-inline-block">
                     <img id="profile-preview"
-                         src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                         src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}" 
                          width="150" height="150" style="object-fit: cover;">
                     <input type="file" id="profile-picture" name="profile_picture" accept="image/*"
                            class="form-control-file mt-2">
