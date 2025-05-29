@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- [Head] start -->
@@ -10,25 +12,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="/static/images/cos.ico" type="image/x-icon"> <!-- [Google Font] Family -->
+    <link rel="icon" href="{% static 'images/cos.ico' %}" type="image/x-icon"> <!-- [Google Font] Family -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
           id="main-font-link">
     <!-- [Tabler Icons] https://tablericons.com -->
-    <link rel="stylesheet" href="/static/fonts/tabler-icons.min.css">
+    <link rel="stylesheet" href="{% static 'fonts/tabler-icons.min.css' %}">
     <!-- [Feather Icons] https://feathericons.com -->
-    <link rel="stylesheet" href="/static/fonts/feather.css">
+    <link rel="stylesheet" href="{% static 'fonts/feather.css' %}">
     <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-    <link rel="stylesheet" href="/static/fonts/fontawesome.css">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome.css' %}">
     <!-- [Material Icons] https://fonts.google.com/icons -->
-    <link rel="stylesheet" href="/static/fonts/material.css">
+    <link rel="stylesheet" href="{% static 'fonts/material.css' %}">
     <!-- [Template CSS Files] -->
-    <link rel="stylesheet" href="/static/css/style.css" id="main-style-link">
-    <link rel="stylesheet" href="/static/css/style-preset.css">
-    <link rel="stylesheet" href="/static/css/registration.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" id="main-style-link">
+    <link rel="stylesheet" href="{% static 'css/style-preset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" >
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/dash.css">
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" >
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css"
@@ -125,7 +127,7 @@
         <div class="m-header">
             <a href="{% url 'dashboard_view' %}" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="/static/images/COT.png" class="img-fluid logo-lg" alt="logo">
+                <img src="{% static 'images/COT.png' %}" class="img-fluid logo-lg" alt="logo">
             </a>
         </div>
         <div class="navbar-content">
@@ -256,8 +258,7 @@
                                     <a class="list-group-item list-group-item-action">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="/static/
-                                                        {{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                                                <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}" 
                                                      alt="user-image"
                                                      class="user-avtar wid-35">
                                             </div>
@@ -284,7 +285,7 @@
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                        role="button"
                        aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                        <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}"
                              alt="user-image"
                              class="user-avtar wid-35">
                         <span>{{ request.session.fName }} {{ request.session.lName }}</span>
@@ -293,7 +294,7 @@
                         <div class="dropdown-header">
                             <div class="d-flex mb-1">
                                 <div class="flex-shrink-0">
-                                    <img src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                                    <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}" 
                                          alt="user-image"
                                          class="user-avtar wid-35">
                                 </div>
@@ -415,20 +416,20 @@
 <div id="user-info"></div>
 
 <!-- [Page Specific JS] start -->
-<script src="/static/js/plugins/apexcharts.min.js"></script>
-<script src="/static/js/pages/dashboard-default.js"></script>
+<script src="{% static 'js/plugins/apexcharts.min.js' %}" ></script>
+<script src="{% static 'js/pages/dashboard-default.js' %}" ></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 <!-- [Page Specific JS] end -->
 <!-- Required Js -->
-<script src="/static/js/plugins/popper.min.js"></script>
-<script src="/static/js/plugins/simplebar.min.js"></script>
-<script src="/static/js/plugins/bootstrap.min.js"></script>
-<script src="/static/js/fonts/custom-font.js"></script>
-<script src="/static/js/pcoded.js"></script>
-<script src="/static/js/plugins/feather.min.js"></script>
-<script src="/static/js/custom/custom.js"></script>
+<script src="{% static 'js/plugins/popper.min.js' %}" ></script>
+<script src="{% static 'js/plugins/simplebar.min.js' %}" ></script>
+<script src="{% static 'js/plugins/bootstrap.min.js' %}" ></script>
+<script src="{% static 'js/fonts/custom-font.js' %}" ></script>
+<script src="{% static 'js/pcoded.js' %}" ></script>
+<script src="{% static 'js/plugins/feather.min.js' %}" ></script>
+<script src="{% static 'js/custom/custom.js' %}" ></script>
 <!-- jQuery first -->
 
 
