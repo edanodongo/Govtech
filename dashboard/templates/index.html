@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -230,7 +229,7 @@
                                     <a class="list-group-item list-group-item-action">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                                                <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}" 
                                                      alt="user-image"
                                                      class="user-avtar wid-35">
                                             </div>
@@ -257,7 +256,7 @@
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                        role="button"
                        aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                        <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}"  
                              alt="user-image"
                              class="user-avtar wid-35">
                         <span>
@@ -272,7 +271,7 @@
                         <div class="dropdown-header">
                             <div class="d-flex mb-1">
                                 <div class="flex-shrink-0">
-                                    <img src="/static/{{ request.session.profile_picture|default:'images/avatar.jpg' }}"
+                                    <img src="{% static request.session.profile_picture|default:'images/avatar.jpg' %}" 
                                          alt="user-image"
                                          class="user-avtar wid-35">
                                 </div>
