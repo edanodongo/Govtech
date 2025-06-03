@@ -20,7 +20,7 @@ from dashboard.models import SignupUser
 
 def index(request):
     # Explicitly specify the path to the template for sysadmin
-    return render(request, 'auth/admin.html')
+    return render(request, 'systemadmin/auth/admin.html')
 def authorize_login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -92,10 +92,10 @@ def authorize_login(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
 def dashboard(request):
-    return render(request, "pages/dashboard.html")
+    return render(request, "systemadmin/pages/dashboard.html")
 
 def forgetPasswordSysAdmin(request):
-    return render(request, 'auth/forgetPassword.html')
+    return render(request, 'systemadmin/auth/forgetPassword.html')
 
 def verificationLinkSys(request):
     if request.method == 'POST':
@@ -164,7 +164,7 @@ def verificationLinkSys(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
 def otpVerificationSys(request):
-    return render(request,'auth/otp.html')
+    return render(request,'systemadmin/auth/otp.html')
 
 def verifyOTPSys(request):
     if request.method == 'POST':
@@ -198,7 +198,7 @@ def verifyOTPSys(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
 def ChangePasswordSys(request):
-    return render(request,'auth/changePassword.html')
+    return render(request,'systemadmin/auth/changePassword.html')
 
 def saveForgetMyPasswordSys(request):
     if request.method == 'POST':
@@ -255,7 +255,7 @@ def Adminprofile(request):
         'profilePicture': myInfo.profile_picture,
     }
 
-    return render(request, 'pages/myprofile.html', data)
+    return render(request, 'systemadmin/pages/myprofile.html', data)
 
 def profileChange(request):
     myId = request.session.get('id')
@@ -278,7 +278,7 @@ def profileChange(request):
         'genders': gender.objects.all().order_by('name'),
     }
 
-    return render(request, 'pages/editProfile.html', data)
+    return render(request, 'systemadmin/pages/editProfile.html', data)
 
 def saveEditProfile(request):
     myId = request.session.get('id')
@@ -351,7 +351,7 @@ def saveEditProfile(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
 def resetPassword(request):
-    return render(request, 'pages/myPassword.html')
+    return render(request, 'systemadmin/pages/myPassword.html')
 
 def saveChangeMyPassword(request):
     myId = request.session.get('id')
@@ -410,7 +410,7 @@ def notifications(request):
             for n in notif
         ]
     }
-    return render(request, 'pages/viewNotification.html',data)
+    return render(request, 'systemadmin/pages/viewNotification.html',data)
 
 def markAsRead(request, pk):
     notification = get_object_or_404(sysNotification, pk=pk)
@@ -426,7 +426,7 @@ def viewMynotifications(request, pk):
         notification.is_read = True
         notification.save()
 
-    return render(request, 'pages/view_notification.html', {
+    return render(request, 'systemadmin/pages/view_notification.html', {
         'notification': notification
     })
 
@@ -446,15 +446,15 @@ def externalUsers(request):
         user['gender_name'] = getGenderName(user['gender'])
         startupUsers.append(user)
 
-    return render(request, 'pages/externalUsers.html', {'startupUsers': startupUsers})
+    return render(request, 'systemadmin/pages/externalUsers.html', {'startupUsers': startupUsers})
 
 def internalUsers(request):
     icto = InternalUser.objects.values('id', 'fName', 'lName', 'idNo', 'email', 'phone', 'nationality','county', 'subcounty','gender', 'isactive', 'dateCreated')
-    return render(request,'pages/internalUsers.html',{'internaluser': icto})
+    return render(request,'systemadmin/pages/internalUsers.html',{'internaluser': icto})
 
 def internalUserSys(request):
     ictoSys = InternalUser.objects.values('id', 'fName', 'lName', 'idNo', 'email', 'phone', 'nationality','county', 'subcounty','gender', 'isactive', 'dateCreated')
-    return render(request,'pages/internalUsers.html',{'internaluser': ictoSys})
+    return render(request,'systemadmin/pages/internalUsers.html',{'internaluser': ictoSys})
 
 def activate_user(request, user_id):
     user = get_object_or_404(SignupUser, id=user_id)
