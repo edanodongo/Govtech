@@ -130,7 +130,7 @@ def signup(request):
             # Send email
             email_msg = EmailMultiAlternatives(subject, text_content, from_email, [email])
             email_msg.attach_alternative(html_content, "text/html")
-            email_msg.send(fail_silently=False)
+            # email_msg.send(fail_silently=False)
 
             return JsonResponse({
                 'status': 'success',
@@ -290,7 +290,7 @@ def verificationLink(request):
         # Send both plain text and HTML
         email_msg = EmailMultiAlternatives(subject, text_content, from_email, [email])
         email_msg.attach_alternative(html_content, "text/html")
-        email_msg.send(fail_silently=False)
+        # email_msg.send(fail_silently=False)
 
         return JsonResponse({
             'status': 'success',
