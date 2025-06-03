@@ -23,11 +23,11 @@ from .models import *
 
 
 def dashboard_data(request):
-    return render(request, "dashboard.html")
+    return render(request, "dashboard/dashboard.html")
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "dashboard/index.html")
 
 
 def get_form(step):
@@ -55,7 +55,7 @@ def multi_step_registration(request, step):
                 return redirect('multi_step', step=2)
         else:
             form = Step1Form()
-        return render(request, 'register/step1.html', {'form': form, 'step': step})
+        return render(request, 'dashboard/register/step1.html', {'form': form, 'step': step})
 
     elif step == 2:
         if request.method == 'POST':
@@ -79,7 +79,7 @@ def multi_step_registration(request, step):
                 return redirect('dashboard_view')  # Optional success page
         else:
             form = Step2Form()
-        return render(request, 'register/step2.html', {'form': form, 'step': step})
+        return render(request, 'dashboard/register/step2.html', {'form': form, 'step': step})
 
 
 def individual_reg(request):
@@ -91,7 +91,7 @@ def individual_reg(request):
     else:
         form = IndividualForm()
 
-    return render(request, "register/individual.html", {'form': form})
+    return render(request, "dashboard/register/individual.html", {'form': form})
 
 
 def authlogout(request):
@@ -126,7 +126,7 @@ def Myprofile(request):
         'company':myInfo.company,
     }
 
-    return render(request, 'myprofile.html', data)
+    return render(request, 'dashboard/myprofile.html', data)
 
 
 def profileChange(request):
@@ -151,7 +151,7 @@ def profileChange(request):
         'genders': gender.objects.all().order_by('name'),
     }
 
-    return render(request, 'editProfile.html', data)
+    return render(request, 'dashboard/editProfile.html', data)
 
 
 def saveEditProfile(request):
@@ -244,11 +244,11 @@ def saveEditProfile(request):
 
 
 def mySupport(request):
-    return render(request, 'support.html')
+    return render(request, 'dashboard/support.html')
 
 
 def resetPassword(request):
-    return render(request, 'myPassword.html')
+    return render(request, 'dashboard/myPassword.html')
 
 
 def dashboard_view(request):
@@ -334,7 +334,7 @@ def dashboard_view(request):
 
     }
 
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 '''
@@ -426,7 +426,7 @@ def notifications(request):
             for n in notif
         ]
     }
-    return render(request, 'viewNotification.html',data)
+    return render(request, 'dashboard/viewNotification.html',data)
 
 def markAsRead(request, pk):
     notification = get_object_or_404(Notification, pk=pk)
@@ -442,6 +442,6 @@ def viewMynotifications(request, pk):
         notification.is_read = True
         notification.save()
 
-    return render(request, 'view_notification.html', {
+    return render(request, 'dashboard/view_notification.html', {
         'notification': notification
     })

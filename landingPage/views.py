@@ -15,14 +15,14 @@ from dashboard.models import Notification
 
 
 def landing(request):
-    return render(request, 'landing.html')
+    return render(request, 'landingpage/landing.html')
 
 
 def register_view(request):
     countries = Country.objects.all().order_by('nationality')
     counties = County.objects.all().order_by('name')
     genders = gender.objects.all().order_by('name')
-    return render(request, 'register.html', {'countries': countries, 'counties': counties, 'genders': genders})
+    return render(request, 'landingpage/register.html', {'countries': countries, 'counties': counties, 'genders': genders})
 
 
 def get_subcounties(request):
@@ -33,7 +33,7 @@ def get_subcounties(request):
 
 # View for login page
 def login_view(request):
-    return render(request, 'login.html')
+    return render(request, 'landingpage/login.html')
 
 
 def signup(request):
@@ -231,7 +231,7 @@ def authlogin(request):
 
 
 def forgetPassword(request):
-    return render(request, 'forgetPassword.html')
+    return render(request, 'landingpage/forgetPassword.html')
 
 
 def verificationLink(request):
@@ -302,7 +302,7 @@ def verificationLink(request):
 
 
 def otpVerification(request):
-    return render(request, 'otp.html')
+    return render(request, 'landingpage/otp.html')
 
 
 def verifyOTP(request):
@@ -338,7 +338,7 @@ def verifyOTP(request):
 
 
 def ChangePassword(request):
-    return render(request, 'changePassword.html')
+    return render(request, 'landingpage/changePassword.html')
 
 
 def saveForgetMyPassword(request):
@@ -379,7 +379,7 @@ def saveForgetMyPassword(request):
 def force_password_change(request):
     email = request.GET.get('email')
     userId = request.GET.get('userId')
-    return render(request, 'changeForcePassword.html', {'user_id': userId, 'email': email})
+    return render(request, 'landingpage/changeForcePassword.html', {'user_id': userId, 'email': email})
 
 
 def saveForgetMyPasswordForce(request):
