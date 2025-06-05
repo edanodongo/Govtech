@@ -413,3 +413,17 @@ def saveForgetMyPasswordForce(request):
             return JsonResponse({'status': 'error', 'message': f'Failed to update password: {str(e)}'})
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
+
+
+def portals(request):
+    return render(request, 'landingpage/portals.html')
+
+
+def guidelines(request):
+    return render(request, 'landingpage/guidelines.html')
+
+def cost(request):
+    return render(request, 'landingpage/cost.html')
+
+def legal(request):
+    return render(request, 'landingpage/legal.html')
