@@ -62,10 +62,21 @@ def signup(request):
         phone = request.POST.get('phone')
         county = request.POST.get('county')
         subCounty = request.POST.get('subcounty')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
 
-        # Password generation and encryption
-        password = generate_strong_password()
+        # Password match check
+        if password != confirm_password:
+            return JsonResponse({'status': 'error', 'message': 'Passwords do not match.'})
+
+        # Password strength check
+        if not is_strong_password(password):
+            return JsonResponse({'status': 'error',
+                                 'message': 'Password must be at least 8 characters long and include a capital letter, number, and symbol.'})
+
+        # Encrypt the password
         encrypted_password = make_password(password)
+
 
         try:
             # Save user to DB
@@ -134,7 +145,7 @@ def signup(request):
 
             return JsonResponse({
                 'status': 'success',
-                'message': 'Registration successful. Login credentials have been sent to your email.'
+                'message': 'Registration successful.'
             })
 
         except IntegrityError:
