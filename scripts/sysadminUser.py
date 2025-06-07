@@ -21,19 +21,17 @@ def get_local_ip():
     except Exception as e:
         return "127.0.0.1"  # fallback to localhost
 
-from django.db import connections
-
 def create_admin_user():
     try:
-        # Explicitly query against sysadmin DB
-        if InternalUser.objects.using('sysadmin').filter(email="noemail@moict.go.ke").exists():
+        # Query using default database
+        if InternalUser.objects.filter(email="noemail@moict.go.ke").exists():
             print("ℹ️  Admin user already exists.")
             return 0
 
         password = "Pass987@moict!*"
         encrypted_password = make_password(password)
 
-        InternalUser.objects.using('sysadmin').create(
+        InternalUser.objects.create(
             fName="System",
             lName="Administrator",
             idNo="22889036",
@@ -53,7 +51,6 @@ def create_admin_user():
     except Exception as e:
         print(f"❌ Error creating admin user: {e}")
         return 1
-
 
 # Only run if script is called directly
 if __name__ == "__main__":
