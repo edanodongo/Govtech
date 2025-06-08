@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Startup Support | Supporting government portals</title>
+  <title>Startup Support | Cost Optimization for Startups</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -26,7 +26,7 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'css/cost.css' %}" rel="stylesheet">
 
 </head>
 
@@ -36,9 +36,8 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="/media/img/logo.png" alt="">
-        <!-- Uncomment the line below if you also wish to use text logo -->
-        <!-- <h1 class="sitename">Butterfly</h1>  -->
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+        <h1 class="sitename">Devlink Kenya</h1>
       </a>
 
       
@@ -91,128 +90,144 @@
           <ol>
             <li><a href="{% url 'landing' %}">Home</a></li>
             <li class="current">Startup support</li>
+            <li >Cost Optimization for Startups</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-
-    <section id="service-details" class="service-details section">
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="service-box">
-              <h4>Supporting Government Portals</h4>
-              <div class="services-list">
-                <a href="https://www.ecitizen.go.ke/" class="active"><i class="bi bi-arrow-right-circle"></i><span>eCitizen </span></a>
-                <a href="https://www.kra.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Kenya Revenue Authority (KRA) </span></a>
-                <a href="https://www.icta.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>ICT Authority </span></a>
-                <a href="https://ca.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Communications Authority of Kenya </span></a>
-                <a href="https://www.odpc.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Data Protection Commission </span></a>
-              </div>
-            </div><!-- End Services List -->
-
-            <!-- End Services List -->
-          </div>
-
-          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-            <h3>Links to Supporting Government Portals</h3>
-            <p>
-            Direct access to relevant government services and regulatory bodies:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>eCitizen Portal – Central access to government services and business registration.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Kenya Revenue Authority (KRA) – Tax registration, filing, and compliance.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>ICT Authority – ICT sector standards, licensing, and support.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Communications Authority of Kenya – Communications licensing and regulation.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Office of the Data Protection Commissioner – Data protection compliance and guidelines</span></li>
-            </ul>
-            <p>
-              Links to Supporting Government Portals is a dedicated resource hub that connects software developers and tech startups in Kenya to essential government platforms and regulatory bodies. This section provides direct access to key services such as business registration, tax compliance, data protection, intellectual property, ICT innovation support, and fintech regulation. By centralizing these links with clear descriptions and guidance, the platform helps users navigate legal and administrative processes more efficiently, ensuring they remain compliant, protected, and well-positioned to grow within Kenya’s evolving digital economy.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Service Details Section -->
-
     
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Cost Optimization for Startups</h2>
+        <p>Starting and growing a tech venture in Kenya can be capital-intensive. 
+            Whether you’re building a SaaS product, mobile app, or running a dev agency, smart cost management is key to long-term survival and growth. This section offers practical strategies, tools, and partnership models to help developers and startups reduce operational costs, maximize value, and achieve more with less.</p>
+      </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
+        <div class="services-row">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="services-headline" data-aos="fade-up">
+                <p class="services-subtitle">Expert Guidance</p>
+                <h2 class="services-title"> Cost Optimization </h2>
               </div>
-              <div class="swiper-pagination"></div>
+
+              <div class="services-description" data-aos="fade-up" data-aos-delay="100">
+                <p>Why Cost Optimization Matters: </p> <br>
+                <ul>
+                    <li>Keeps your burn rate low in the early stages</li> <br>
+                    <li>Enables lean experimentation and faster pivots</li> <br>
+                    <li>Helps secure investor confidence through smart financial discipline</li> <br>
+                    <li>Makes tech innovation more accessible and inclusive for all developers</li> <br>
+                </ul>
+                
+              </div>
+
+              <div class="services-image-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="services-image">
+                  <img "{% static 'images/ph.jpg' %}" alt="Services" class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="services-grid">
+                <div class="row gy-4">
+                  <!-- Service Item 1 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Bulk Licensing of Tools/APIs with Other Firms</a></h3>
+                          <p>Many essential development tools, cloud services, and APIs come at a high cost when purchased individually. By pooling resources with other startups or partners, you can negotiate better deals and unlock enterprise-level features.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>Cloud Services: AWS, Azure, Google Cloud</p></li>
+                                <li><p>Development Tools: JetBrains, GitHub Pro, Postman Team, Figma Pro</p></li>
+                                <li><p>Security APIs: Twilio Verify, Firebase Authentication, reCAPTCHA Enterprise</p></li>
+                                <li><p>Communication Tools: Slack, Zoom Pro, Notion Teams</p></li>
+                                <li><p>Productivity: Microsoft 365 Business, Atlassian Jira/Confluence</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 2 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-list-check"></i>
+                        </div>
+                        <div class="service-info">        
+                          <h3><a href="#">Share Infrastructure or Development Environments</a></h3>
+                          <p>Many startups duplicate costs for cloud servers, workspaces, and dev/test environments that could be shared securely.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>What Can Be Shared: Cloud Environments, DevOps Tools, Co-Working Spaces, Shared Repositories</p></li>
+                                <li><p>Security and Access Control: Use containerization (e.g., Docker) and access management (e.g., IAM, GitHub teams), Implement role-based access and VPNs for remote dev environments, Consider creating sandbox environments for testing third-party tools</p></li>
+                                <li><p>Local Hubs and Initiatives to Explore: Government-supported platforms for digital co-working</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 3 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-bar-chart"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Additional Cost-Saving Tips for Developers and Startups</a></h3>
+                          <p>Executing the planned strategies with precision and agility. Our team implements solutions while maintaining constant communication and progress updates.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>Use Open Source Alternatives</p></li>
+                                <li><p>Take Advantage of Local Developer Communities: Join groups like GDG Nairobi, Nairobits, Andela Kenya Alumni, or Python Kenya for shared learning, tool access, and project collaborations.</p></li>
+                                <li><p>Hire Interns and Junior Developers: Partner with universities and bootcamps (e.g., Moringa School) to find talent at a lower cost in exchange for mentorship or experience.</p></li>
+                                <li><p>Outsource Non-Core Work: Use vetted freelancers for design, testing, or marketing while your team focuses on core engineering or product work.</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 4 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Tip: </a></h3><br>
+                          <p>Cost optimization is not about cutting corners—it’s about scaling wisely. By collaborating, leveraging local ecosystems, and making smart decisions about infrastructure and tooling, Kenyan developers and startups can build world-class products while maintaining sustainable growth.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Other Useful Platforms</h3>
-              <ul>
-                <li><strong>KEBS</strong>: Standards for software, cybersecurity, and electronics</li>
-                <li><strong>Invest Kenya</strong>: Information for foreign investors and diaspora startups</li>
-                <li><strong>Huduma Kenya</strong>: In-person government services and documentation</li>
-              </ul>
-            </div>
-
-            
-          </div>
-          
-
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+    </section><!-- /Services Section -->
 
   </main>
 
@@ -221,18 +236,15 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- <img src="{% static 'img/logo.png' %}" alt="OLQP YSC"> -->
+          <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
             <span class="sitename">Devlink Kenya</span>
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto at consectetur culpa ducimus eum fuga fugiat, ipsa iusto, modi
-                      nostrum recusandae reiciendis saepe.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+            <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+            <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">

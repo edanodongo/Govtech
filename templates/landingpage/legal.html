@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Startup Support | Supporting government portals</title>
+  <title>Startup Support | Standard Contracts and Legal Templates</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -36,9 +36,8 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="/media/img/logo.png" alt="">
-        <!-- Uncomment the line below if you also wish to use text logo -->
-        <!-- <h1 class="sitename">Butterfly</h1>  -->
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+        <h1 class="sitename">Devlink Kenya</h1>
       </a>
 
       
@@ -91,128 +90,212 @@
           <ol>
             <li><a href="{% url 'landing' %}">Home</a></li>
             <li class="current">Startup support</li>
+            <li >Standard Contracts and Legal Templates</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-
-    <section id="service-details" class="service-details section">
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="service-box">
-              <h4>Supporting Government Portals</h4>
-              <div class="services-list">
-                <a href="https://www.ecitizen.go.ke/" class="active"><i class="bi bi-arrow-right-circle"></i><span>eCitizen </span></a>
-                <a href="https://www.kra.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Kenya Revenue Authority (KRA) </span></a>
-                <a href="https://www.icta.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>ICT Authority </span></a>
-                <a href="https://ca.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Communications Authority of Kenya </span></a>
-                <a href="https://www.odpc.go.ke/"><i class="bi bi-arrow-right-circle"></i><span>Data Protection Commission </span></a>
-              </div>
-            </div><!-- End Services List -->
-
-            <!-- End Services List -->
-          </div>
-
-          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-            <h3>Links to Supporting Government Portals</h3>
-            <p>
-            Direct access to relevant government services and regulatory bodies:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>eCitizen Portal – Central access to government services and business registration.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Kenya Revenue Authority (KRA) – Tax registration, filing, and compliance.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>ICT Authority – ICT sector standards, licensing, and support.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Communications Authority of Kenya – Communications licensing and regulation.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Office of the Data Protection Commissioner – Data protection compliance and guidelines</span></li>
-            </ul>
-            <p>
-              Links to Supporting Government Portals is a dedicated resource hub that connects software developers and tech startups in Kenya to essential government platforms and regulatory bodies. This section provides direct access to key services such as business registration, tax compliance, data protection, intellectual property, ICT innovation support, and fintech regulation. By centralizing these links with clear descriptions and guidance, the platform helps users navigate legal and administrative processes more efficiently, ensuring they remain compliant, protected, and well-positioned to grow within Kenya’s evolving digital economy.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Service Details Section -->
-
     
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">        
+        <h2>Standard Contracts and Legal Templates</h2>
+        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
+      </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
+        <div class="steps-wrapper">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
-                </div>
-
+          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
               </div>
-              <div class="swiper-pagination"></div>
+              <div class="step-info">
+                <h3> Non-Disclosure Agreement (NDA)</h3>
+                <p>Purpose:</p>
+                <p>To protect confidential information when sharing ideas, source code, designs, or business plans with potential partners, clients, or employees.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Defines what is considered “confidential”</li>
+                    <li>Outlines who can access the information and for how long</li>
+                    <li>Sets penalties for breaches</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Pitching a new app to investors</li>
+                    <li>Collaborating with a designer or contractor</li>
+                    <li>Partnering with another startup on a joint project</li>
+                </ul>
+              </div>
             </div>
-          </div>
+          </div><!-- End Step Item -->
+
+          <div class="step-item" data-aos="fade-left" data-aos-delay="300">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="step-info">
+                <h3>Service Level Agreement (SLA)</h3>
+                <p>Purpose:</p>
+                <p>To define the expectations between a service provider (e.g., a software company) and a client regarding service delivery, uptime, support, and remedies.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Scope of services (e.g., hosting, app maintenance, bug fixes)</li>
+                    <li>Performance benchmarks (e.g., 99.9% uptime)</li>
+                    <li>Penalties for non-performance</li>
+                    <li>Support response times</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Hosting a web application for a client</li>
+                    <li>Providing monthly software maintenance or technical support</li>
+                    <li>Offering a subscription-based SaaS product</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+          <div class="step-item" data-aos="fade-right" data-aos-delay="400">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="step-info">
+                <h3> Employment Contract (Developer or Staff)</h3>
+                <p>Purpose:</p>
+                <p>To formalize the relationship with full-time or part-time employees, including job description, compensation, and IP ownership.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Role and duties</li>
+                    <li>Salary and benefits</li>
+                    <li>Confidentiality and non-compete clauses</li>
+                    <li>IP assignment to the company</li>
+                    <li>Termination conditions</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Hiring a junior or senior developer</li>
+                    <li>Recruiting admin or non-technical staff</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="step-info">
+                <h3> Freelance/Consulting Agreement</h3>
+                <p>Purpose:</p>
+                <p>To govern relationships with freelancers, outsourced developers, or consultants working on a temporary or per-project basis.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Payment terms (hourly, milestone, or fixed rate)</li>
+                    <li>Project deliverables</li>
+                    <li>Deadlines and revisions</li>
+                    <li>Ownership of work</li>
+                    <li>Termination clause</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Hiring a freelance UI/UX designer or mobile developer</li>
+                    <li>Outsourcing backend development</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+          
+          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="step-info">
+                <h3> Freelance/Consulting Agreement</h3>
+                <p>Purpose:</p>
+                <p>To define the scope and expectations of a software development project for a client.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Project scope and milestones</li>
+                    <li>Payment schedule</li>
+                    <li>Testing and acceptance criteria</li>
+                    <li>Post-deployment support</li>
+                    <li>IP ownership and license terms</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Building a mobile app or website for a client</li>
+                    <li>Developing custom enterprise software</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+          
+          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="step-info">
+                <h3> Partnership Agreement</h3>
+                <p>Purpose:</p>
+                <p>To structure a startup formed by two or more co-founders.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Roles and responsibilities</li>
+                    <li>Capital contributions</li>
+                    <li>Profit/loss sharing</li>
+                    <li>Dispute resolution</li>
+                    <li>Exit strategy or dissolution clause</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Co-founding a startup with friends or fellow developers</li>
+                    <li>Joint ventures with another company</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
 
           
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Other Useful Platforms</h3>
-              <ul>
-                <li><strong>KEBS</strong>: Standards for software, cybersecurity, and electronics</li>
-                <li><strong>Invest Kenya</strong>: Information for foreign investors and diaspora startups</li>
-                <li><strong>Huduma Kenya</strong>: In-person government services and documentation</li>
-              </ul>
+          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="step-info">
+                <h3>  IP Assignment Agreement</h3>
+                <p>Purpose:</p>
+                <p>To transfer ownership of intellectual property (e.g., code, designs) from an individual (e.g., developer or contractor) to the company.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Description of IP being assigned</li>
+                    <li>Effective date of transfer</li>
+                    <li>Warranties about original ownership</li>
+                    <li>Rights of the company to modify, distribute, or license the IP</li>
+                </ul>
+                <p>Use Cases:</p>
+                <ul>
+                    <li>Contractors handing over final work</li>
+                    <li>Employees creating proprietary tools or platforms</li>
+                </ul>
+              </div>
             </div>
-
-            
-          </div>
-          
+          </div><!-- End Step Item -->
 
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+    </section><!-- /How We Work Section -->
 
   </main>
 
@@ -221,18 +304,15 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- <img src="{% static 'img/logo.png' %}" alt="OLQP YSC"> -->
+          <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
             <span class="sitename">Devlink Kenya</span>
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto at consectetur culpa ducimus eum fuga fugiat, ipsa iusto, modi
-                      nostrum recusandae reiciendis saepe.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+            <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+            <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">

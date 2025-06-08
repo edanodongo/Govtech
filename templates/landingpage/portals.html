@@ -35,10 +35,9 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="/media/img/logo.png" alt="">
-        <!-- Uncomment the line below if you also wish to use text logo -->
-        <!-- <h1 class="sitename">Butterfly</h1>  -->
+      <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+        <h1 class="sitename">Devlink Kenya</h1>
       </a>
 
       
@@ -91,6 +90,7 @@
           <ol>
             <li><a href="{% url 'landing' %}">Home</a></li>
             <li class="current">Startup support</li>
+            <li >Supporting Government Portals</li>
           </ol>
         </nav>
       </div>
@@ -120,7 +120,7 @@
           </div>
 
           <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+            <img src="{% static 'images/ph.jpg' %}" alt="image" class="img-fluid services-img">
             <h3>Links to Supporting Government Portals</h3>
             <p>
             Direct access to relevant government services and regulatory bodies:
@@ -173,19 +173,19 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
+                  <img src="{% static 'images/ph.jpg' %}" alt="image">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
+                  <img src="{% static 'images/ph.jpg' %}" alt="image">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
+                  <img src="{% static 'images/ph.jpg' %}" alt="image">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{% static 'img/startup-support/.jpg' %}" alt="">
+                  <img src="{% static 'images/ph.jpg' %}" alt="image">
                 </div>
 
               </div>
@@ -221,18 +221,15 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- <img src="{% static 'img/logo.png' %}" alt="OLQP YSC"> -->
+          <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
             <span class="sitename">Devlink Kenya</span>
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto at consectetur culpa ducimus eum fuga fugiat, ipsa iusto, modi
-                      nostrum recusandae reiciendis saepe.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+            <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+            <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
