@@ -1,0 +1,352 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Startup Support | Guidlines for Software Startup Requirements</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'images/cos.ico' %}" rel="icon">
+  <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="portdolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+        <h1 class="sitename">Devlink Kenya</h1>
+      </a>
+
+      
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'landing' %}" class="active">Home</a></li>
+          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">For Developers</a></li>
+              <li><a href="#">For Clients</a></li>
+              <li><a href="#">Success Stories</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Custom software solutions</a></li>
+              <li><a href="#">Training  & Resources</a></li>
+              <li><a href="#">Project Outsourcing</a></li>
+              <li><a href="#">Technical Support</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            
+            <ul>
+              <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
+              <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
+              <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+              <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+            </ul>
+          </li>
+          <li><a>Contact Us</a></li>
+
+         
+
+          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Startup support</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li class="current">Startup support</li>
+            <li class="current">Guide for Software Start-up Requirements Startup support</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    
+    
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-heading">Guide for Software Start-up Requirements</h2>
+            <p class="lead">Starting a software business in Kenya requires a mix of legal compliance, strategic planning, and technical readiness. This guide provides a detailed roadmap to help individual developers, small teams, and growing startups establish a strong foundation for success in the local and global tech ecosystem.</p>
+          </div>
+        </div>
+        <!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+                <h3>Business Structure and Legal Registration</h3>
+              <p>Choosing the right legal structure is the first step toward building a credible and scalable business.</p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Sole Proprietorship </strong> – Ideal for freelancers and solo developers</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Partnership</strong> – For small teams co-owning the business</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Private Limited Company (Ltd)</strong> – Best for startups seeking to scale, attract investors, or sign enterprise contracts</span>
+                </li>
+            </ul>
+            </p>
+            <span> Registration Process via <a href="https://www.ecitizen.go.ke/" ></i>eCitizen </span></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+                <h3>Tax Registration and Compliance</h3>
+              <p>Registering your business with the Kenya Revenue Authority (KRA) is mandatory. KRA Requirements</p>
+              <p>KRA Requirements:</p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong> Obtain a KRA PIN for the business and all directors/shareholders </strong></span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Tax obligations such as;</strong>Income Tax, Value Added Tax (VAT), Pay-As-You-Earn (PAYE) (if employing staff)</span>
+                </li>
+            </ul>
+            File returns monthly/annually using <a href="https://itax.kra.go.ke/" ></i><span>iTax </span></a>
+            </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+                <h3>Intellectual Property (IP) Protection</h3>
+              <p>As a software developer or company, safeguarding your ideas, code, and brand is vital. How to Protect Your IP in Kenya</p>
+              <p>How to Protect Your IP in Kenya</p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://www.kipi.go.ke/" ></i><span>KIPI </span></a> </span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Patents </strong> – For unique algorithms or tech innovations</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Copyright </strong> – Automatically granted for original code, but formal registration adds legal protection</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Non-Disclosure Agreements (NDAs) </strong> – Use when pitching or collaborating</span>
+                </li>
+            </ul>
+            <span><strong>Tip: </strong>Kenya follows a "first to file" system for trademarks—register early!</span>
+            </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+                <h3>Data Protection and Compliance</h3>
+              <p>With the rise of data-driven applications, compliance with the Data Protection Act, 2019 is essential. </p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Register as a Data Controller or Processor with the </strong><a href="https://www.odpc.go.ke/" ></i><span> Office of the Data Protection Commissioner (ODPC)</span></a></span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span>Ensure secure data storage and access control</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span>Report data breaches within 72 hours</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong> Applicable To: </strong> eb/mobile apps that collect user data (emails, names, photos) and SaaS platforms, CRM systems, e-commerce, health, or fintech appss</span>
+                </li>
+            </ul>
+            Registration Process via 
+            <a href="https://www.ecitizen.go.ke/" ></i><span>eCitizen </span></a>
+            </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+                <h3>Technical and Infrastructure Setup</h3>
+              <p>Before launching, ensure you have the right tools and infrastructure in place.</p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Consider important Tools such as: </strong> Version control(github), Project management, Code editors/IDEs, Hosting platforms</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Infrastructure Considerations: </strong>CI/CD pipeline for automated deployment, Domain name registration and SSL setup, Scalable backend, Cloud credits from programs like AWS Activate, Microsoft for Startups, or Google for Startups </span>
+                </li>
+            </ul>
+            </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+                <h3> Employment & Contracts</h3>
+              <p>If you're hiring or collaborating, formalize working relationships with clear contracts.</p>
+            <br>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Employment contract </strong> – for permanent or temporary employees</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Freelance/Consulting agreement</strong> – for short-term or outsourced work </span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>IP Assignment agreement </strong> – ensures your company owns the work produced</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                    <span><strong>Service Level Agreement (SLA) </strong> – sets expectations with clients</span>
+                </li>
+            </ul>
+            Find templates in the <a href="{% url 'legal' %}" class="stretched-link" ></i><span>Legal Templates </span></a>section. 
+            </p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+    
+    
+  </main>
+
+<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                    <span class="sitename" style="color: #f8f9fa;">Devlink Kenya</span>
+                </a>
+                <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 style="color: #f8f9fa;">Useful Links</h4>
+                <ul>
+                    <li><a href="{% url 'landing' %}" style="color: #d1d1e0;">Home</a></li>
+                    <li><a href="#" style="color: #d1d1e0;">Resources</a></li>
+                    <li><a href="#" style="color: #d1d1e0;">Startup support</a></li>
+                    <li><a href="#" style="color: #d1d1e0;">Collaboration and innovation</a></li>
+                    <li><a href="#" style="color: #d1d1e0;">Services</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 style="color: #f8f9fa;">More info</h4>
+                <ul>
+                    <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Software Startup Requirements</a></li>
+                    <li><a href="{% url 'portals' %}" style="color: #d1d1e0;">Supporting Government Portals</a></li>
+                    <li><a href="{% url 'legal' %}" style="color: #d1d1e0;">Standard Contracts and Legal Templates</a></li>
+                    <li><a href="{% url 'cost' %}" style="color: #d1d1e0;">Cost Optimization for Startups</a></li>
+                    <li><a href="{% url 'login' %}" style="color: #d1d1e0;">Software firm registration</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 foot text-center text-md-start">
+                <h4 style="color: #f8f9fa;">Contact Us</h4>
+                <p style="color: #d1d1e0;">P.O. Box 30025 - 00100</p>
+                <p style="color: #d1d1e0;">GPO Telposta Towers, Koinange Street</p>
+                <p style="color: #d1d1e0;">Nairobi, Kenya</p>
+                <p class="mt-4" style="color: #d1d1e0;"><strong>Phone:</strong> <span> +254 700 000 000</span></p>
+                <p style="color: #d1d1e0;"><strong>Email:</strong> <span>devlink@support.go.ke</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p style="color: #d1d1e0;">© <span>Copyright</span> <strong class="px-1 sitename" style="color: #f8f9fa;">Devlink</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+</footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}" ></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

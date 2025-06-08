@@ -16,5 +16,9 @@ urlpatterns = [
     path('saveForgetMyPassword/', views.saveForgetMyPassword, name='saveForgetMyPassword'),
     path('force-password-change/', views.force_password_change, name='force_password_change'),
     path('saveForgetMyPasswordForce/', views.saveForgetMyPasswordForce, name='saveForgetMyPasswordForce'),
+    path('portals/', views.portals, name='portals'),
+    path('guidelines/', views.guidelines, name='guidelines'),
+    path('legal/', views.legal, name='legal'),
+    path('cost/', views.cost, name='cost'),
 
 ]

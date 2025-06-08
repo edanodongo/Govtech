@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Startup Support | Cost Optimization for Startups</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'images/cos.ico' %}" rel="icon">
+  <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'css/cost.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="portdolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+        <h1 class="sitename">Devlink Kenya</h1>
+      </a>
+
+      
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'landing' %}" class="active">Home</a></li>
+          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">For Developers</a></li>
+              <li><a href="#">For Clients</a></li>
+              <li><a href="#">Success Stories</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Custom software solutions</a></li>
+              <li><a href="#">Training  & Resources</a></li>
+              <li><a href="#">Project Outsourcing</a></li>
+              <li><a href="#">Technical Support</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+            <ul>
+              <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
+              <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
+              <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+              <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+            </ul>
+          </li>
+          <li><a>Contact Us</a></li>
+
+         
+
+          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Startup support</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li class="current">Startup support</li>
+            <li >Cost Optimization for Startups</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Cost Optimization for Startups</h2>
+        <p>Starting and growing a tech venture in Kenya can be capital-intensive. 
+            Whether you’re building a SaaS product, mobile app, or running a dev agency, smart cost management is key to long-term survival and growth. This section offers practical strategies, tools, and partnership models to help developers and startups reduce operational costs, maximize value, and achieve more with less.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="services-row">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="services-headline" data-aos="fade-up">
+                <p class="services-subtitle">Expert Guidance</p>
+                <h2 class="services-title"> Cost Optimization </h2>
+              </div>
+
+              <div class="services-description" data-aos="fade-up" data-aos-delay="100">
+                <p>Why Cost Optimization Matters: </p> <br>
+                <ul>
+                    <li>Keeps your burn rate low in the early stages</li> <br>
+                    <li>Enables lean experimentation and faster pivots</li> <br>
+                    <li>Helps secure investor confidence through smart financial discipline</li> <br>
+                    <li>Makes tech innovation more accessible and inclusive for all developers</li> <br>
+                </ul>
+                
+              </div>
+
+              <div class="services-image-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="services-image">
+                  <img "{% static 'images/ph.jpg' %}" alt="Services" class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="services-grid">
+                <div class="row gy-4">
+                  <!-- Service Item 1 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Bulk Licensing of Tools/APIs with Other Firms</a></h3>
+                          <p>Many essential development tools, cloud services, and APIs come at a high cost when purchased individually. By pooling resources with other startups or partners, you can negotiate better deals and unlock enterprise-level features.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>Cloud Services: AWS, Azure, Google Cloud</p></li>
+                                <li><p>Development Tools: JetBrains, GitHub Pro, Postman Team, Figma Pro</p></li>
+                                <li><p>Security APIs: Twilio Verify, Firebase Authentication, reCAPTCHA Enterprise</p></li>
+                                <li><p>Communication Tools: Slack, Zoom Pro, Notion Teams</p></li>
+                                <li><p>Productivity: Microsoft 365 Business, Atlassian Jira/Confluence</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 2 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-list-check"></i>
+                        </div>
+                        <div class="service-info">        
+                          <h3><a href="#">Share Infrastructure or Development Environments</a></h3>
+                          <p>Many startups duplicate costs for cloud servers, workspaces, and dev/test environments that could be shared securely.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>What Can Be Shared: Cloud Environments, DevOps Tools, Co-Working Spaces, Shared Repositories</p></li>
+                                <li><p>Security and Access Control: Use containerization (e.g., Docker) and access management (e.g., IAM, GitHub teams), Implement role-based access and VPNs for remote dev environments, Consider creating sandbox environments for testing third-party tools</p></li>
+                                <li><p>Local Hubs and Initiatives to Explore: Government-supported platforms for digital co-working</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 3 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                          <i class="bi bi-bar-chart"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Additional Cost-Saving Tips for Developers and Startups</a></h3>
+                          <p>Executing the planned strategies with precision and agility. Our team implements solutions while maintaining constant communication and progress updates.</p>
+                          <p><span>Tools and Licenses You Can Bulk-Purchase: </span> </p>
+                            <ul>
+                                <li><p>Use Open Source Alternatives</p></li>
+                                <li><p>Take Advantage of Local Developer Communities: Join groups like GDG Nairobi, Nairobits, Andela Kenya Alumni, or Python Kenya for shared learning, tool access, and project collaborations.</p></li>
+                                <li><p>Hire Interns and Junior Developers: Partner with universities and bootcamps (e.g., Moringa School) to find talent at a lower cost in exchange for mentorship or experience.</p></li>
+                                <li><p>Outsource Non-Core Work: Use vetted freelancers for design, testing, or marketing while your team focuses on core engineering or product work.</p></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Service Item 4 -->
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                      <div class="service-content text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <div class="service-info">
+                          <h3><a href="#">Tip: </a></h3><br>
+                          <p>Cost optimization is not about cutting corners—it’s about scaling wisely. By collaborating, leveraging local ecosystems, and making smart decisions about infrastructure and tooling, Kenyan developers and startups can build world-class products while maintaining sustainable growth.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Devlink Kenya</span>
+          </a>
+            <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+            <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Startup support</a></li>
+            <li><a href="#">Collaboration and innovation</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>More info</h4>
+          <ul>
+            <li><a href="{% url 'guidelines' %}">Software Startup Requirements</a></li>
+            <li><a href="{% url 'portals' %}">Supporting Government Portals</a></li>
+            <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+            <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+            <li><a href="{% url 'login' %}">Software firm registration</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>P.O. Box 30025 - 00100</p>
+          <p>GPO Telposta Towers, Koinange Street</p>
+          <p>Nairobi, Kenya</p>
+          <p class="mt-4"><strong>Phone:</strong> <span> +254 700 000 000</span></p>
+          <p><strong>Email:</strong> <span>devlink@support.go.ke</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Devlink</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}" ></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
