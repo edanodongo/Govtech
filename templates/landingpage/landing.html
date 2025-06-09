@@ -96,9 +96,7 @@
             <h1>Empowering the Future of Software Innovation
               </h1>
             <p>Welcome to Devlink Kenya, your premier gateway to the digital frontier! Whether you're a seasoned developer, a business in need of tech solutions, or a startup seeking talent, Devlink Kenya connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
-            <div class="d-flex">
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-            </div>
+            
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
             <img src="{% static 'images/hero-img.png' %}" class="img-fluid animated" alt="Hero Image">
@@ -280,15 +278,17 @@
     </section><!-- /About Section -->
   
 
+    
     <!-- Services Section -->
-    <section id="services" class="about section services section light-background">
+    <section id="services" class="services section light-background">
 
-      <!-- Section Title -->
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
             <h2 class="section-heading">Guide for Software Start-up Requirements</h2>
+            <p class="lead">Starting a software business in Kenya requires a mix of legal compliance, strategic planning, and technical readiness. This guide provides a detailed roadmap to help individual developers, small teams, and growing startups establish a strong foundation for success in the local and global tech ecosystem.</p>
           </div>
-        </div><!-- End Section Title -->
+        </div>
+        <!-- End Section Title -->
 
       <div class="container">
 
@@ -296,9 +296,7 @@
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item  position-relative">
-              <a href="#" class="stretched-link">
                 <h3>Business Structure and Legal Registration</h3>
-              </a>
               <p>Choosing the right legal structure is the first step toward building a credible and scalable business.</p>
             <br>
             <ul style="list-style: none; padding-left: 0; text-align: left;">
@@ -315,17 +313,14 @@
                     <span><strong>Private Limited Company (Ltd)</strong> – Best for startups seeking to scale, attract investors, or sign enterprise contracts</span>
                 </li>
             </ul>
-            Registration Process via 
-            <a href="https://www.ecitizen.go.ke/" ></i><span>eCitizen </span></a>
             </p>
+            <span> Registration Process via <a href="https://www.ecitizen.go.ke/" ></i>eCitizen </span></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <a href="#" class="stretched-link">
                 <h3>Tax Registration and Compliance</h3>
-              </a>
               <p>Registering your business with the Kenya Revenue Authority (KRA) is mandatory. KRA Requirements</p>
               <p>KRA Requirements:</p>
             <br>
@@ -339,17 +334,14 @@
                     <span><strong>Tax obligations such as;</strong>Income Tax, Value Added Tax (VAT), Pay-As-You-Earn (PAYE) (if employing staff)</span>
                 </li>
             </ul>
-            File returns monthly/annually using 
-            <a href="https://itax.kra.go.ke/" ></i><span>iTax </span></a>
+            File returns monthly/annually using <a href="https://itax.kra.go.ke/" ></i><span>iTax </span></a>
             </p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <a href="#" class="stretched-link">
                 <h3>Intellectual Property (IP) Protection</h3>
-              </a>
               <p>As a software developer or company, safeguarding your ideas, code, and brand is vital. How to Protect Your IP in Kenya</p>
               <p>How to Protect Your IP in Kenya</p>
             <br>
@@ -375,17 +367,15 @@
             </p>
             </div>
           </div><!-- End Service Item -->
-
-        <a href="{% url 'guidelines' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           
-
+          <a href="{% url 'guidelines' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+          
         </div>
 
       </div>
 
     </section><!-- /Services Section -->
-
-
+    
   </main>
 
 
