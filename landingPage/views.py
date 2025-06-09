@@ -438,3 +438,6 @@ def cost(request):
 
 def legal(request):
     return render(request, 'landingpage/legal.html')
+
+def resource(request):
+    return render(request, 'landingpage/resource.html')

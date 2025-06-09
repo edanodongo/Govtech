@@ -1,0 +1,410 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource & Knowledge Hub - Devlink Kenya</title>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'css/landing/resource.css' %}" rel="stylesheet">
+
+        <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+        <a href="landing.html" class="logo d-flex align-items-center me-auto" style="text-decoration: none;">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+            <h1 class="sitename">Devlink Kenya</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+            <li><a href="#hero" class="active" style="text-decoration: none;">Home</a></li>
+            <li class="dropdown"><a href="#" style="text-decoration: none;"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                <li><a href="#" style="text-decoration: none;">For Developers</a></li>
+                <li><a href="#" style="text-decoration: none;">For Clients</a></li>
+                <li><a href="#" style="text-decoration: none;">Success Stories</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                <li><a href="{% url 'resource' %}" style="text-decoration: none;">Resource</a></li>
+                <li><a href="#" style="text-decoration: none;">Custom software solutions</a></li>
+                <li><a href="#" style="text-decoration: none;">Training  & Resources</a></li>
+                <li><a href="#" style="text-decoration: none;">Project Outsourcing</a></li>
+                <li><a href="#" style="text-decoration: none;">Technical Support</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                <li><a href="{% url 'guidelines' %}" style="text-decoration: none;">Guide for Software Startup Requirements</a></li>
+                <li><a href="{% url 'portals' %}" style="text-decoration: none;">Links to Supporting Government Portals</a></li>
+                <li><a href="{% url 'legal' %}" style="text-decoration: none;">Standard Contracts and Legal Templates</a></li>
+                <li><a href="{% url 'cost' %}" style="text-decoration: none;">Cost Optimization for Startups</a></li>
+                </ul>
+            </li>
+            <li><a style="text-decoration: none;">Contact Us</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" style="text-decoration: none;" href="{% url 'login' %}"><i class="fa-solid fa-user-plus"></i>Get Started</a>
+
+        </div>
+    </header>
+
+</head>
+<body>
+
+
+
+
+    <div class="container">
+        <!-- Main Hub Page -->
+        <div id="main-hub" class="content-section active">
+            <div class="header">
+                <h1>Resource & Knowledge Hub</h1>
+                <p>Empowering Kenya's software ecosystem through innovation, efficiency, and comprehensive digital solutions</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showSection('technical-guidelines')">Technical Guidelines & APIs</button>
+                <button class="nav-btn" onclick="showSection('training-materials')">Training & Workshops</button>
+                <button class="nav-btn" onclick="showSection('case-studies')">Case Studies & Best Practices</button>
+            </div>
+
+            <!-- Carousel Placeholder -->
+            <div class="carousel">
+                <div class="carousel-container" id="carousel-container">
+                    <div class="carousel-slide">
+                        <h3>🚀 Accelerating Digital Transformation</h3>
+                        <p>Join thousands of developers building the future of Kenya's digital landscape with Devlink Kenya's comprehensive platform</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>🏛️ Government Integration Made Easy</h3>
+                        <p>Access 16,000+ government services from 100+ agencies through powerful APIs and seamless integrations</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>📚 Learn. Build. Innovate.</h3>
+                        <p>Comprehensive training materials, workshops, and 800+ open datasets to enhance your development skills</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>🌟 Innovation & Efficiency Hub</h3>
+                        <p>Pioneering Kenya's software ecosystem with cutting-edge solutions and best practices for government integration</p>
+                    </div>
+                </div>
+                <button class="carousel-arrows carousel-prev" onclick="prevSlide()">‹</button>
+                <button class="carousel-arrows carousel-next" onclick="nextSlide()">›</button>
+            </div>
+            
+            <div class="carousel-nav">
+                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                <div class="carousel-dot" onclick="goToSlide(3)"></div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🚀 Innovation Hub</h3>
+                    <p>Discover cutting-edge tools and technologies driving Kenya's software ecosystem forward.</p>
+                    <button class="card-button">Explore Now</button>
+                </div>
+                <div class="card">
+                    <h3>📊 Data-Driven Solutions</h3>
+                    <p>Access comprehensive datasets and analytics tools for informed decision making.</p>
+                    <button class="card-button">View Datasets</button>
+                </div>
+                <div class="card">
+                    <h3>🎓 Skill Development</h3>
+                    <p>Enhance your capabilities with our extensive training programs and workshops.</p>
+                    <button class="card-button">Start Learning</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Guidelines & APIs Section -->
+        <div id="technical-guidelines" class="content-section">
+            <h2 class="section-title">Technical Guidelines & APIs</h2>
+            
+            <div class="dataset-showcase">
+                <h3>Government API Integration</h3>
+                <p>Access over 16,000+ government services from 100+ Ministries, Counties, Departments, and Agencies through established portals</p>
+                <div class="dataset-tags">
+                    <span class="tag">eCitizen Portal (16,000+ Services)</span>
+                    <span class="tag">NTSA Transport Systems</span>
+                    <span class="tag">KRA iTax Portal</span>
+                    <span class="tag">Times Tower KRA Services</span>
+                </div>
+            </div>
+
+            <div class="api-list">
+                <div class="api-item">
+                    <h4>eCitizen Portal</h4>
+                    <p>Access to 16,000+ government services from 100+ agencies - one-stop portal for all citizen services</p>
+                </div>
+                <div class="api-item">
+                    <h4>KRA iTax System</h4>
+                    <p>Online tax filing, returns management, and revenue collection system integration</p>
+                </div>
+                <div class="api-item">
+                    <h4>NTSA Services</h4>
+                    <p>Vehicle registration, driving license, and transport management system integration</p>
+                </div>
+                <div class="api-item">
+                    <h4>EGMS System</h4>
+                    <p>Excisable Goods Management System for import/export and duty management</p>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>📋 API Documentation</h3>
+                    <p>Comprehensive guides and technical specifications for all available government APIs.</p>
+                    <button class="card-button">View Docs</button>
+                </div>
+                <div class="card">
+                    <h3>🔧 Integration Tools</h3>
+                    <p>SDK libraries and code samples to accelerate your development process.</p>
+                    <button class="card-button">Download Tools</button>
+                </div>
+                <div class="card">
+                    <h3>📊 Kenya Open Data Initiative</h3>
+                    <p>Access 800+ verified datasets covering government sectors including health, education, agriculture, and infrastructure from Kenya's pioneering open data program.</p>
+                    <button class="card-button">Browse Datasets</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Materials Section -->
+        <div id="training-materials" class="content-section">
+            <h2 class="section-title">Training Materials & Workshops</h2>
+            
+            <div class="carousel">
+                <div class="carousel-container" id="training-carousel">
+                    <div class="carousel-slide">
+                        <h3>🎓 Comprehensive Learning Programs</h3>
+                        <p>From beginner to expert level courses designed specifically for Kenya's development community and government integration</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>💻 Hands-on Workshops</h3>
+                        <p>Interactive sessions covering eCitizen API integration, KRA iTax systems, and NTSA transport services</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>🏆 Professional Certification</h3>
+                        <p>Industry-recognized certifications in government software development and digital service integration</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h3>👥 Community Learning</h3>
+                        <p>Join developer communities working on Kenya's digital transformation initiatives and collaborative projects</p>
+                    </div>
+                </div>
+                <button class="carousel-arrows carousel-prev" onclick="prevTrainingSlide()">‹</button>
+                <button class="carousel-arrows carousel-next" onclick="nextTrainingSlide()">›</button>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🎥 Online Courses</h3>
+                    <p>Self-paced learning modules covering modern software development practices and government API integration.</p>
+                    <button class="card-button">Start Course</button>
+                </div>
+                <div class="card">
+                    <h3>🏢 Workshop Series</h3>
+                    <p>Interactive workshops led by industry experts focusing on practical implementation and best practices.</p>
+                    <button class="card-button">Book Workshop</button>
+                </div>
+                <div class="card">
+                    <h3>📚 Learning Resources</h3>
+                    <p>Downloadable guides, templates, and reference materials for continuous learning and development.</p>
+                    <button class="card-button">Access Resources</button>
+                </div>
+                <div class="card">
+                    <h3>🏆 Certification Programs</h3>
+                    <p>Industry-recognized certifications to validate your skills in government software development.</p>
+                    <button class="card-button">Get Certified</button>
+                </div>
+                <div class="card">
+                    <h3>👥 Community Learning</h3>
+                    <p>Join developer communities and peer learning groups for collaborative skill development.</p>
+                    <button class="card-button">Join Community</button>
+                </div>
+                <div class="card">
+                    <h3>🔬 Innovation Labs</h3>
+                    <p>Hands-on experimentation with emerging technologies and government service integration.</p>
+                    <button class="card-button">Explore Labs</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Studies Section -->
+        <div id="case-studies" class="content-section">
+            <h2 class="section-title">Case Studies & Best Practices</h2>
+            
+            <div class="dataset-showcase">
+                <h3>Kenya Open Data Initiative - 800+ Datasets Available</h3>
+                <p>Launched in 2011 as sub-Saharan Africa's first open data program, providing comprehensive government data including demographic, statistical, and expenditure information</p>
+                <div class="dataset-tags">
+                    <span class="tag">Health Sector Data</span>
+                    <span class="tag">Education Statistics</span>
+                    <span class="tag">Agricultural Data</span>
+                    <span class="tag">Infrastructure Data</span>
+                    <span class="tag">Census Data</span>
+                    <span class="tag">Government Expenditure</span>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🏛️ Digital Government Services</h3>
+                    <p>Case study on successful implementation of citizen portal integrations and their impact on service delivery.</p>
+                    <button class="card-button">Read Case Study</button>
+                </div>
+                <div class="card">
+                    <h3>💰 Tax System Integration</h3>
+                    <p>Best practices for implementing KRA iTax API in business applications and compliance management.</p>
+                    <button class="card-button">View Implementation</button>
+                </div>
+                <div class="card">
+                    <h3>🚗 Transport Management</h3>
+                    <p>Successful integration of NTSA systems for vehicle registration and transport service applications.</p>
+                    <button class="card-button">Explore Project</button>
+                </div>
+                <div class="card">
+                    <h3>🌾 Agricultural Data Solutions</h3>
+                    <p>Data-driven agricultural applications utilizing Kenya Open Data for farmer support systems.</p>
+                    <button class="card-button">Learn More</button>
+                </div>
+                <div class="card">
+                    <h3>🏥 Healthcare Digital Solutions</h3>
+                    <p>Implementation of health data integration systems improving patient care and service delivery.</p>
+                    <button class="card-button">View Solution</button>
+                </div>
+                <div class="card">
+                    <h3>📈 Performance Optimization</h3>
+                    <p>Best practices for optimizing government API integrations and ensuring system reliability.</p>
+                    <button class="card-button">Read Guide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Space -->
+    <div class="footer-space"></div>
+
+    <script>
+        let currentSlide = 0;
+        let currentTrainingSlide = 0;
+        const totalSlides = 4;
+
+        function updateCarousel() {
+            const container = document.getElementById('carousel-container');
+            const dots = document.querySelectorAll('#main-hub .carousel-dot');
+            
+            container.style.transform = `translateX(-${currentSlide * 25}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function updateTrainingCarousel() {
+            const container = document.getElementById('training-carousel');
+            container.style.transform = `translateX(-${currentTrainingSlide * 25}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function nextTrainingSlide() {
+            currentTrainingSlide = (currentTrainingSlide + 1) % totalSlides;
+            updateTrainingCarousel();
+        }
+
+        function prevTrainingSlide() {
+            currentTrainingSlide = (currentTrainingSlide - 1 + totalSlides) % totalSlides;
+            updateTrainingCarousel();
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function showMainHub() {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('main-hub').classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+        }
+
+        // Auto-advance main carousel
+        setInterval(() => {
+            if (document.getElementById('main-hub').classList.contains('active')) {
+                nextSlide();
+            }
+        }, 4000);
+
+        // Auto-advance training carousel
+        setInterval(() => {
+            if (document.getElementById('training-materials').classList.contains('active')) {
+                nextTrainingSlide();
+            }
+        }, 4500);
+
+        // Add some interactive effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize carousels
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCarousel();
+            updateTrainingCarousel();
+        });
+    </script>
+</body>
+</html>

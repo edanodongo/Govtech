@@ -20,5 +20,6 @@ urlpatterns = [
     path('guidelines/', views.guidelines, name='guidelines'),
     path('legal/', views.legal, name='legal'),
     path('cost/', views.cost, name='cost'),
+    path('resource/', views.resource, name='resource'),
 
 ]
