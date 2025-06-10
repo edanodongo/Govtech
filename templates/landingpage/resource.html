@@ -44,6 +44,15 @@
                 <li><a href="#" style="text-decoration: none;">Project Outsourcing</a></li>
                 <li><a href="#" style="text-decoration: none;">Technical Support</a></li>
                 </ul>
+            </li>            
+            <li class="dropdown"><a href="{% url 'collaboration' %}"  style="text-decoration: none;"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                <li><a href="#"  style="text-decoration: none;">Community</a></li>
+                <li><a href="#"  style="text-decoration: none;">Knowledge exchange forum</a></li>
+                <li><a href="#"  style="text-decoration: none;">Government hackathons and innovation challenges</a></li>
+                <li><a href="#"  style="text-decoration: none;">Engage in collaborative R&D projects</a></li>
+                <li><a href="#"  style="text-decoration: none;">Repository for government projects</a></li>
+                </ul>
             </li>
             <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
@@ -403,5 +412,63 @@
             updateTrainingCarousel();
         });
     </script>
+
+
+<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                    <span class="sitename" style="color: #f8f9fa;">Devlink Kenya</span>
+                </a>
+                <p style="color: #d1d1e0;">Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-twitter-x"></i></a>
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-facebook"></i></a>
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 style="color: #f8f9fa;">Useful Links</h4>
+                <ul>
+                    <li><a href="{% url 'landing' %}" style="color: #d1d1e0;">Home</a></li>
+                    <li><a href="{% url 'resource' %}" style="color: #d1d1e0;">Resources</a></li>
+                    <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Startup support</a></li>
+                    <li><a href="{% url 'collaboration' %}" style="color: #d1d1e0;">Collaboration and innovation</a></li>
+                    <li><a href="#" style="color: #d1d1e0;">Services</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 style="color: #f8f9fa;">More info</h4>
+                <ul>
+                    <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Software Startup Requirements</a></li>
+                    <li><a href="{% url 'portals' %}" style="color: #d1d1e0;">Supporting Government Portals</a></li>
+                    <li><a href="{% url 'legal' %}" style="color: #d1d1e0;">Standard Contracts and Legal Templates</a></li>
+                    <li><a href="{% url 'cost' %}" style="color: #d1d1e0;">Cost Optimization for Startups</a></li>
+                    <li><a href="{% url 'login' %}" style="color: #d1d1e0;">Software firm registration</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4 style="color: #f8f9fa;">Contact Us</h4>
+                <p style="color: #d1d1e0;">P.O. Box 30025 - 00100</p>
+                <p style="color: #d1d1e0;">GPO Telposta Towers, Koinange Street</p>
+                <p style="color: #d1d1e0;">Nairobi, Kenya</p>
+                <p class="mt-4" style="color: #d1d1e0;"><strong>Phone:</strong> <span> +254 700 000 000</span></p>
+                <p style="color: #d1d1e0;"><strong>Email:</strong> <span>devlink@support.go.ke</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p style="color: #d1d1e0;">© <span>Copyright</span> <strong class="px-1 sitename" style="color: #f8f9fa;">Devlink</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+</footer>
+
 </body>
 </html>
