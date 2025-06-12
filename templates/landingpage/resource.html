@@ -29,22 +29,7 @@
         <nav id="navmenu" class="navmenu">
             <ul>
             <li><a href="{% url 'landing' %}" class="active" style="text-decoration: none;">Home</a></li>
-            <li class="dropdown"><a href="{% url 'landing' %}" style="text-decoration: none;"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                <li><a href="#" style="text-decoration: none;">For Developers</a></li>
-                <li><a href="#" style="text-decoration: none;">For Clients</a></li>
-                <li><a href="#" style="text-decoration: none;">Success Stories</a></li>
-                </ul>
-            </li>
-            <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                <li><a href="{% url 'resource' %}" style="text-decoration: none;">Resource</a></li>
-                <li><a href="#" style="text-decoration: none;">Custom software solutions</a></li>
-                <li><a href="#" style="text-decoration: none;">Training  & Resources</a></li>
-                <li><a href="#" style="text-decoration: none;">Project Outsourcing</a></li>
-                <li><a href="#" style="text-decoration: none;">Technical Support</a></li>
-                </ul>
-            </li>            
+            </li>           
             <li class="dropdown"><a href="{% url 'collaboration' %}"  style="text-decoration: none;"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                 <li><a href="#"  style="text-decoration: none;">Community</a></li>
@@ -53,7 +38,7 @@
                 <li><a href="#"  style="text-decoration: none;">Engage in collaborative R&D projects</a></li>
                 <li><a href="#"  style="text-decoration: none;">Repository for government projects</a></li>
                 </ul>
-            </li>
+            <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a></li>
             <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                 <li><a href="{% url 'guidelines' %}" style="text-decoration: none;">Guide for Software Startup Requirements</a></li>
