@@ -444,3 +444,6 @@ def resource(request):
 
 def collaboration(request):
     return render(request, 'landingpage/collaboration.html')
+
+def technical(request):
+    return render(request, 'landingpage/technical.html')

@@ -48,11 +48,11 @@
           <li><a href="{% url 'resource' %}"><span>Resource Hub</span> </a>
           <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Community</a></li>
+              {% comment %} <li><a href="#">Community</a></li>
               <li><a href="#">Knowledge exchange forum</a></li>
               <li><a href="#">Government hackathons and innovation challenges</a></li>
               <li><a href="#">Engage in collaborative R&D projects</a></li>
-              <li><a href="#">Repository for government projects</a></li>
+              <li><a href="#">Repository for government projects</a></li> {% endcomment %}
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -61,6 +61,7 @@
               <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
               <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
               <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
             </ul>
           </li>
           <li><a href="{% url 'landing' %}" >Contact Us</a></li>
@@ -185,7 +186,7 @@
           <div class="step-item" data-aos="fade-left" data-aos-delay="500">
             <div class="step-content">
               <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
+                <i class="bi bi-check2-circle"></i>
               </div>
               <div class="step-info">
                 <h3> Freelance/Consulting Agreement</h3>
@@ -211,7 +212,7 @@
           <div class="step-item" data-aos="fade-left" data-aos-delay="500">
             <div class="step-content">
               <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
+                <i class="bi bi-check2-circle"></i>
               </div>
               <div class="step-info">
                 <h3> Freelance/Consulting Agreement</h3>
@@ -237,7 +238,7 @@
           <div class="step-item" data-aos="fade-left" data-aos-delay="500">
             <div class="step-content">
               <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
+                <i class="bi bi-check2-circle"></i>
               </div>
               <div class="step-info">
                 <h3> Partnership Agreement</h3>
@@ -264,7 +265,7 @@
           <div class="step-item" data-aos="fade-left" data-aos-delay="500">
             <div class="step-content">
               <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
+                <i class="bi bi-check2-circle"></i>
               </div>
               <div class="step-info">
                 <h3>  IP Assignment Agreement</h3>
@@ -294,7 +295,7 @@
 
   </main>
 
-<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+<footer id="footer" class="footer" style="background: #196815; color: #f8f9fa;">
 
     <div class="container footer-top">
         <div class="row gy-4">

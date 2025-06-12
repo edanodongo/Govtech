@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Collaboration & Innovation | Standard Contracts and Legal Templates</title>
+  <title>Collaboration & Innovation | Technical and Infrastructure Setup for Software</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -35,10 +35,21 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
+    <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms"
+            style="height: 40px; width: auto;" class="me-2" />
+
+        <!-- Divider Line -->
+        <div style="width: 1px; height: 40px; background-color: #ccc;" class="mx-2"></div>
+
+        <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo"
+            style="height: 40px; width: auto;" class="me-2" />
+        
         <h1 class="sitename">Devlink Kenya</h1>
-      </a>
+    </a>
+
+
+
 
       
       <nav id="navmenu" class="navmenu">
@@ -93,8 +104,8 @@
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{% url 'landing' %}">Home</a></li>
-            <li class="current">Collaboration & Innovation</li>
-            <li>Collaboration & Innovation</li>
+            <li class="current">Technical and Infrastructure Setup for Software</li>
+            <li>Technical and Infrastructure Setup for Software</li>
           </ol>
         </nav>
       </div>
@@ -106,9 +117,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">        
-        <h2>Collaboration & Innovation</h2>
-        <p class="lead">Kenya has over the years been a host to various African and Global tech and innovation summits and conferences. These have expanded the Kenyan market and provided innovators a platform to showcase their products. As a result, a number of Kenyan start-ups have received funding from foreign investors as well as opportunities to showcase solutions on the Global market. Examples of such events include; 
-          <strong> <a href="https://bfsiitsummit.com/"> Africa BFSI Innovation Summit</a>, <a href="https://afroasia3.scopichost.com/programme/"> Afro Asia FinTech festival </a>, <a href="https://www.idiainnovation.org/"> Afro tech summit, International Development Innovation Alliance (IDIA) </a>, <a href="https://sdgs.un.org/events/sustainable-blue-economy-conference-7554"> The Sustainable Blue Economy Conference </a></strong></p><br>
+        <h2>Technical and Infrastructure Setup for Software</h2>
+        <p class="lead">Establishing a solid technical foundation is critical for the growth and sustainability of any software business. This guide helps Kenyan developers and startups set up their development, deployment, and operational infrastructure efficiently — balancing performance, scalability, and cost.
       </div><!-- End Section Title -->
 
 

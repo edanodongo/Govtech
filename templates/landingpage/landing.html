@@ -50,11 +50,11 @@
           <li><a href="{% url 'resource' %}"><span>Resource Hub</span> </a></li>
           <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Community</a></li>
+              {% comment %} <li><a href="#">Community</a></li>
               <li><a href="#">Knowledge exchange forum</a></li>
               <li><a href="#">Government hackathons and innovation challenges</a></li>
               <li><a href="#">Engage in collaborative R&D projects</a></li>
-              <li><a href="#">Repository for government projects</a></li>
+              <li><a href="#">Repository for government projects</a></li> {% endcomment %}
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -63,6 +63,7 @@
               <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
               <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
               <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
             </ul>
           </li>
           <li><a href="{% url 'landing' %}" >Contact Us</a></li>
@@ -120,104 +121,7 @@
 
     </section><!-- /About Section -->
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section accent-background">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Are you a developer looking for real opportunities, a business in need of software solutions, or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with demand, empowering innovation through collaboration. Join today and be part of Kenya’s thriving tech ecosystem where ideas become solutions.</p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-        
-    <!-- How We Work Section -->
-    <section id="how-we-work" class="how-we-work section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">        
-        <h2>Standard Contracts and Legal Templates</h2>
-        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="steps-wrapper">
-
-          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-check2-circle"></i>
-              </div>
-              <div class="step-info">
-                <h3> Why Standard Contracts Matter: </h3>
-                <ul>
-                    <li><span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span></li>
-                    <li><span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span></li>
-                    <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span></li>
-                    <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span></li>
-                </ul>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-
-        <a href="{% url 'legal' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-
-      </div>
-
-    </section><!-- /How We Work Section -->
-
-
+    
         <!-- About Section -->
     <section id="about" class="about section">
 
@@ -271,9 +175,48 @@
       </div>
 
     </section><!-- /About Section -->
-  
 
-    
+            
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">        
+        <h2>Standard Contracts and Legal Templates</h2>
+        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="steps-wrapper">
+
+          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="step-info">
+                <h3> Why Standard Contracts Matter: </h3>
+                <ul>
+                    <li><span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span></li>
+                    <li><span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span></li>
+                    <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span></li>
+                    <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+        <a href="{% url 'legal' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+        </div>
+
+      </div>
+
+    </section><!-- /How We Work Section -->
+
+
+  
+ 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
 
@@ -370,6 +313,67 @@
       </div>
 
     </section><!-- /Services Section -->
+
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section accent-background">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Call To Action</h3>
+              <p>Are you a developer looking for real opportunities, a business in need of software solutions, or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with demand, empowering innovation through collaboration. Join today and be part of Kenya’s thriving tech ecosystem where ideas become solutions.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Call To Action Section -->
+    
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Workers</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
     
   </main>
 
@@ -377,7 +381,7 @@
 
 
 
-<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+<footer id="footer" class="footer" style="background:  #196815; color: #f8f9fa;">
 
     <div class="container footer-top">
         <div class="row gy-4">
