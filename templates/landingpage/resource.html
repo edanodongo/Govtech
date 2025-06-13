@@ -33,16 +33,9 @@
         <nav id="navmenu" class="navmenu">
             <ul>
             <li><a href="{% url 'landing' %}" class="active" style="text-decoration: none;">Home</a></li>
-            </li>           
-            <li class="dropdown"><a href="{% url 'collaboration' %}"  style="text-decoration: none;"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                <li><a href="#"  style="text-decoration: none;">Community</a></li>
-                <li><a href="#"  style="text-decoration: none;">Knowledge exchange forum</a></li>
-                <li><a href="#"  style="text-decoration: none;">Government hackathons and innovation challenges</a></li>
-                <li><a href="#"  style="text-decoration: none;">Engage in collaborative R&D projects</a></li>
-                <li><a href="#"  style="text-decoration: none;">Repository for government projects</a></li>
-                </ul>
-            <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a></li>
+            </li>
+            <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a>
+            </li>
             <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                 <li><a href="{% url 'guidelines' %}" style="text-decoration: none;">Guide for Software Startup Requirements</a></li>
@@ -74,8 +67,8 @@
 
             <div class="nav-buttons">
                 <button class="nav-btn" onclick="showSection('technical-guidelines')">Technical Guidelines & APIs</button>
-                <button class="nav-btn" onclick="showSection('training-materials')">Training & Workshops</button>
-                <button class="nav-btn" onclick="showSection('case-studies')">Case Studies & Best Practices</button>
+                <a href="https://moringaschool.com/"><button class="nav-btn">Training & Workshops</button></a>
+                <a href="https://www.nucamp.co/blog/coding-bootcamp-kenya-iken-inside-nairobi-kenyas-thriving-tech-hub-startups-and-success-stories" ><button class="nav-btn">Case Studies & Best Practices</button></a>
             </div>
 
             <!-- Carousel Placeholder -->
@@ -113,52 +106,77 @@
                 <div class="card">
                     <h3>🚀 Innovation Hub</h3>
                     <p>Discover cutting-edge tools and technologies driving Kenya's software ecosystem forward.</p>
-                    <button class="card-button">Explore Now</button>
+                    <a href="https://ihub.co.ke/ "><button class="card-button">Explore Now</button></a>
                 </div>
                 <div class="card">
                     <h3>📊 Data-Driven Solutions</h3>
-                    <p>Access comprehensive datasets and analytics tools for informed decision making.</p>
-                    <button class="card-button">View Datasets</button>
+                    <p>Browse comprehensive  analytic tools for informed decision making.</p>
+                    <a href="https://www.predictiveanalytics.co.ke/"><button class="card-button">Know More</button></a>
                 </div>
                 <div class="card">
                     <h3>🎓 Skill Development</h3>
-                    <p>Enhance your capabilities with our extensive training programs and workshops.</p>
-                    <button class="card-button">Start Learning</button>
+                    <p>Enhance your capabilities through Jitume an initiative by Konza Technopolis, Kenya's Silicon Savannah</p>
+                    <a href="https://jitume.konza.go.ke/#/home/index"><button class="card-button">Start Learning</button></a>
                 </div>
             </div>
         </div>
 
         <!-- Technical Guidelines & APIs Section -->
         <div id="technical-guidelines" class="content-section">
-            <h2 class="section-title">Technical Guidelines & APIs</h2>
+            <h2 class="section-title">APIs & Technical Guidelines</h2>
             
-            <div class="dataset-showcase">
-                <h3>Government API Integration</h3>
-                <p>Access over 16,000+ government services from 100+ Ministries, Counties, Departments, and Agencies through established portals</p>
-                <div class="dataset-tags">
-                    <span class="tag">eCitizen Portal (16,000+ Services)</span>
-                    <span class="tag">NTSA Transport Systems</span>
-                    <span class="tag">KRA iTax Portal</span>
-                    <span class="tag">Times Tower KRA Services</span>
-                </div>
-            </div>
+           
 
             <div class="api-list">
                 <div class="api-item">
-                    <h4>eCitizen Portal</h4>
-                    <p>Access to 16,000+ government services from 100+ agencies - one-stop portal for all citizen services</p>
+                    <h4>GavaConnect</h4>
+                    <p>Plug and Play into possibilities with Government APIs</p>
+                        <a href="https://developer.go.ke/" style="color: white;">Learn More</a>
                 </div>
                 <div class="api-item">
-                    <h4>KRA iTax System</h4>
-                    <p>Online tax filing, returns management, and revenue collection system integration</p>
+                    <h4>Safaricom Daraja API</h4>
+                    <p>Open up numerous possibilities with seamless M-PESA payment APIs</p>
+                        <a href="https://developer.safaricom.co.ke/" style="color: white;">Learn More</a>
                 </div>
                 <div class="api-item">
-                    <h4>NTSA Services</h4>
-                    <p>Vehicle registration, driving license, and transport management system integration</p>
+                    <h4>KCB BUNI Platform</h4>
+                    <p>Innovate and Experiment with Banking APIs through Developer Resources</p>
+                        <a href="https://buni.kcbgroup.com/" style="color: white;">Learn More</a>
                 </div>
                 <div class="api-item">
-                    <h4>EGMS System</h4>
-                    <p>Excisable Goods Management System for import/export and duty management</p>
+                    <h4>Jenga API</h4>
+                    <p>Connect all parties in the financial ecosystem through simple API integration</p>
+                        <a href="https://www.jengaapi.io/" style="color: white;">Learn More</a>
+                </div>
+                <div class="api-item">
+                    <h4>Equity Bank Developer APIS</h4>
+                    <p>Trust and Connect the financial ecosystem with secure payment APIs</p>
+                        <a href="https://apitracker.io/a/equitygroupholdings" style="color: white;">Learn More</a>
+                </div>
+                <div class="api-item">
+                    <h4>Cooperative Bank API Portal </h4>
+                    <p>Launch Pay By Bank solutions with intuitive developer APIs</p>
+                        <a href="https://developer.co-opbank.co.ke/" style="color: white;">Learn More</a>
+                </div>
+                <div class="api-item">
+                    <h4>Stanbic Bank Developers Portal </h4>
+                    <p>Get started and quickly find APIs to construct fully featured applications</p>
+                        <a href="https://sandbox.stanbicbank.co.ke/" style="color: white;">Learn More</a>
+                </div>
+                 <div class="api-item">
+                    <h4>Kyanda APIs </h4>
+                    <p>Simplify Complex Payments with Multi-Channel Integration APIs"</p>
+                        <a href=" https://docs.kyanda.co.ke/" style="color: white;">Learn More</a>
+                </div>
+                 <div class="api-item">
+                    <h4>Diamond Trust Bank API Platform</h4>
+                    <p>Transform Digital Payments with Comprehensive Banking APIs</p>
+                        <a href="  https://apitracker.io/a/diamond-trust-bank-kenya" style="color: white;">Learn More</a>
+                </div>
+                <div class="api-item">
+                    <h4>Standard Chartered Kenya aXess Platform  </h4>
+                    <p>Build the Future of Banking with Open API Solutions</p>
+                        <a href="https://openbanking.sc.com/developers" style="color: white;">Learn More</a>
                 </div>
             </div>
 
@@ -166,132 +184,22 @@
                 <div class="card">
                     <h3>📋 API Documentation</h3>
                     <p>Comprehensive guides and technical specifications for all available government APIs.</p>
-                    <button class="card-button">View Docs</button>
+                    <a href="https://www.opendata.go.ke/ "><button class="card-button">View Docs</button></a>
                 </div>
                 <div class="card">
                     <h3>🔧 Integration Tools</h3>
                     <p>SDK libraries and code samples to accelerate your development process.</p>
-                    <button class="card-button">Download Tools</button>
+                    <a href="https://github.com/dxphilo/kenya-api"><button class="card-button">View tools</button></a>
                 </div>
                 <div class="card">
                     <h3>📊 Kenya Open Data Initiative</h3>
                     <p>Access 800+ verified datasets covering government sectors including health, education, agriculture, and infrastructure from Kenya's pioneering open data program.</p>
-                    <button class="card-button">Browse Datasets</button>
+                    <a href="https://centreforpublicimpact.org/public-impact-fundamentals/the-kenya-open-data-initiative/"><button class="card-button">Explore</button></a>
                 </div>
             </div>
         </div>
 
-        <!-- Training Materials Section -->
-        <div id="training-materials" class="content-section">
-            <h2 class="section-title">Training Materials & Workshops</h2>
-            
-            <div class="carousel">
-                <div class="carousel-container" id="training-carousel">
-                    <div class="carousel-slide">
-                        <h3>🎓 Comprehensive Learning Programs</h3>
-                        <p>From beginner to expert level courses designed specifically for Kenya's development community and government integration</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <h3>💻 Hands-on Workshops</h3>
-                        <p>Interactive sessions covering eCitizen API integration, KRA iTax systems, and NTSA transport services</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <h3>🏆 Professional Certification</h3>
-                        <p>Industry-recognized certifications in government software development and digital service integration</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <h3>👥 Community Learning</h3>
-                        <p>Join developer communities working on Kenya's digital transformation initiatives and collaborative projects</p>
-                    </div>
-                </div>
-                <button class="carousel-arrows carousel-prev" onclick="prevTrainingSlide()">‹</button>
-                <button class="carousel-arrows carousel-next" onclick="nextTrainingSlide()">›</button>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>🎥 Online Courses</h3>
-                    <p>Self-paced learning modules covering modern software development practices and government API integration.</p>
-                    <button class="card-button">Start Course</button>
-                </div>
-                <div class="card">
-                    <h3>🏢 Workshop Series</h3>
-                    <p>Interactive workshops led by industry experts focusing on practical implementation and best practices.</p>
-                    <button class="card-button">Book Workshop</button>
-                </div>
-                <div class="card">
-                    <h3>📚 Learning Resources</h3>
-                    <p>Downloadable guides, templates, and reference materials for continuous learning and development.</p>
-                    <button class="card-button">Access Resources</button>
-                </div>
-                <div class="card">
-                    <h3>🏆 Certification Programs</h3>
-                    <p>Industry-recognized certifications to validate your skills in government software development.</p>
-                    <button class="card-button">Get Certified</button>
-                </div>
-                <div class="card">
-                    <h3>👥 Community Learning</h3>
-                    <p>Join developer communities and peer learning groups for collaborative skill development.</p>
-                    <button class="card-button">Join Community</button>
-                </div>
-                <div class="card">
-                    <h3>🔬 Innovation Labs</h3>
-                    <p>Hands-on experimentation with emerging technologies and government service integration.</p>
-                    <button class="card-button">Explore Labs</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Case Studies Section -->
-        <div id="case-studies" class="content-section">
-            <h2 class="section-title">Case Studies & Best Practices</h2>
-            
-            <div class="dataset-showcase">
-                <h3>Kenya Open Data Initiative - 800+ Datasets Available</h3>
-                <p>Launched in 2011 as sub-Saharan Africa's first open data program, providing comprehensive government data including demographic, statistical, and expenditure information</p>
-                <div class="dataset-tags">
-                    <span class="tag">Health Sector Data</span>
-                    <span class="tag">Education Statistics</span>
-                    <span class="tag">Agricultural Data</span>
-                    <span class="tag">Infrastructure Data</span>
-                    <span class="tag">Census Data</span>
-                    <span class="tag">Government Expenditure</span>
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>🏛️ Digital Government Services</h3>
-                    <p>Case study on successful implementation of citizen portal integrations and their impact on service delivery.</p>
-                    <button class="card-button">Read Case Study</button>
-                </div>
-                <div class="card">
-                    <h3>💰 Tax System Integration</h3>
-                    <p>Best practices for implementing KRA iTax API in business applications and compliance management.</p>
-                    <button class="card-button">View Implementation</button>
-                </div>
-                <div class="card">
-                    <h3>🚗 Transport Management</h3>
-                    <p>Successful integration of NTSA systems for vehicle registration and transport service applications.</p>
-                    <button class="card-button">Explore Project</button>
-                </div>
-                <div class="card">
-                    <h3>🌾 Agricultural Data Solutions</h3>
-                    <p>Data-driven agricultural applications utilizing Kenya Open Data for farmer support systems.</p>
-                    <button class="card-button">Learn More</button>
-                </div>
-                <div class="card">
-                    <h3>🏥 Healthcare Digital Solutions</h3>
-                    <p>Implementation of health data integration systems improving patient care and service delivery.</p>
-                    <button class="card-button">View Solution</button>
-                </div>
-                <div class="card">
-                    <h3>📈 Performance Optimization</h3>
-                    <p>Best practices for optimizing government API integrations and ensuring system reliability.</p>
-                    <button class="card-button">Read Guide</button>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <!-- Footer Space -->
@@ -401,7 +309,5 @@
             updateTrainingCarousel();
         });
     </script>
-
-
 </body>
 </html>
