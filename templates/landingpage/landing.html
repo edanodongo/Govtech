@@ -34,20 +34,31 @@
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="landing.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
-        <h1 class="sitename">Devlink Kenya</h1>
-      </a>
+    <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms"/>
 
+        <!-- Divider Line -->
+        <div style="width: 1px; height: 40px; background-color: #ccc;" class="mx-2"></div>
+
+        <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo"/>
+        
+    </a>
+    
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{% url 'landing' %}" class="active">Home</a></li>
 
-          <li><a href="{% url 'resource' %}"><span>Resource Hub</span> </a></li>
+          <li class="dropdown"><a href="{% url 'resource' %}"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{% url 'resource' %}">Resources</a></li>
+              <li><a href="#">Custom software solutions</a></li>
+              <li><a href="#">Training  & Resources</a></li>
+              <li><a href="#">Project Outsourcing</a></li>
+              <li><a href="#">Technical Support</a></li>
+            </ul>
+          </li>
           <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               {% comment %} <li><a href="#">Community</a></li>
@@ -74,9 +85,7 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
       <a class="btn-getstarted" href="{% url 'login' %}"><i class="fa-solid fa-user-plus"></i>Get Started</a>
-
 
     </div>
   </header>
@@ -89,8 +98,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>Empowering the Future of Software Innovation
-              </h1>
+            <h1>Devlink Kenya</h1>
             <p>Welcome to Devlink Kenya, your premier gateway to the digital frontier! Whether you're a seasoned developer, a business in need of tech solutions, or a startup seeking talent, Devlink Kenya connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
             
           </div>
