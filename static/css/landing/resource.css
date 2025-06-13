@@ -75,13 +75,24 @@ body {
 }
 
 .header .logo {
+  display: flex;
+  align-items: center;
   line-height: 1;
 }
 
 .header .logo img {
-  max-height: 36px;
+  height: 80px; /* Increased from 60px to 80px */
+  width: auto;
   margin-right: 8px;
 }
+
+.header .logo-divider {
+  width: 2px;
+  height: 80px; /* Match logo height */
+  background-color: #ccc;
+  margin: 0 12px;
+}
+
 
 .header .logo h1 {
   font-size: 30px;
@@ -120,6 +131,21 @@ body {
 
   .header .navmenu {
     order: 3;
+  }
+}
+
+/* Responsive logo and divider size for smaller screens */
+@media (max-width: 768px) {
+  .header .logo img {
+    height: 50px;
+  }
+
+  .header .logo-divider {
+    height: 50px;
+  }
+
+  .header .logo h1 {
+    font-size: 24px;
   }
 }
 
