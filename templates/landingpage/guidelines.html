@@ -36,28 +36,37 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
-        <h1 class="sitename">Devlink Kenya</h1>
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />      
+        <div class="logo-divider"></div>      
+        <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo" />
       </a>
 
       
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{% url 'landing' %}" class="active">Home</a></li>
-          
-          <li><a href="{% url 'resource' %}"><span>Resource Hub</span></a>
 
+          <li><a href="{% url 'resource' %}"><span>Resource Hub</span></a></li>
+          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> </a>
+            {% comment %}
+            <ul>
+               <li><a href="#">Community</a></li>
+              <li><a href="#">Knowledge exchange forum</a></li>
+              <li><a href="#">Government hackathons and innovation challenges</a></li>
+              <li><a href="#">Engage in collaborative R&D projects</a></li>
+              <li><a href="#">Repository for government projects</a></li>
+            </ul> {% endcomment %}
           </li>
           <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            
             <ul>
               <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
               <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
               <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
               <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
             </ul>
           </li>
-          <li><a>Contact Us</a></li>
+          <li><a href="{% url 'landing' %}" >Contact Us</a></li>
 
          
 
@@ -122,7 +131,7 @@
                 </li>
             </ul>
             </p>
-            <span> Registration Process via <a href="https://www.ecitizen.go.ke/" ></i>eCitizen </span></a>
+            <span>BRS Registration Process via <a href="https://brs.ecitizen.go.ke/auth" ></i>eCitizen </span></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -156,7 +165,7 @@
             <ul style="list-style: none; padding-left: 0; text-align: left;">
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://www.kipi.go.ke/" ></i><span>KIPI </span></a> </span>
+                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://kipi.go.ke/trade-marks" ></i><span>KIPI </span></a> </span>
                 </li>
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
@@ -184,7 +193,7 @@
             <ul style="list-style: none; padding-left: 0; text-align: left;">
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Register as a Data Controller or Processor with the </strong><a href="https://www.odpc.go.ke/" ></i><span> Office of the Data Protection Commissioner (ODPC)</span></a></span>
+                    <span><strong>Register as a Data Controller or Processor with the </strong><a href="https://dataportal.odpc.go.ke/Account/Register" ></i><span> Office of the Data Protection Commissioner (ODPC)</span></a></span>
                 </li>
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
@@ -199,8 +208,6 @@
                     <span><strong> Applicable To: </strong> eb/mobile apps that collect user data (emails, names, photos) and SaaS platforms, CRM systems, e-commerce, health, or fintech appss</span>
                 </li>
             </ul>
-            Registration Process via 
-            <a href="https://www.ecitizen.go.ke/" ></i><span>eCitizen </span></a>
             </p>
             </div>
           </div><!-- End Service Item -->
@@ -261,7 +268,7 @@
     
   </main>
 
-<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+<footer id="footer" class="footer" style="background:  #196815; color: #f8f9fa;">
 
     <div class="container footer-top">
         <div class="row gy-4">
@@ -269,11 +276,11 @@
                 <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
                     <span class="sitename" style="color: #f8f9fa;">Devlink Kenya</span>
                 </a>
-                <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+                <p style="color: #d1d1e0;">Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-twitter-x"></i></a>
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-facebook"></i></a>
+                    <a href="" style="color: #f8f9fa;"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
 
@@ -281,9 +288,9 @@
                 <h4 style="color: #f8f9fa;">Useful Links</h4>
                 <ul>
                     <li><a href="{% url 'landing' %}" style="color: #d1d1e0;">Home</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Resources</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Startup support</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Collaboration and innovation</a></li>
+                    <li><a href="{% url 'resource' %}" style="color: #d1d1e0;">Resources</a></li>
+                    <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Startup support</a></li>
+                    <li><a href="{% url 'collaboration' %}" style="color: #d1d1e0;">Collaboration and innovation</a></li>
                     <li><a href="#" style="color: #d1d1e0;">Services</a></li>
                 </ul>
             </div>
@@ -299,7 +306,7 @@
                 </ul>
             </div>
 
-            <div class="col-lg-3 col-md-12 foot text-center text-md-start">
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4 style="color: #f8f9fa;">Contact Us</h4>
                 <p style="color: #d1d1e0;">P.O. Box 30025 - 00100</p>
                 <p style="color: #d1d1e0;">GPO Telposta Towers, Koinange Street</p>

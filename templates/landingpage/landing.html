@@ -13,12 +13,10 @@
   <link href="{% static 'images/cos.ico' %}" rel="icon">
   <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
-
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -31,26 +29,32 @@
   <link href="{% static 'css/landing/main.css' %}" rel="stylesheet">
 
 
- 
-
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="landing.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
-        <h1 class="sitename">Devlink Kenya</h1>
-      </a>
-
+    <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+      <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />      
+      <div class="logo-divider"></div>      
+      <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo" />
+              
+    </a>
+    
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="{% url 'landing' %}" class="active">Home</a></li>
 
-          <li><a href="{% url 'resource' %}"><span>Resource Hub</span> </a>
-            
+          <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a></li>
+          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span></a>
+            {% comment %}
+            <ul>
+               <li><a href="#">Community</a></li>
+              <li><a href="#">Knowledge exchange forum</a></li>
+              <li><a href="#">Government hackathons and innovation challenges</a></li>
+              <li><a href="#">Engage in collaborative R&D projects</a></li>
+              <li><a href="#">Repository for government projects</a></li>
+            </ul> {% endcomment %}
           </li>
           <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -58,9 +62,10 @@
               <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
               <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
               <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
             </ul>
           </li>
-          <li><a>Contact Us</a></li>
+          <li><a href="{% url 'landing' %}" >Contact Us</a></li>
 
          
 
@@ -68,9 +73,7 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
       <a class="btn-getstarted" href="{% url 'login' %}"><i class="fa-solid fa-user-plus"></i>Get Started</a>
-
 
     </div>
   </header>
@@ -83,9 +86,8 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>Empowering the Future of Software Innovation
-              </h1>
-            <p>Welcome to Devlink Kenya, your premier gateway to the digital frontier! Whether you're a seasoned developer, a business in need of tech solutions, or a startup seeking talent, Devlink Kenya connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+            <h1>Devlink Kenya</h1>
+            <p>Kenya’s Software Ecosystem Platform provides structured support for software startups, developers, and established firms. It facilitates registration, offers access to essential resources, and promotes collaboration and innovation across the tech landscape. Begin your journey by clicking Get Started.</p>
             
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
@@ -115,104 +117,7 @@
 
     </section><!-- /About Section -->
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section accent-background">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Are you a developer looking for real opportunities, a business in need of software solutions, or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with demand, empowering innovation through collaboration. Join today and be part of Kenya’s thriving tech ecosystem where ideas become solutions.</p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-        
-    <!-- How We Work Section -->
-    <section id="how-we-work" class="how-we-work section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">        
-        <h2>Standard Contracts and Legal Templates</h2>
-        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="steps-wrapper">
-
-          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-check2-circle"></i>
-              </div>
-              <div class="step-info">
-                <h3> Why Standard Contracts Matter: </h3>
-                <ul>
-                    <li><span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span></li>
-                    <li><span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span></li>
-                    <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span></li>
-                    <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span></li>
-                </ul>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-
-        <a href="{% url 'legal' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-
-      </div>
-
-    </section><!-- /How We Work Section -->
-
-
+    
         <!-- About Section -->
     <section id="about" class="about section">
 
@@ -266,9 +171,48 @@
       </div>
 
     </section><!-- /About Section -->
-  
 
-    
+            
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">        
+        <h2>Standard Contracts and Legal Templates</h2>
+        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="steps-wrapper">
+
+          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="step-info">
+                <h3> Why Standard Contracts Matter: </h3>
+                <ul>
+                    <li><span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span></li>
+                    <li><span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span></li>
+                    <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span></li>
+                    <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+        <a href="{% url 'legal' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+        </div>
+
+      </div>
+
+    </section><!-- /How We Work Section -->
+
+
+  
+ 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
 
@@ -304,7 +248,7 @@
                 </li>
             </ul>
             </p>
-            <span> Registration Process via <a href="https://www.ecitizen.go.ke/" ></i>eCitizen </span></a>
+            <span>BRS Registration Process via <a href="https://brs.ecitizen.go.ke/auth" ></i>eCitizen </span></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -338,7 +282,7 @@
             <ul style="list-style: none; padding-left: 0; text-align: left;">
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://www.kipi.go.ke/" ></i><span>KIPI </span></a> </span>
+                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://kipi.go.ke/trade-marks" ></i><span>KIPI </span></a> </span>
                 </li>
                 <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                     <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
@@ -365,6 +309,67 @@
       </div>
 
     </section><!-- /Services Section -->
+
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section accent-background">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Call To Action</h3>
+              <p>Are you a developer looking for real opportunities, a business in need of software solutions, or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with demand, empowering innovation through collaboration. Join today and be part of Kenya’s thriving tech ecosystem where ideas become solutions.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Call To Action Section -->
+    
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Workers</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
     
   </main>
 
@@ -372,7 +377,7 @@
 
 
 
-<footer id="footer" class="footer" style="background: #22223b; color: #f8f9fa;">
+<footer id="footer" class="footer" style="background:  #196815; color: #f8f9fa;">
 
     <div class="container footer-top">
         <div class="row gy-4">
@@ -392,9 +397,9 @@
                 <h4 style="color: #f8f9fa;">Useful Links</h4>
                 <ul>
                     <li><a href="{% url 'landing' %}" style="color: #d1d1e0;">Home</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Resources</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Startup support</a></li>
-                    <li><a href="#" style="color: #d1d1e0;">Collaboration and innovation</a></li>
+                    <li><a href="{% url 'resource' %}" style="color: #d1d1e0;">Resources</a></li>
+                    <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Startup support</a></li>
+                    <li><a href="{% url 'collaboration' %}" style="color: #d1d1e0;">Collaboration and innovation</a></li>
                     <li><a href="#" style="color: #d1d1e0;">Services</a></li>
                 </ul>
             </div>

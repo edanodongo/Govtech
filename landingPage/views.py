@@ -441,3 +441,9 @@ def legal(request):
 
 def resource(request):
     return render(request, 'landingpage/resource.html')
+
+def collaboration(request):
+    return render(request, 'landingpage/collaboration.html')
+
+def technical(request):
+    return render(request, 'landingpage/technical.html')
