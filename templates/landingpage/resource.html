@@ -20,10 +20,14 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="landing.html" class="logo d-flex align-items-center me-auto" style="text-decoration: none;">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms">
-            <h1 class="sitename">Devlink Kenya</h1>
+            <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms"
+                style="height: 40px; width: auto;" class="me-2" />
+
+            <!-- Divider Line -->
+            <div style="width: 1px; height: 40px; background-color: #ccc;" class="mx-2"></div>
+
+            <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo"
+                style="height: 40px; width: auto;" class="me-2" />
         </a>
 
         <nav id="navmenu" class="navmenu">
