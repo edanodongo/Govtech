@@ -45,7 +45,7 @@ h2 {
   --bs-primary-light: #e8f4ff;
   --bs-link-color: #3eab39;
   --bs-link-color-rgb: 24, 144, 255;
-  --bs-link-hover-color: #f41823;
+  --bs-link-hover-color: #BD252D;
   --bs-link-hover-color-rgb: to-rgb(shift-color($pc-primary, $link-shade-percentage));
   --dt-row-selected: 24, 144, 255;
 }
@@ -57,18 +57,18 @@ h2 {
   color: #3eab39 !important;
 }
 [data-pc-preset=preset-1] .link-primary:hover, [data-pc-preset=preset-1] .link-primary:focus {
-  color: #f41823 !important;
+  color: #BD252D !important;
 }
 [data-pc-preset=preset-1] .btn-primary {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: #3eab39;
   --bs-btn-border-color: #3eab39;
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #147ad9;
-  --bs-btn-hover-border-color: #f41823;
+  --bs-btn-hover-bg: #BD252D;
+  --bs-btn-hover-border-color: #BD252D;
   --bs-btn-focus-shadow-rgb: 59, 161, 255;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #f41823;
+  --bs-btn-active-bg: #BD252D;
   --bs-btn-active-border-color: #126cbf;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #ffffff;
@@ -77,8 +77,8 @@ h2 {
 }
 [data-pc-preset=preset-1] .btn-link {
   --bs-btn-color: #3eab39;
-  --bs-btn-hover-color: #f41823;
-  --bs-btn-active-color: #f41823;
+  --bs-btn-hover-color: #BD252D;
+  --bs-btn-active-color: #BD252D;
 }
 [data-pc-preset=preset-1] .text-bg-primary {
   color: #ffffff !important;
@@ -106,14 +106,14 @@ h2 {
   background-color: #d1e9ff;
 }
 [data-pc-preset=preset-1] .nav {
-  --bs-nav-link-hover-color: #f41823;
+  --bs-nav-link-hover-color: #BD252D;
 }
 [data-pc-preset=preset-1] .nav-pills {
   --bs-nav-pills-link-active-bg: #3eab39;
 }
 [data-pc-preset=preset-1] .pagination {
-  --bs-pagination-hover-color: #f41823;
-  --bs-pagination-focus-color: #f41823;
+  --bs-pagination-hover-color: #BD252D;
+  --bs-pagination-focus-color: #BD252D;
   --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.25);
   --bs-pagination-active-bg: #3eab39;
   --bs-pagination-active-border-color: #3eab39;

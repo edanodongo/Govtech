@@ -46,15 +46,16 @@
         <ul>
           <li><a href="{% url 'landing' %}" class="active">Home</a></li>
 
-          <li><a href="{% url 'resource' %}"><span>Resource Hub</span></a>
-          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="{% url 'resource' %}"><span>Resource Hub</span></a></li>
+          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> </a>
+            {% comment %}
             <ul>
-              {% comment %} <li><a href="#">Community</a></li>
+               <li><a href="#">Community</a></li>
               <li><a href="#">Knowledge exchange forum</a></li>
               <li><a href="#">Government hackathons and innovation challenges</a></li>
               <li><a href="#">Engage in collaborative R&D projects</a></li>
-              <li><a href="#">Repository for government projects</a></li> {% endcomment %}
-            </ul>
+              <li><a href="#">Repository for government projects</a></li>
+            </ul> {% endcomment %}
           </li>
           <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
