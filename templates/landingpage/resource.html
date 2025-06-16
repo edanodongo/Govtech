@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource & Knowledge Hub - Devlink Kenya</title>
+        
+    <!-- Favicons -->
+    <link href="{% static 'images/cos.ico' %}" rel="icon">
+    <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -47,6 +56,7 @@
                 <li><a href="{% url 'portals' %}" style="text-decoration: none;">Links to Supporting Government Portals</a></li>
                 <li><a href="{% url 'legal' %}" style="text-decoration: none;">Standard Contracts and Legal Templates</a></li>
                 <li><a href="{% url 'cost' %}" style="text-decoration: none;">Cost Optimization for Startups</a></li>
+                <li><a href="{% url 'technical' %}"  style="text-decoration: none;">Technical and Infrastructure Setup for Software</a></li>
                 </ul>
             </li>
             <li><a style="text-decoration: none;">Contact Us</a></li>
@@ -61,6 +71,22 @@
 
 </head>
 <body>
+
+  <main class="main">
+    
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Resource Hub</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li class="current">Resource Hub</li>
+            <li>Resource Hub</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
 
     <div class="container">
         <!-- Main Hub Page -->
@@ -206,6 +232,8 @@
 
         
     </div>
+
+  </main>
 
     <!-- Footer Space -->
     <div class="footer-space"></div>
