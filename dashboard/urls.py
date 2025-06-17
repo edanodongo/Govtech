@@ -3,7 +3,7 @@ from django.urls import path
 
 from .views import multi_step_registration, individual_reg, index, authlogout, \
     Myprofile, profileChange, saveEditProfile, mySupport, resetPassword, saveChangeMyPassword, dashboard_view, \
-    notifications, markAsRead, viewMynotifications  # DashboardData
+    notifications, markAsRead, viewMynotifications, application_status  # DashboardData
 
 urlpatterns = [
     # path("", views.home, name="home"),
@@ -22,4 +22,5 @@ urlpatterns = [
     path('notifications/', notifications, name='notifications'),
     path('markAsRead/<int:pk>/', markAsRead, name='markAsRead'),
     path('viewMynotifications/<int:pk>/', viewMynotifications, name='viewMynotifications'),
+    path('application_status/', application_status, name='application_status'),
 ]

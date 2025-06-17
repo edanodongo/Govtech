@@ -445,3 +445,6 @@ def viewMynotifications(request, pk):
     return render(request, 'dashboard/view_notification.html', {
         'notification': notification
     })
+
+def application_status(request):
+    return render(request, "dashboard/application_status.html")
