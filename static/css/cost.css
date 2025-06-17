@@ -244,12 +244,12 @@ h6 {
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Red */
     #000000  28%,
-    transparent 28%,    /* Gap 1 */
-    transparent 34%,
+    #FFFFFF 28%,    /* Gap 1 */
+    #FFFFFF 34%,
     #BD272F 34%, /* Middle color: Green */
     #BD272F 62%,
-    transparent 62%,    /* Gap 2 */
-    transparent 68%,
+    #FFFFFF 62%,    /* Gap 2 */
+    #FFFFFF 68%,
     #136B38 68%, /* Bottom color: Blue */
     #136B38 100%
   );
