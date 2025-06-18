@@ -238,15 +238,15 @@ h6 {
   width: 3px;
   height: 60px;
   background: linear-gradient(to bottom,
-    #000000 0%,     /* Top color: Red */
+    #000000 0%,     /* Top color: Black */
     #000000  28%,
     transparent 28%,    /* Gap 1 */
     transparent 34%,
-    #BD272F 34%, /* Middle color: Green */
+    #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
     transparent 62%,    /* Gap 2 */
     transparent 68%,
-    #136B38 68%, /* Bottom color: Blue */
+    #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
   margin: 0 12px;
@@ -1487,8 +1487,8 @@ section,
 }
 
 .services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
+  line-height: 1.6;
+  font-size: 1rem;
   margin-bottom: 0;
 }
 
