@@ -4,125 +4,129 @@
 <!-- [Head] start -->
 
 <head>
-  <title>Login | MOICDE</title>
-  <!-- [Meta] -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- [Favicon] icon -->
-  <link rel="icon" href="{% static 'images/cos.ico' %}" type="image/x-icon"> <!-- [Google Font] Family -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
-    id="main-font-link">
-  <!-- [Tabler Icons] https://tablericons.com -->
-  <link rel="stylesheet" href="{% static 'fonts/tabler-icons.min.css' %}">
-  <!-- [Feather Icons] https://feathericons.com -->
-  <link rel="stylesheet" href="{% static 'fonts/feather.css' %}">
-  <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-  <link rel="stylesheet" href="{% static 'fonts/fontawesome.css' %}">
-  <!-- [Material Icons] https://fonts.google.com/icons -->
-  <link rel="stylesheet" href="{% static 'fonts/material.css' %}">
-  <!-- [Template CSS Files] -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" id="main-style-link">
-  <link rel="stylesheet" href="{% static 'css/style-preset.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Login | MOICDE</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- [Favicon] icon -->
+    <link href="{% static 'images/cos.ico' %}" rel="icon" type="image/x-icon"> <!-- [Google Font] Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+          id="main-font-link"
+          rel="stylesheet">
+    <!-- [Tabler Icons] https://tablericons.com -->
+    <link href="{% static 'fonts/tabler-icons.min.css' %}" rel="stylesheet">
+    <!-- [Feather Icons] https://feathericons.com -->
+    <link href="{% static 'fonts/feather.css' %}" rel="stylesheet">
+    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+    <link href="{% static 'fonts/fontawesome.css' %}" rel="stylesheet">
+    <!-- [Material Icons] https://fonts.google.com/icons -->
+    <link href="{% static 'fonts/material.css' %}" rel="stylesheet">
+    <!-- [Template CSS Files] -->
+    <link href="{% static 'css/style.css' %}" id="main-style-link" rel="stylesheet">
+    <link href="{% static 'css/style-preset.css' %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
 
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
 <style>
-  .input-group .input-group-text {
-  background-color: #fff;
-  border-left: none;
-  border-radius: 0 .25rem .25rem 0;
-  display: flex;
-  align-items: center;
-  padding: 0 0.75rem;
-  height: 100%;
-}
+    .input-group .input-group-text {
+        background-color: #fff;
+        border-left: none;
+        border-radius: 0 .25rem .25rem 0;
+        display: flex;
+        align-items: center;
+        padding: 0 0.75rem;
+        height: 100%;
+    }
 
-.input-group input.form-control {
-  border-right: none;
-}
+    .input-group input.form-control {
+        border-right: none;
+    }
 
 </style>
 
 <body>
-  <!-- [ Pre-loader ] start -->
-  <div class="loader-bg">
+<!-- [ Pre-loader ] start -->
+<div class="loader-bg">
     <div class="loader-track">
-      <div class="loader-fill"></div>
+        <div class="loader-fill"></div>
     </div>
-  </div>
-  <!-- [ Pre-loader ] End -->
+</div>
+<!-- [ Pre-loader ] End -->
 
-  <div class="auth-main">
+<div class="auth-main">
     <div class="auth-wrapper v3">
-      <div class="auth-form">
-        <div class="auth-header">
-          <a href="#"><img src="{% static 'images/COTLog.png' %}" alt="img"></a>
-        </div>
-        <form class="login-form" id="loginForm" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="card my-5" style="width: 500px; max-width: 100%; margin: auto;">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-end mb-4">
-                  <h3 class="mb-0"><b>Login</b></h3>
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Password</label>
-                  <div class="input-group">
-                    <input type="password" id="password" class="form-control" name="password" placeholder="Enter password" required>
-                    <div class="input-group-append">
+        <div class="auth-form">
+            <div class="text-center">
+                <a class="navbar-brand" href="/">
+                    <img alt="Devlink Logo" height="100" src="{% static 'images/devlinklogo.png' %}"/>
+                </a>
+            </div>
+            <div class="card" style="width: 500px; max-width: 100%; margin: auto;">
+                <div class="card-body">
+                    <form class="login-form" enctype="multipart/form-data" id="loginForm" method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between align-items-end">
+                            <h3 class="mb-0"><b>Login</b></h3>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" name="email" placeholder="Email" required type="email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Password</label>
+                            <div class="input-group">
+                                <input class="form-control" id="password" name="password" placeholder="Enter password"
+                                       required type="password">
+                                <div class="input-group-append">
                         <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                             <i class="fa-solid fa-eye" id="togglePasswordIcon"></i>
                         </span>
-                    </div>
-                </div>                
-                </div>                               
-                <div class="d-flex mt-1 justify-content-between">
-                  <a href="{% url 'register' %}" class="link-primary">Don't have an account?</a>
-                  <h5 class="text-secondary f-w-400"><a href="{% url 'forgetPassword' %}" class="link-primary">Forgot Password?</a></h5>
-                </div>
-                <div class="d-grid mt-4">
-                  <button type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-1 justify-content-between">
+                            <a class="link-primary" href="{% url 'register' %}">Don't have an account?</a>
+                            <h5 class="text-secondary f-w-400"><a class="link-primary"
+                                                                  href="{% url 'forgetPassword' %}">Forgot Password?</a>
+                            </h5>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
-  <!-- [ Main Content ] end -->
+</div>
+<!-- [ Main Content ] end -->
 
 
-  <script>
+<script>
     // Function to toggle password visibility
-    document.getElementById('togglePassword').addEventListener('click', function() {
-      const passwordInput = document.getElementById('password');
-      const toggleIcon = document.getElementById('togglePasswordIcon');
-  
-      // Toggle the input type between 'password' and 'text'
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleIcon.classList.remove('fa-eye'); // Remove the eye icon
-        toggleIcon.classList.add('fa-eye-slash'); // Add the eye-slash icon
-      } else {
-        passwordInput.type = 'password';
-        toggleIcon.classList.remove('fa-eye-slash'); // Remove the eye-slash icon
-        toggleIcon.classList.add('fa-eye'); // Add the eye icon
-      }
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('togglePasswordIcon');
+
+        // Toggle the input type between 'password' and 'text'
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.classList.remove('fa-eye'); // Remove the eye icon
+            toggleIcon.classList.add('fa-eye-slash'); // Add the eye-slash icon
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash'); // Remove the eye-slash icon
+            toggleIcon.classList.add('fa-eye'); // Add the eye icon
+        }
     });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
         e.preventDefault();  // Prevent default form submission
 
         const form = e.target;
@@ -137,77 +141,68 @@
             },
             body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: data.message
-                }).then(() => {
-                    window.location.href = "/dashboard/";  // Redirect to dashboard
-                });
-            } else if (data.status === 'force_change') {
-            Swal.fire({
-                icon: 'info',
-                title: 'Password Change Required',
-                text: data.message
-            }).then(() => {
-                // Get user ID and email from the response
-                const userId = data.user_id;
-                const userEmail = data.user_email;
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: data.message
+                    }).then(() => {
+                        window.location.href = "/dashboard/";  // Redirect to dashboard
+                    });
+                } else if (data.status === 'force_change') {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Password Change Required',
+                        text: data.message
+                    }).then(() => {
+                        // Get user ID and email from the response
+                        const userId = data.user_id;
+                        const userEmail = data.user_email;
 
-                // Store the email in sessionStorage (if needed)
-                sessionStorage.setItem('user_email', userEmail);
-                sessionStorage.setItem('userId', userId);
+                        // Store the email in sessionStorage (if needed)
+                        sessionStorage.setItem('user_email', userEmail);
+                        sessionStorage.setItem('userId', userId);
 
-                // Redirect to the password change page
-                window.location.href = `/force-password-change/`;
-            });
-        } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: data.message
-                });
-            }
-        })
-        .catch(error => console.log(error));
+                        // Redirect to the password change page
+                        window.location.href = `/force-password-change/`;
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => console.log(error));
     });
 </script>
 
 
+<!-- Required Js -->
+<script src="{% static 'js/plugins/popper.min.js' %}"></script>
+<script src="{% static 'js/plugins/simplebar.min.js' %}"></script>
+<script src="{% static 'js/plugins/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/fonts/custom-font.js' %}"></script>
+<script src="{% static 'js/pcoded.js' %}"></script>
+<script src="{% static 'js/plugins/feather.min.js' %}"></script>
 
 
-  <!-- Required Js -->
-  <script src="{% static 'js/plugins/popper.min.js' %}"></script>
-  <script src="{% static 'js/plugins/simplebar.min.js' %}"></script>
-  <script src="{% static 'js/plugins/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/fonts/custom-font.js' %}"></script>
-  <script src="{% static 'js/pcoded.js' %}"></script>
-  <script src="{% static 'js/plugins/feather.min.js' %}"></script>
+<script>layout_change('light');</script>
 
 
+<script>change_box_container('false');</script>
 
 
-
-  <script>layout_change('light');</script>
-
+<script>layout_rtl_change('false');</script>
 
 
-
-  <script>change_box_container('false');</script>
-
+<script>preset_change("preset-1");</script>
 
 
-  <script>layout_rtl_change('false');</script>
-
-
-  <script>preset_change("preset-1");</script>
-
-
-  <script>font_change("Public-Sans");</script>
-
+<script>font_change("Public-Sans");</script>
 
 
 </body>
