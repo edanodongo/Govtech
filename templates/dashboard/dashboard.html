@@ -21,21 +21,46 @@
           <div class="card-body" style=" border-radius: .5rem;">
             <h2 class="card-title">Welcome to the Kenyan Software ecosystem platform </h2>
             <br>
-            <p class="text-secondary mb-0 ">This is an user-access database provided by the ministry of ICT for the benefit of the  <span class="text-danger">Kenyan software Ecosystem</span>. We aim to provide resources to assist the Kenya software ecosystem thrive through mapping startups/scaleups, investors, rounds, hubs, and much more essential services. </p></div>
+            <p class="lead text-muted mb-0 ">This is an user-access database provided by the ministry of ICT for the benefit of the  <span class="text-danger">Kenyan software Ecosystem</span>. We aim to provide resources to assist the Kenya software ecosystem thrive through mapping startups/scaleups, investors, rounds, hubs, and much more essential services. </p></div>
         </div>
+        
       </div>
  </div>
+  <div class="container my-4">
+    <h3 class="mb-4"><span class="text-danger">Programs</span></h3>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col d-flex">
+        <a href="https://events.atmeta.com/llamaacceleratorprogramkenya" class="card flex-fill h-100 text-decoration-none" style="background-image: url('{% static 'images/program-bg.jpg' %}'); background-size: cover; background-position: center; color: #fff;">
+          <div class="card-body d-flex flex-column" style="background: rgba(0, 0, 0, 0.61); border-radius: .5rem;">
+            <h5 class="mb-2 f-w-400" style="color: #fff;">Llama Impact Accelerator</h5>
+            <p class="text-muted mb-0" style="color: #fff !important;">
+              Are you a startup using open-source AI to solve real-world challenges in Kenya? Join the Llama Impact Accelerator Program, designed to support early-stage innovation aligned with national development priorities. Solutions should focus on the following priority areas: Healthcare, Education & Employment, Agriculture, Public Services
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="col d-flex">
+        <a href="https://events.atmeta.com/llamaacceleratorprogramkenya" class="card flex-fill h-100 text-decoration-none" style="background-image: url('{% static 'images/program-bg.jpg' %}'); background-size: cover; background-position: center; color: #fff;">
+          <div class="card-body d-flex flex-column" style="background: rgba(0, 0, 0, 0.61); border-radius: .5rem;">
+            <h5 class="mb-2 f-w-400" style="color: #fff;">Llama Impact Accelerator</h5>
+            <p class="text-muted mb-0" style="color: #fff !important;">
+              Are you a startup using open-source AI to solve real-world challenges in Kenya? Join the Llama Impact Accelerator Program, designed to support early-stage innovation aligned with national development priorities. Solutions should focus on the following priority areas: Healthcare, Education & Employment, Agriculture, Public Services
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  
   <div class="row">
-    <!-- [ sample-page ] start -->
-      
-      <!-- Summary Cards -->
+    <!-- Summary Cards -->
     <div class="col-md-6 col-xl-3">
       <div class="card">
         <div class="card-body">
           <h6 class="mb-2 f-w-400 ">Software Firms</h6>
           <h4 class="mb-3">{{ total_companies }} <span class="badge bg-light-primary border border-primary"><i
                 class="ti ti-trending-up"></i> <!-- 59.3% --> </span></h4>
-          <p class="mb-0 text-muted text-sm">Software firms grew by<span class="text-primary">{{ total_companies }}</span> this year
+          <p class="mb-0 text-muted text-sm">Software firms grew by <span class="text-primary">{{ total_companies }}</span> this year
           </p>
         </div>
       </div>
@@ -50,7 +75,7 @@
         </div>
       </div>
     </div>
-{% comment %}     
+      {% comment %}     
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
@@ -73,7 +98,6 @@
           </div>
         </div> {% endcomment %}
   </div>
-   
 
         <!-- Charts Grid -->
         <div class="row g-4">
@@ -86,11 +110,12 @@
               </div>
           </div>
 
+          
           <div class="col-md-6">
               <div class="card shadow-sm">
                   <div class="card-body">
-                      <h5 class="card-title">Business Models</h5>
-                      <canvas id="businessModelChart"></canvas>
+                      <h5 class="card-title">Companies by Establishment Year</h5>
+                      <canvas id="establishmentYearChart"></canvas>
                   </div>
               </div>
           </div>
@@ -104,18 +129,19 @@
               </div>
           </div>
 
+                  
           <div class="col-md-6">
               <div class="card shadow-sm">
                   <div class="card-body">
-                      <h5 class="card-title">Companies by Establishment Year</h5>
-                      <canvas id="establishmentYearChart"></canvas>
+                      <h5 class="card-title">Business Models</h5>
+                      <canvas id="businessModelChart"></canvas>
                   </div>
               </div>
           </div>
-                  
+
         </div>
-        
-        
+
+
         <div class="col-lg-6 col-xl-4">
           <div class="card">
             <div class="card-body">
