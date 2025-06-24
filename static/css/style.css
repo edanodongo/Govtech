@@ -22174,6 +22174,40 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
   justify-content: space-between;
 }
 
+/** Logo **/
+.logo-divider {
+  width: 3px;
+  height: 80px;
+  background: linear-gradient(to bottom,
+    #000000 0%,     /* Top color: Black */
+    #000000  28%,
+    transparent 28%,    /* Gap 1 */
+    transparent 34%,
+    #BD272F 34%, /* Middle color: Red */
+    #BD272F 62%,
+    transparent 62%,    /* Gap 2 */
+    transparent 68%,
+    #136B38 68%, /* Bottom color: Green */
+    #136B38 100%
+  );
+  margin: 0 12px;
+}
+
+/* Responsive logo and divider size for smaller screens */
+@media (max-width: 768px) {
+  .logo img {
+    height: 50px;
+  }
+
+  .logo-divider {
+    height: 50px;
+  }
+
+  .logo h1 {
+    font-size: 24px;
+  }
+}
+
 /**====== Authentication css end ======**/
 /**  =====================
   23. Icon layouts css start
