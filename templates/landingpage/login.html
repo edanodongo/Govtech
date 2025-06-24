@@ -56,56 +56,54 @@
     </div>
 </div>
 <!-- [ Pre-loader ] End -->
-
-<div class="auth-main">
-    <div class="auth-wrapper v3">
-        <div class="auth-form">
-            <div class="text-center">
-                <a class="navbar-brand d-flex align-items-center" href="/" style="gap: 16px;">
-                    <img alt="court of arms" height="100" src="{% static 'images/court-of-arms.png' %}"/>
-                    <div class="logo-divider"></div>
-                    <img alt="Devlink Logo" height="130" src="{% static 'images/devlinklogo.png' %}"/>
-                </a>
-                
-            </div>
-            <div class="card" style="width: 500px; max-width: 100%; margin: auto;">
-                <div class="card-body">
-                    <form class="login-form" enctype="multipart/form-data" id="loginForm" method="post">
-                        {% csrf_token %}
-                        <div class="d-flex justify-content-between align-items-end">
-                            <h3 class="mb-0"><b>Login</b></h3>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Email</label>
-                            <input class="form-control" name="email" placeholder="Email" required type="email">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Password</label>
-                            <div class="input-group">
-                                <input class="form-control" id="password" name="password" placeholder="Enter password"
-                                       required type="password">
-                                <div class="input-group-append">
-                        <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
-                            <i class="fa-solid fa-eye" id="togglePasswordIcon"></i>
-                        </span>
+<div class="container py-5">
+    <div class="auth-main">
+        <div class="auth-wrapper v3">
+            <div class="auth-form">
+                <div class="text-center mb-4">
+                    <a class="navbar-brand d-flex flex-wrap justify-content-center align-items-center gap-3" href="/">
+                        <img alt="court of arms"height="80" src="{% static 'images/court-of-arms.png' %}"/>
+                        <div class="logo-divider"></div>
+                        <img alt="Devlink Logo" height="110" src="{% static 'images/devlinklogo.png' %}"/>
+                    </a>
+                </div>
+                <div class="card shadow" style="width: 100%; max-width: 500px; margin: auto;">
+                    <div class="card-body">
+                        <form class="login-form" enctype="multipart/form-data" id="loginForm" method="post">
+                            {% csrf_token %}
+                            <div class="d-flex justify-content-between align-items-end mb-3">
+                                <h3 class="mb-0"><b>Login</b></h3>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Email</label>
+                                <input class="form-control" name="email" placeholder="Email" required type="email">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="password" name="password" placeholder="Enter password" required type="password">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                                            <i class="fa-solid fa-eye" id="togglePasswordIcon"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex mt-1 justify-content-between">
-                            <a class="link-primary" href="{% url 'register' %}">Don't have an account?</a>
-                            <h5 class="text-secondary f-w-400"><a class="link-primary"
-                                                                  href="{% url 'forgetPassword' %}">Forgot Password?</a>
-                            </h5>
-                        </div>
-                        <div class="d-grid mt-4">
-                            <button class="btn btn-primary" type="submit">Login</button>
-                        </div>
-                    </form>
+                            <div class="d-flex mt-1 justify-content-between flex-wrap">
+                                <a class="link-primary" href="{% url 'register' %}">Don't have an account?</a>
+                                <a class="link-primary" href="{% url 'forgetPassword' %}">Forgot Password?</a>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- [ Main Content ] end -->
 
 

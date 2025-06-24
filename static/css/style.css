@@ -22089,7 +22089,19 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
 ==========================  **/
 .auth-main {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
 }
+
+.auth-wrapper.v3 {
+    width: 100%;
+    max-width: 500px;
+}
+
 .auth-main .auth-wrapper {
   height: 100%;
   width: 100%;
@@ -22177,7 +22189,7 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
 /** Logo **/
 .logo-divider {
   width: 3px;
-  height: 80px;
+  height: 70px;
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Black */
     #000000  28%,
@@ -22200,7 +22212,7 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
   }
 
   .logo-divider {
-    height: 50px;
+    height: 60px;
   }
 
   .logo h1 {
