@@ -1,0 +1,28 @@
+{% extends "dashboard/index.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Legal Templates</h2>
+  <p>Access downloadable legal templates like NDAs, SLAs, and agreements.</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Document</th>
+        <th>Description</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for template in templates %}
+      <tr>
+        <td>{{ template.name }}</td>
+        <td>{{ template.description }}</td>
+        <td><a href="{{ template.file.url }}" class="btn btn-sm btn-primary" download>Download</a></td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="3">No legal templates available.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

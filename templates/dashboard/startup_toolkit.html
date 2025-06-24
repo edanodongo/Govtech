@@ -1,0 +1,24 @@
+{% extends "dashboard/index.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Startup Toolkit</h2>
+  <p>Download resources to help you build and grow your software startup.</p>
+
+  <div class="row">
+    {% for resource in resources %}
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ resource.title }}</h5>
+          <p class="card-text">{{ resource.description }}</p>
+          <span class="badge bg-secondary">{{ resource.category }}</span>
+          <a href="{{ resource.file.url }}" class="btn btn-sm btn-primary mt-2" download>Download</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No toolkit resources available.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

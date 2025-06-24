@@ -85,3 +85,75 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"To: {self.user.id} | {self.title}"
+    
+    
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class CollaborationProject(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    partner_type = models.CharField(
+        max_length=255,
+        choices=[
+            ('Startup', 'Startup'),
+            ('Developer', 'Developer'),
+            ('Research Partner', 'Research Partner'),
+            ('Investor', 'Investor'),
+            ('Other', 'Other')
+        ]
+    )
+    deadline = models.DateField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collaboration_projects')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+# # --- For Collaboration Board ---
+# class CollaborationProject(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    partner_type = models.CharField(max_length=255)
+    deadline = models.DateField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+# --- For Events View ---
+class Event(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateField()
+    location = models.CharField(max_length=255)
+    link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+# --- For Legal Templates ---
+class LegalTemplate(models.Model):
+    name = models.CharField(max_length=255)
+    file = models.FileField(upload_to='legal_templates/')
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+# --- For Startup Toolkit ---
+class ToolkitResource(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    file = models.FileField(upload_to='toolkit/')
+    category = models.CharField(max_length=100, choices=[
+        ('Checklist', 'Checklist'),
+        ('Guide', 'Guide'),
+        ('Playbook', 'Playbook')
+    ])
+
+    def __str__(self):
+        return self.title

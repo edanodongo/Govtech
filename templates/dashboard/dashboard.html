@@ -12,19 +12,140 @@
 <body>
 
  {% block content %}
+
+ 
+<div class="container mt-4">
+  <!-- Welcome Section -->
+  <div class="alert alert-info">
+    <strong>Welcome, {{ user.username }}!</strong> Your profile is {{ profile_completion }}% complete.
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Registration Status</h5>
+          <p class="card-text">{{ registration_status }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body">
+          <h5 class="card-title">New Resources</h5>
+          <p class="card-text">View {{ new_resources }} available tools</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body">
+          <h5 class="card-title">Collaboration Requests</h5>
+          <p class="card-text">{{ collaboration_requests }} pending</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-dark">
+        <div class="card-body">
+          <h5 class="card-title">Upcoming Events</h5>
+          <p class="card-text">{{ upcoming_events }} this month</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Panel -->
+  <div class="mt-4">
+    <h4>Profile Summary</h4>
+    <table class="table table-bordered">
+      <tr>
+        <th>Category</th>
+        <td> user_type </td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td> company_name or user.get_full_name </td>
+      </tr>
+      <tr>
+        <th>Industry / Sector</th>
+        <td> sector </td>
+      </tr>
+      <tr>
+        <th>Website</th>
+        <td><a href="#" target="_blank"> website </a></td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td><span class="badge "> registration_status </span></td>
+      </tr>
+    </table>
+    <a class="btn btn-outline-primary btn-sm" href="#">Edit Profile</a>
+  </div>
+
+  <!-- Resources & Links -->
+  <div class="mt-5">
+    <h4>Quick Access</h4>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Startup Toolkit</h5>
+            <p>Download checklists, guides, and business templates</p>
+            <a href="{% url 'startup_toolkit' %}" class="btn btn-sm btn-primary">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Legal Templates</h5>
+            <p>Access NDAs, SLAs, employment and freelance contracts</p>
+            <a href="{% url 'legal_templates' %}" class="btn btn-sm btn-primary">View Templates</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Collaboration Board</h5>
+            <p>Explore partnership and innovation opportunities</p>
+            <a href="{% url 'collaboration_board' %}" class="btn btn-sm btn-primary">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Events -->
+  <div class="mt-5">
+    <h4>Upcoming Events</h4>
+    <ul class="list-group">
+      {% for event in events %}
+      <li class="list-group-item">
+        <strong>{{ event.title }}</strong> – {{ event.date }} <br />
+        {{ event.description }}
+      </li>
+      {% empty %}
+      <li class="list-group-item">No events available right now.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<br>
+
  <!-- [ Main Content ] start -->
  <div class="row">
     <!-- Summary Cards -->
    
-      <div class="col-12">
-        <div class="card " style="center center/cover no-repeat; min-height: 250px; position: relative;">
-          <div class="card-body" style=" border-radius: .5rem;">
-            <h2 class="card-title">Welcome to the Kenyan Software ecosystem platform </h2>
-            <br>
-            <p class="lead text-muted mb-0 ">This is an user-access database provided by the ministry of ICT for the benefit of the  <span class="text-danger">Kenyan software Ecosystem</span>. We aim to provide resources to assist the Kenya software ecosystem thrive through mapping startups/scaleups, investors, rounds, hubs, and much more essential services. </p></div>
-        </div>
-        
-      </div>
+   
  </div>
   <div class="container my-4">
     <h3 class="mb-4"><span class="text-danger">Programs</span></h3>
@@ -99,167 +220,8 @@
         </div> {% endcomment %}
   </div>
 
-        <!-- Charts Grid -->
-        <div class="row g-4">
-          <div class="col-md-6">
-              <div class="card shadow-sm">
-                  <div class="card-body">
-                      <h5 class="card-title">Company Nature</h5>
-                      <canvas id="companyNatureChart"></canvas>
-                  </div>
-              </div>
-          </div>
+    
 
-          
-          <div class="col-md-6">
-              <div class="card shadow-sm">
-                  <div class="card-body">
-                      <h5 class="card-title">Companies by Establishment Year</h5>
-                      <canvas id="establishmentYearChart"></canvas>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-md-6">
-              <div class="card shadow-sm">
-                  <div class="card-body">
-                      <h5 class="card-title">Company Structures</h5>
-                      <canvas id="stageChart"></canvas>
-                  </div>
-              </div>
-          </div>
-
-                  
-          <div class="col-md-6">
-              <div class="card shadow-sm">
-                  <div class="card-body">
-                      <h5 class="card-title">Business Models</h5>
-                      <canvas id="businessModelChart"></canvas>
-                  </div>
-              </div>
-          </div>
-
-        </div>
-
-
-        <div class="col-lg-6 col-xl-4">
-          <div class="card">
-            <div class="card-body">
-              <div id="chart-combination" class="position-relative"></div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-
-   <div class="col-md-12 col-xl-8">
-     <h5 class="mb-3">Recent Orders</h5>
-     <div class="card tbl-card">
-       <div class="card-body">
-         <div class="table-responsive">
-           <table class="table table-hover table-borderless mb-0">
-             <thead>
-               <tr>
-                 <th>TRACKING NO.</th>
-                 <th>PRODUCT NAME</th>
-                 <th>TOTAL ORDER</th>
-                 <th>STATUS</th>
-                 <th class="text-end">TOTAL AMOUNT</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Camera Lens</td>
-                 <td>40</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                 </td>
-                 <td class="text-end">$40,570</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Laptop</td>
-                 <td>300</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                 </td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Mobile</td>
-                 <td>355</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Camera Lens</td>
-                 <td>40</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                 </td>
-                 <td class="text-end">$40,570</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Laptop</td>
-                 <td>300</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                 </td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Mobile</td>
-                 <td>355</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Camera Lens</td>
-                 <td>40</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                 </td>
-                 <td class="text-end">$40,570</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Laptop</td>
-                 <td>300</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                 </td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Mobile</td>
-                 <td>355</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-               <tr>
-                 <td><a href="#" class="text-muted">84564564</a></td>
-                 <td>Mobile</td>
-                 <td>355</td>
-                 <td><span class="d-flex align-items-center gap-2"><i
-                       class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                 <td class="text-end">$180,139</td>
-               </tr>
-             </tbody>
-           </table>
-         </div>
-       </div>
-     </div>
-   </div>
    
  </div>
 

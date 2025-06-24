@@ -337,35 +337,6 @@ def dashboard_view(request):
     return render(request, 'dashboard/dashboard.html', context)
 
 
-'''
-def dashboard_view(request):
-    total_companies = Registration.objects.count()
-    total_individuals = IndividualDev.objects.count()
-
-    company_nature = Registration.objects.values('nature').annotate(count=Count('nature'))
-    business_model = Registration.objects.values('business_model').annotate(count=Count('business_model'))
-    stage = Registration.objects.values('stage').annotate(count=Count('stage'))
-
-    establishment_years = Registration.objects.dates('date_of_establishment', 'year')
-    year_counts = {year.year: Registration.objects.filter(date_of_establishment__year=year.year).count() for year in establishment_years}
-
-    context = {
-        'total_companies': total_companies,
-        'total_individuals': total_individuals,
-        'company_nature_labels': mark_safe(json.dumps([entry['nature'] for entry in company_nature])),
-        'company_nature_data': mark_safe(json.dumps([entry['count'] for entry in company_nature])),
-        'business_model_labels': mark_safe(json.dumps([entry['business_model'] for entry in business_model])),
-        'business_model_data': mark_safe(json.dumps([entry['count'] for entry in business_model])),
-        'stage_labels': mark_safe(json.dumps([entry['stage'] for entry in stage])),
-        'stage_data': mark_safe(json.dumps([entry['count'] for entry in stage])),
-        'year_labels': mark_safe(json.dumps(list(year_counts.keys()))),
-        'year_data': mark_safe(json.dumps(list(year_counts.values()))),
-    }
-
-    return render(request, 'dashboard.html', context)
-'''
-
-
 def saveChangeMyPassword(request):
     myId = request.session.get('id')
 
@@ -448,3 +419,25 @@ def viewMynotifications(request, pk):
 
 def application_status(request):
     return render(request, "dashboard/application_status.html")
+
+# Startup Toolkit View
+# @login_required
+def startup_toolkit(request):
+    return render(request, 'dashboard/startup_toolkit.html')
+
+# Legal Templates View
+# @login_required
+def legal_templates(request):
+    return render(request, 'dashboard/legal_templates.html')
+
+# Collaboration Board View
+# @login_required
+def collaboration_board(request):
+    projects = CollaborationProject.objects.all()
+    return render(request, 'dashboard/collaboration_board.html', {'collaboration_projects': projects})
+
+# Events View
+# @login_required
+def events_view(request):
+    events = Event.objects.all()
+    return render(request, 'dashboard/events.html', {'events': events})
