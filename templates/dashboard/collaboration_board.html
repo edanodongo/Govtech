@@ -11,6 +11,11 @@
       <p>{{ project.description }}</p>
       <p><strong>Partner Type:</strong> {{ project.partner_type }}</p>
       <p><strong>Deadline:</strong> {{ project.deadline }}</p>
+    {% if project.link %}
+      <p><strong>Link:</strong> <a href="{{ project.link }}" target="_blank">View Project</a></p>
+    {% else %}
+      <p><strong>Link:</strong> <span class="text-muted">No link provided</span></p>
+    {% endif %}
     </div>
   </div>
   {% empty %}

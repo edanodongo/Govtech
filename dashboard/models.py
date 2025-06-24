@@ -106,6 +106,8 @@ class CollaborationProject(models.Model):
         ]
     )
     deadline = models.DateField()
+    link = models.URLField(blank=True, null=True)
+    # Assuming you want to link the project to a user who created it
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collaboration_projects')
     created_at = models.DateTimeField(auto_now_add=True)
 
