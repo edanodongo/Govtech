@@ -1,1 +1,46 @@
 {% extends "dashboard/index.html" %}
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+    <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+      <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />
+      <div class="logo-divider"></div>
+      <img src="{% static 'images/devlinklogo.png' %}" height="110" alt="Devlink Logo" />
+    </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'landing' %}" class="active">Home</a></li>
+
+          <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a></li>
+          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span></a>
+            {% comment %}
+            <ul>
+               <li><a href="#">Community</a></li>
+              <li><a href="#">Knowledge exchange forum</a></li>
+              <li><a href="#">Government hackathons and innovation challenges</a></li>
+              <li><a href="#">Engage in collaborative R&D projects</a></li>
+              <li><a href="#">Repository for government projects</a></li>
+            </ul> {% endcomment %}
+          </li>
+          <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
+              <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
+              <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+              <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'landing' %}" >Contact Us</a></li>
+
+
+
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <a class="btn-getstarted" href="{% url 'login' %}">Get Started<i class="fa fa-user-plus"></i></a>
+
+    </div>
+  </header>
