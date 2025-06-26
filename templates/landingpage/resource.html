@@ -15,6 +15,9 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
     <!-- Vendor CSS Files -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
@@ -25,53 +28,53 @@
     <!-- Main CSS File -->
     <link href="{% static 'css/landing/resource.css' %}" rel="stylesheet">
 
-        <header id="header" class="header d-flex align-items-center sticky-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-        <a href="landing.html" class="logo d-flex align-items-center me-auto" style="text-decoration: none;">
-            <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />      
-            <div class="logo-divider"></div>      
-            <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo" />
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <ul>
-            <li><a href="{% url 'landing' %}" class="active" style="text-decoration: none;">Home</a></li>
-            </li>
-            <li><a href="{% url 'resource' %}" style="text-decoration: none;"><span>Resource Hub</span></a>
-            </li>
-            <li class="dropdown"><a href="{% url 'collaboration' %}"  style="text-decoration: none;"><span>Collaboration & Innovation</span> </a>
-                {% comment %}
-                <ul>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Knowledge exchange forum</a></li>
-                <li><a href="#">Government hackathons and innovation challenges</a></li>
-                <li><a href="#">Engage in collaborative R&D projects</a></li>
-                <li><a href="#">Repository for government projects</a></li>
-                </ul> {% endcomment %}
-            </li>
-            <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                <li><a href="{% url 'guidelines' %}" style="text-decoration: none;">Guide for Software Startup Requirements</a></li>
-                <li><a href="{% url 'portals' %}" style="text-decoration: none;">Links to Supporting Government Portals</a></li>
-                <li><a href="{% url 'legal' %}" style="text-decoration: none;">Standard Contracts and Legal Templates</a></li>
-                <li><a href="{% url 'cost' %}" style="text-decoration: none;">Cost Optimization for Startups</a></li>
-                <li><a href="{% url 'technical' %}"  style="text-decoration: none;">Technical and Infrastructure Setup for Software</a></li>
-                </ul>
-            </li>
-            <li><a style="text-decoration: none;">Contact Us</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <a class="btn-getstarted" style="text-decoration: none;" href="{% url 'login' %}"><i class="fa-solid fa-user-plus"></i>Get Started</a>
-
-        </div>
-    </header>
 
 </head>
 <body>
 
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="landing.html" class="logo d-flex align-items-center me-auto" >
+        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />
+        <div class="logo-divider"></div>
+        <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo" />
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+        <li><a href="{% url 'landing' %}" class="active" >Home</a></li>
+        </li>
+        <li><a href="{% url 'resource' %}" ><span>Resource Hub</span></a>
+        </li>
+        <li class="dropdown"><a href="{% url 'collaboration' %}"  ><span>Collaboration & Innovation</span> </a>
+            {% comment %}
+            <ul>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Knowledge exchange forum</a></li>
+            <li><a href="#">Government hackathons and innovation challenges</a></li>
+            <li><a href="#">Engage in collaborative R&D projects</a></li>
+            <li><a href="#">Repository for government projects</a></li>
+            </ul> {% endcomment %}
+        </li>
+        <li class="dropdown"><a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+            <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
+            <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
+            <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
+            <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
+            <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
+            </ul>
+        </li>
+        <li><a >Contact Us</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+    <a class="btn-getstarted"  href="{% url 'login' %}"><i class="fa fa-user-plus"></i>Get Started</a>
+
+    </div>
+</header>
   <main class="main">
     
     <!-- Page Title -->
@@ -90,7 +93,7 @@
 
     <div class="container">
         <!-- Main Hub Page -->
-        <div id="main-hub" class="content-section active">
+        <div id="main-hub"  class="content-section active">
             <div class="header">
                 <h1>Resource & Knowledge Hub</h1>
                 <p>Empowering Kenya's software ecosystem through innovation, efficiency, and comprehensive digital solutions</p>
@@ -125,7 +128,7 @@
                 <button class="carousel-arrows carousel-prev" onclick="prevSlide()">‹</button>
                 <button class="carousel-arrows carousel-next" onclick="nextSlide()">›</button>
             </div>
-            
+
             <div class="carousel-nav">
                 <div class="carousel-dot active" onclick="goToSlide(0)"></div>
                 <div class="carousel-dot" onclick="goToSlide(1)"></div>
@@ -236,111 +239,189 @@
   </main>
 
     <!-- Footer Space -->
-    <div class="footer-space"></div>
+    <footer id="footer" class="footer text-white" >
+
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                    <img src="{% static 'images/court-of-arms.png' %}" height="80" alt="Court of Arms" />
+                    <div class="logo-divider"></div>
+                    <img src="{% static 'images/devlinklogo.png' %}" height="110" alt="Devlink Logo" />
+                </a>
+                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                    <span class="sitename">Devlink Kenya</span>
+                </a>
+                <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 >Useful Links</h4>
+                <ul>
+                    <li><a href="{% url 'landing' %}" >Home</a></li>
+                    <li><a href="{% url 'resource' %}" >Resources</a></li>
+                    <li><a href="{% url 'guidelines' %}" >Startup support</a></li>
+                    <li><a href="{% url 'collaboration' %}" >Collaboration and innovation</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4 >More info</h4>
+                <ul>
+                    <li><a href="{% url 'guidelines' %}" >Software Startup Requirements</a></li>
+                    <li><a href="{% url 'portals' %}" >Supporting Government Portals</a></li>
+                    <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
+                    <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
+                    <li><a href="{% url 'login' %}" >Software firm registration</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4 >Contact Us</h4>
+                <p >P.O. Box 30025 - 00100</p>
+                <p >GPO Telposta Towers, Koinange Street</p>
+                <p >Nairobi, Kenya</p>
+                <p class="mt-4" ><strong>Phone:</strong> <span> +254 700 000 000</span></p>
+                <p ><strong>Email:</strong> <span>devlink@support.go.ke</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p >© <span>Copyright</span> <strong class="px-1 sitename" style="color: #f8f9fa;">Devlink</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+</footer>
+
+    <!-- Scroll Top -->
+  <a id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+
+  <!-- Main JS File -->
+  <script src="{% static 'js/landing/main.js' %}"></script>
 
     <script>
-        let currentSlide = 0;
-        let currentTrainingSlide = 0;
-        const totalSlides = 4;
+    let currentSlide = 0;
+    let currentTrainingSlide = 0;
+    const totalSlides = 4;
 
-        function updateCarousel() {
-            const container = document.getElementById('carousel-container');
-            const dots = document.querySelectorAll('#main-hub .carousel-dot');
-            
-            container.style.transform = `translateX(-${currentSlide * 25}%)`;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
+    function updateCarousel() {
+        const container = document.getElementById('carousel-container');
+        const dots = document.querySelectorAll('#main-hub .carousel-dot');
 
-        function updateTrainingCarousel() {
-            const container = document.getElementById('training-carousel');
-            container.style.transform = `translateX(-${currentTrainingSlide * 25}%)`;
-        }
+        container.style.transform = `translateX(-${currentSlide * 25}%)`;
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
+    function updateTrainingCarousel() {
+        const container = document.getElementById('training-carousel');
+        container.style.transform = `translateX(-${currentTrainingSlide * 25}%)`;
+    }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
 
-        function nextTrainingSlide() {
-            currentTrainingSlide = (currentTrainingSlide + 1) % totalSlides;
-            updateTrainingCarousel();
-        }
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
 
-        function prevTrainingSlide() {
-            currentTrainingSlide = (currentTrainingSlide - 1 + totalSlides) % totalSlides;
-            updateTrainingCarousel();
-        }
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
 
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
+    function nextTrainingSlide() {
+        currentTrainingSlide = (currentTrainingSlide + 1) % totalSlides;
+        updateTrainingCarousel();
+    }
 
-        function showMainHub() {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById('main-hub').classList.add('active');
-            
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-        }
+    function prevTrainingSlide() {
+        currentTrainingSlide = (currentTrainingSlide - 1 + totalSlides) % totalSlides;
+        updateTrainingCarousel();
+    }
 
-        // Auto-advance main carousel
-        setInterval(() => {
-            if (document.getElementById('main-hub').classList.contains('active')) {
-                nextSlide();
-            }
-        }, 4000);
-
-        // Auto-advance training carousel
-        setInterval(() => {
-            if (document.getElementById('training-materials').classList.contains('active')) {
-                nextTrainingSlide();
-            }
-        }, 4500);
-
-        // Add some interactive effects
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
         });
 
-        // Initialize carousels
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCarousel();
-            updateTrainingCarousel();
+        // Show selected section
+        document.getElementById(sectionId).classList.add('active');
+
+        // Update nav buttons
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
         });
-    </script>
+        event.target.classList.add('active');
+    }
+
+    function showMainHub() {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById('main-hub').classList.add('active');
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    }
+
+    // Auto-advance main carousel
+    setInterval(() => {
+        if (document.getElementById('main-hub').classList.contains('active')) {
+            nextSlide();
+        }
+    }, 4000);
+
+    // Auto-advance training carousel
+    setInterval(() => {
+        if (document.getElementById('training-materials').classList.contains('active')) {
+            nextTrainingSlide();
+        }
+    }, 4500);
+
+    // Add some interactive effects
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Initialize carousels
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCarousel();
+        updateTrainingCarousel();
+    });
+</script>
 </body>
 </html>
