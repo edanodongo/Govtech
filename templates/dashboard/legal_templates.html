@@ -1,26 +1,32 @@
 {% extends "dashboard/index.html" %}
 {% block content %}
-<div class="container mt-4">
-  <h2>Legal Templates</h2>
-  <p>Access downloadable legal templates like NDAs, SLAs, and agreements.</p>
+<div class="container mt-5 p-4 rounded shadow" style="background-color: #f8f9fa;">
+  <h2 class="mb-3 text-danger">Legal Templates</h2>
+  <p class="mb-4 text-secondary">Access downloadable legal templates like NDAs, SLAs, and agreements.</p>
 
-  <table class="table table-bordered">
-    <thead>
+  <table class="table table-bordered table-hover bg-white">
+    <thead class="thead-dark">
       <tr>
-        <th>Document</th>
-        <th>Description</th>
-        <th>Download</th>
+        <th scope="col">Document</th>
+        <th scope="col">Description</th>
+        <th scope="col">Download</th>
       </tr>
     </thead>
     <tbody>
       {% for template in templates %}
       <tr>
-        <td>{{ template.name }}</td>
-        <td>{{ template.description }}</td>
-        <td><a href="{{ template.file.url }}" class="btn btn-sm btn-primary" download>Download</a></td>
+        <td class="align-middle font-weight-bold">{{ template.name }}</td>
+        <td class="align-middle">{{ template.description }}</td>
+        <td class="align-middle">
+          <a href="{{ template.file.url }}" class="btn btn-sm btn-success" download>
+            <i class="fas fa-download"></i> Download
+          </a>
+        </td>
       </tr>
       {% empty %}
-      <tr><td colspan="3">No legal templates available.</td></tr>
+      <tr>
+        <td colspan="3" class="text-center text-muted">No legal templates available.</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>

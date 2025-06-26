@@ -1,23 +1,29 @@
 {% extends "dashboard/index.html" %}
 {% block content %}
-<div class="container mt-4">
-  <h2>Startup Toolkit</h2>
-  <p>Download resources to help you build and grow your software startup.</p>
+<div class="container mt-5 p-4 rounded shadow" style="background-color: #f8f9fa;">
+  <h2 class="mb-3 text-danger fw-bold">Startup Toolkit</h2>
+  <p class="mb-4 text-muted">Download resources to help you build and grow your software startup.</p>
 
-  <div class="row">
+  <div class="row g-4">
     {% for resource in resources %}
     <div class="col-md-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">{{ resource.title }}</h5>
-          <p class="card-text">{{ resource.description }}</p>
-          <span class="badge bg-secondary">{{ resource.category }}</span>
-          <a href="{{ resource.file.url }}" class="btn btn-sm btn-primary mt-2" download>Download</a>
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-dark fw-semibold">{{ resource.title }}</h5>
+          <p class="card-text flex-grow-1">{{ resource.description }}</p>
+          <span class="badge bg-secondary mb-2">{{ resource.category }}</span>
+          <a href="{{ resource.file.url }}" class="btn btn-sm btn-primary mt-auto w-100" download>
+            <i class="bi bi-download"></i> Download
+          </a>
         </div>
       </div>
     </div>
     {% empty %}
-    <p>No toolkit resources available.</p>
+    <div class="col-12">
+      <div class="alert alert-warning text-center" role="alert">
+        No toolkit resources available.
+      </div>
+    </div>
     {% endfor %}
   </div>
 </div>
