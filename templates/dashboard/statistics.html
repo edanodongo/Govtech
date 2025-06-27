@@ -1,0 +1,94 @@
+{% extends "dashboard/index.html" %}
+{% load custom_filters %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container mt-4">
+  <h2>Platform Statistics</h2>
+
+  <!-- Filter Form -->
+  <form method="get" class="mb-4 p-3 border rounded bg-light">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label>Start Date</label>
+        {{ form.start_date }}
+      </div>
+      <div class="col-md-3">
+        <label>End Date</label>
+        {{ form.end_date }}
+      </div>
+      <div class="col-md-3">
+        <label>Company Sector</label>
+        {{ form.sector }}
+      </div>
+      <div class="col-md-3">
+        <label>Developer Industry</label>
+
+        {{ form.industry }}
+      </div>
+    </div>
+    <div class="mt-3 text-end">
+      <button type="submit" class="btn btn-primary">Filter</button>
+      <a href="{% url 'statistics' %}" class="btn btn-secondary">Reset</a>
+    </div>
+  </form>
+
+  <!-- Charts -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <h5>Developer Natures</h5>
+      <canvas id="devNatureChart"></canvas>
+    </div>
+    <div class="col-md-6">
+      <h5>Top Developer Industries</h5>
+      <canvas id="industryChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Data Script -->
+<script>
+  const companyStageData = {
+    labels: {{ company_by_stage|map_attr:"stage"|safe }},
+    datasets: [{
+      label: 'Companies',
+      data: {{ company_by_stage|map_attr:"count"|safe }},
+      backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1']
+    }]
+  };
+
+  const businessModelData = {
+    labels: {{ company_by_model|map_attr:"business_model"|safe }},
+    datasets: [{
+      label: 'Business Models',
+      data: {{ company_by_model|map_attr:"count"|safe }},
+      backgroundColor: '#17a2b8'
+    }]
+  };
+
+  const devNatureData = {
+    labels: {{ dev_by_nature|map_attr:"nature"|safe }},
+    datasets: [{
+      label: 'Developer Natures',
+      data: {{ dev_by_nature|map_attr:"count"|safe }},
+      backgroundColor: ['#ffc107', '#20c997', '#fd7e14', '#6610f2', '#6c757d']
+    }]
+  };
+
+  const industryData = {
+    labels: {{ dev_by_industry|map_attr:"industry"|safe }},
+    datasets: [{
+      label: 'Top Industries',
+      data: {{ dev_by_industry|map_attr:"count"|safe }},
+      backgroundColor: '#343a40'
+    }]
+  };
+
+  new Chart(document.getElementById('companyStageChart'), { type: 'pie', data: companyStageData });
+  new Chart(document.getElementById('businessModelChart'), { type: 'bar', data: businessModelData, options: { indexAxis: 'y' } });
+  new Chart(document.getElementById('devNatureChart'), { type: 'pie', data: devNatureData });
+  new Chart(document.getElementById('industryChart'), { type: 'bar', data: industryData, options: { indexAxis: 'y' } });
+</script>
+
+{% endblock %}

@@ -10,7 +10,7 @@ class Step1Form(forms.Form):
     contact_person = forms.CharField(max_length=255, required=True)
     date_of_establishment = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     physical_address = forms.CharField(widget=forms.Textarea, required=True)
-    
+
 
 class Step2Form(forms.Form):
     tax_identification_number = forms.CharField(max_length=100, required=True)
@@ -28,8 +28,10 @@ class Step2Form(forms.Form):
     sector = forms.CharField(max_length=100, required=True)
     website = forms.URLField(required=False)
 
+
 from django import forms
 from .models import IndividualDev
+
 
 class IndividualForm(forms.ModelForm):
     class Meta:
@@ -47,3 +49,22 @@ class IndividualForm(forms.ModelForm):
             'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
+
+
+class StatisticsFilterForm(forms.Form):
+    start_date = forms.DateField(
+        required=False,
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'})
+    )
+    end_date = forms.DateField(
+        required=False,
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'})
+    )
+    sector = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'e.g. HealthTech', 'class': 'form-control'})
+    )
+    industry = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'e.g. Fintech', 'class': 'form-control'})
+    )

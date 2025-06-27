@@ -139,96 +139,26 @@
   </div>
 </div>
 
-<br>
 
- <!-- [ Main Content ] start -->
- <div class="row">
-    <!-- Summary Cards -->
-   
-   
- </div>
-  <div class="container my-4">
-    <h3 class="mb-4"><span class="text-danger">Programs</span></h3>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col d-flex">
-        <a href="https://events.atmeta.com/llamaacceleratorprogramkenya" class="card flex-fill h-100 text-decoration-none" style="background-image: url('{% static 'images/program-bg.jpg' %}'); background-size: cover; background-position: center; color: #fff;">
-          <div class="card-body d-flex flex-column" style="background: rgba(0, 0, 0, 0.61); border-radius: .5rem;">
-            <h5 class="mb-2 f-w-400" style="color: #fff;">Llama Impact Accelerator</h5>
-            <p class="text-muted mb-0" style="color: #fff !important;">
-              Are you a startup using open-source AI to solve real-world challenges in Kenya? Join the Llama Impact Accelerator Program, designed to support early-stage innovation aligned with national development priorities. Solutions should focus on the following priority areas: Healthcare, Education & Employment, Agriculture, Public Services
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="col d-flex">
-        <a href="https://events.atmeta.com/llamaacceleratorprogramkenya" class="card flex-fill h-100 text-decoration-none" style="background-image: url('{% static 'images/program-bg.jpg' %}'); background-size: cover; background-position: center; color: #fff;">
-          <div class="card-body d-flex flex-column" style="background: rgba(0, 0, 0, 0.61); border-radius: .5rem;">
-            <h5 class="mb-2 f-w-400" style="color: #fff;">Llama Impact Accelerator</h5>
-            <p class="text-muted mb-0" style="color: #fff !important;">
-              Are you a startup using open-source AI to solve real-world challenges in Kenya? Join the Llama Impact Accelerator Program, designed to support early-stage innovation aligned with national development priorities. Solutions should focus on the following priority areas: Healthcare, Education & Employment, Agriculture, Public Services
-            </p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="row">
-    <!-- Summary Cards -->
-    <div class="col-md-6 col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <h6 class="mb-2 f-w-400 ">Software Firms</h6>
-          <h4 class="mb-3">{{ total_companies }} <span class="badge bg-light-primary border border-primary"><i
-                class="ti ti-trending-up"></i> <!-- 59.3% --> </span></h4>
-          <p class="mb-0 text-muted text-sm">Software firms grew by <span class="text-primary">{{ total_companies }}</span> this year
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <h6 class="mb-2 f-w-400 "> Developers</h6>
-          <h4 class="mb-3">{{ total_individuals }} <span class="badge bg-light-success border border-success"><i
-                class="ti ti-trending-up"></i> <!--70.5%--></span></h4>
-          <p class="mb-0 text-muted text-sm">Developers grew by <span class="text-success">{{ total_individuals }}</span> this year</p>
-        </div>
-      </div>
-    </div>
-      {% comment %}     
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Order</h6>
-              <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i
-                    class="ti ti-trending-down"></i> 27.4%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this year</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Sales</h6>
-              <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i
-                    class="ti ti-trending-down"></i> 27.4%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-danger">$20,395</span> this year
-              </p>
-            </div>
-          </div>
-        </div> {% endcomment %}
-  </div>
 
-    
+<!--  <div class="container my-4">-->
+<!--    <h3 class="mb-4"><span >Programs</span></h3>-->
+<!--    <div class="row row-cols-1 row-cols-md-2 g-4">-->
+<!--      <div class="col d-flex">-->
+<!--        <a href="https://events.atmeta.com/llamaacceleratorprogramkenya" class="card flex-fill h-100 text-decoration-none" style="background-image: url('{% static 'images/program-bg.jpg' %}'); background-size: cover; background-position: center; color: #fff;">-->
+<!--          <div class="card-body d-flex flex-column" style="background: rgba(0, 0, 0, 0.61); border-radius: .5rem;">-->
+<!--            <h5 class="mb-2 f-w-400" style="color: #fff;">Llama Impact Accelerator</h5>-->
+<!--            <p class="text-muted mb-0" style="color: #fff !important;">-->
+<!--              Are you a startup using open-source AI to solve real-world challenges in Kenya? Join the Llama Impact Accelerator Program, designed to support early-stage innovation aligned with national development priorities. Solutions should focus on the following priority areas: Healthcare, Education & Employment, Agriculture, Public Services-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
-   
- </div>
 
- <!-- [ Main Content ] end -->   
-
-    <!-- Chart.js Setup -->
-    <script>
+ <script>
       // Data passed from Django
       const companyNatureLabels = {{ company_nature_labels }};
       const companyNatureData = {{ company_nature_data }};

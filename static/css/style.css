@@ -16402,7 +16402,7 @@ pre[class*=language-] > code {
   position: relative;
 }
 .layout-2 .pc-footer {
-  background: var(--bs-body-bg);
+  background: #000000;
 }
 .layout-2 .pc-container {
   padding-top: 140px;
