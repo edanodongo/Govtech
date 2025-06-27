@@ -240,23 +240,21 @@ h6 {
 
 .header .logo-divider {
   width: 3px;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to bottom,
-    #000000 0%,     /* Top color: Red */
+    #000000 0%,     /* Top color: Black */
     #000000  28%,
-    #FFFFFF 28%,    /* Gap 1 */
-    #FFFFFF 34%,
-    #BD272F 34%, /* Middle color: Green */
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
+    #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
-    #FFFFFF 62%,    /* Gap 2 */
-    #FFFFFF 68%,
-    #136B38 68%, /* Bottom color: Blue */
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
+    #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
   margin: 0 12px;
 }
-
-
 
 .header .logo h1 {
   font-size: 30px;
@@ -561,8 +559,27 @@ h6 {
   background-color: var(--background-color);
   font-size: 14px;
   position: relative;
-  background: #22223b; color: #f8f9fa;
+  background:  #064F24; color: #f8f9fa;
 }
+
+.footer .logo-divider {
+  width: 3px;
+  height: 50px;
+  background: linear-gradient(to bottom,
+    #000000 0%,     /* Top color: Black */
+    #000000  28%,
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
+    #BD272F 34%, /* Middle color: Red */
+    #BD272F 62%,
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
+    #136B38 68%, /* Bottom color: Green */
+    #136B38 100%
+  );
+  margin: 0 12px;
+}
+
 
 .footer .footer-newsletter {
   background-color: color-mix(in srgb, var(--default-color), transparent 97%);
@@ -629,9 +646,9 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  border: 1px solid color-mix(in srgb, #FFF, transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, #FFF transparent 20%);
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -646,6 +663,8 @@ h6 {
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
+  color: #FFF;
+  text-align: left;
 }
 
 .footer .footer-links {
@@ -677,7 +696,7 @@ h6 {
 
 .footer .footer-links ul a {
   display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, #FFF, transparent 20%);
   line-height: 1;
 }
 
@@ -686,7 +705,7 @@ h6 {
 }
 
 .footer .footer-about a {
-  color: var(--heading-color);
+  color: #FFF;
   font-size: 24px;
   font-weight: 600;
   font-family: var(--heading-font);
@@ -708,6 +727,27 @@ h6 {
 .footer .credits {
   margin-top: 6px;
   font-size: 13px;
+}
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+@media (max-width: 1200px) {
+  .footer .logo {
+    order: 1;
+  }
+
+}
+
+/* Responsive logo and divider size for smaller screens */
+@media (max-width: 768px) {
+
+  .footer .logo-divider {
+    height: 40px;
+  }
 }
 
 /*--------------------------------------------------------------

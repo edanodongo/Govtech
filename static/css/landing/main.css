@@ -222,30 +222,19 @@ h6 {
   z-index: 997;
 }
 
-.header .logo {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-}
-
-.header .logo img {
-  height: 80px; /* 60px to 80px */
-  width: auto;
-  margin-right: 8px;
-}
 
 .header .logo-divider {
   width: 3px;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Black */
     #000000  28%,
-    transparent 28%,    /* Gap 1 */
-    transparent 34%,
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
     #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
-    transparent 62%,    /* Gap 2 */
-    transparent 68%,
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
     #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
@@ -564,16 +553,16 @@ h6 {
 
 .footer .logo-divider {
   width: 3px;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Black */
     #000000  28%,
-    transparent 28%,    /* Gap 1 */
-    transparent 34%,
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
     #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
-    transparent 62%,    /* Gap 2 */
-    transparent 68%,
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
     #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
@@ -727,6 +716,27 @@ h6 {
 .footer .credits {
   margin-top: 6px;
   font-size: 13px;
+}
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+@media (max-width: 1200px) {
+  .footer .logo {
+    order: 1;
+  }
+
+}
+
+/* Responsive logo and divider size for smaller screens */
+@media (max-width: 768px) {
+
+  .footer .logo-divider {
+    height: 40px;
+  }
 }
 
 /*--------------------------------------------------------------

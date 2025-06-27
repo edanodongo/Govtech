@@ -441,3 +441,52 @@ def collaboration_board(request):
 def events_view(request):
     events = Event.objects.all()
     return render(request, 'dashboard/events.html', {'events': events})
+
+
+from django.shortcuts import render
+from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+from .forms import StatisticsFilterForm
+from .models import Registration, IndividualDev
+
+# @login_required
+def statistics(request):
+    form = StatisticsFilterForm(request.GET or None)
+    registrations = Registration.objects.all()
+    developers = IndividualDev.objects.all()
+
+    if form.is_valid():
+        start = form.cleaned_data.get('start_date')
+        end = form.cleaned_data.get('end_date')
+        sector = form.cleaned_data.get('sector')
+        industry = form.cleaned_data.get('industry')
+
+        if start:
+            registrations = registrations.filter(date_of_establishment__gte=start)
+        if end:
+            registrations = registrations.filter(date_of_establishment__lte=end)
+        if sector:
+            registrations = registrations.filter(sector__icontains=sector)
+        if industry:
+            developers = developers.filter(industry__icontains=industry)
+
+    company_by_stage = registrations.values('stage').annotate(count=Count('stage'))
+    company_by_nature = registrations.values('nature').annotate(count=Count('nature'))
+    company_by_model = registrations.values('business_model').annotate(count=Count('business_model'))
+
+    dev_by_nature = developers.values('nature').annotate(count=Count('nature'))
+    dev_by_industry = developers.values('industry').annotate(count=Count('industry')).order_by('-count')[:5]
+
+    context = {
+        'form': form,
+        'company_count': registrations.count(),
+        'dev_count': developers.count(),
+        'company_by_stage': list(company_by_stage),
+        'company_by_nature': list(company_by_nature),
+        'company_by_model': list(company_by_model),
+        'dev_by_nature': list(dev_by_nature),
+        'dev_by_industry': list(dev_by_industry),
+    }
+
+    return render(request, 'dashboard/statistics.html', context)
+

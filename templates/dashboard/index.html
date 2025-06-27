@@ -126,7 +126,7 @@
     <div class="navbar-wrapper">
         <div class="m-header header d-flex justify-content-center align-items-center" style="height: 150px; background: #fff; border-bottom: 1px solid #e3e8ee;">
             <a href="{% url 'dashboard_view' %}" class="b-brand text-primary logo d-flex align-items-center" style="gap: 10px;">
-                <img src="{% static 'images/devlinklogo.png' %}" height="90" alt="Devlink Logo" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" />
+                <img src="{% static 'images/devlinklogo.png' %}" height="110" alt="Devlink Logo" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" />
             </a>
         </div>
         <div class="navbar-content" style="padding: 1.5rem 0.5rem;">
@@ -135,6 +135,12 @@
                     <a href="{% url 'dashboard_view' %}" class="pc-link" style="display: flex; align-items: center; gap: 10px; color: #1e293b; font-weight: 500; border-radius: 8px; padding: 10px 16px; transition: background 0.2s;">
                         <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
                         <span class="pc-mtext">Dashboard</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="{% url 'statistics' %}" class="pc-link" style="display: flex; align-items: center; gap: 10px; color: #1e293b; font-weight: 500; border-radius: 8px; padding: 10px 16px;">
+                        <span class="pc-micon"><i class="ph-duotone ph-folder-notch-open"></i></span>
+                        <span class="pc-mtext">Statistics</span>
                     </a>
                 </li>
                 <li class="pc-item pc-caption" style="margin: 18px 0 6px 10px; color: #64748b; font-size: 13px; letter-spacing: 1px;">
@@ -386,14 +392,14 @@
     </div>
 </div>
 <!-- [ Main Content ] end -->
-<footer class="pc-footer">
+<footer class="pc-footer" style="background-color: #BD272F;">
     <div class="footer-wrapper container-fluid">
         <div class="row">
             <div class="col-sm my-1">
                 {% load tz %}
-                <p class="m-0 text-center">
+                <p class="m-0 text-center" style="color: #fff;">
                     Copyright &copy; {% now "Y" %} |
-                    <a href="https://www.ict.go.ke/" target="_blank">
+                    <a href="https://www.ict.go.ke/" target="_blank" style="color: #fff; text-decoration: underline;">
                         The Ministry of Information, Communications and The Digital Economy
                     </a>
                     | All Rights Reserved.

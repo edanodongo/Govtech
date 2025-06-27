@@ -100,23 +100,21 @@ a:hover {
 
 .header .logo-divider {
   width: 3px;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Black */
     #000000  28%,
-    transparent 28%,    /* Gap 1 */
-    transparent 34%,
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
     #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
-    transparent 62%,    /* Gap 2 */
-    transparent 68%,
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
     #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
   margin: 0 12px;
 }
-
-
 
 .header .logo h1 {
   font-size: 30px;
@@ -448,7 +446,7 @@ body {
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    background: linear-gradient(45deg, #df6369, #439f6a);
+    background: #439f6a;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -472,11 +470,6 @@ body {
 .navbar-nav a:hover {
     color: #df6369;
 }
-
-
-
-
-
 
 .nav-buttons {
     display: flex;
@@ -508,7 +501,7 @@ body {
 }
 
 .nav-btn.active {
-    background: linear-gradient(45deg, #df6369, #439f6a);
+    background: linear-gradient(45deg, #df6369);
     color: white;
 }
 
@@ -572,19 +565,19 @@ body {
 }
 
 .carousel-slide:nth-child(1) {
-    background: linear-gradient(135deg, #df6369 0%, #439f6a 100%);
+    background: #8F0007;
 }
 
 .carousel-slide:nth-child(2) {
-    background: linear-gradient(135deg, #7ff1ae 0%, #f5576c 100%);
+    background: #06662e ;
 }
 
 .carousel-slide:nth-child(3) {
-    background: linear-gradient(135deg, #8F0007 0%, #EB545C 100%);
+    background: #8F0007;
 }
 
 .carousel-slide:nth-child(4) {
-    background: linear-gradient(135deg, #43e97b 0%, #3EAB39 100%);
+    background: #064F24;
 }
 
 .carousel-slide h3 {
@@ -672,7 +665,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(45deg, #df6369, #439f6a);
+    background: #1a7741;
 }
 
 .card:hover {
@@ -692,7 +685,7 @@ body {
 }
 
 .card-button {
-    background: linear-gradient(45deg, #df6369, #439f6a);
+    background: #439f6a;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -715,7 +708,7 @@ body {
 }
 
 .api-item {
-    background: linear-gradient(135deg, #df6369, #439f6a);
+    background: #439f6a;
     color: white;
     padding: 25px;
     border-radius: 15px;
@@ -729,7 +722,7 @@ body {
 }
 
 .dataset-showcase {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    background: #fcb69f;
     border-radius: 20px;
     padding: 40px;
     margin: 30px 0;
@@ -775,24 +768,24 @@ body {
   background:  #064F24; color: #f8f9fa;
 }
 
+
 .footer .logo-divider {
   width: 3px;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to bottom,
     #000000 0%,     /* Top color: Black */
     #000000  28%,
-    transparent 28%,    /* Gap 1 */
-    transparent 34%,
+    #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+    #FFFFFF 34%, /* transparent 34%, */
     #BD272F 34%, /* Middle color: Red */
     #BD272F 62%,
-    transparent 62%,    /* Gap 2 */
-    transparent 68%,
+    #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+    #FFFFFF 68%, /* transparent 68%, */
     #136B38 68%, /* Bottom color: Green */
     #136B38 100%
   );
   margin: 0 12px;
 }
-
 
 .footer .footer-newsletter {
   background-color: color-mix(in srgb, var(--default-color), transparent 97%);

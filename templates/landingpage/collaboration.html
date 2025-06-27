@@ -35,11 +35,11 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{% static 'images/court of arms.png' %}" alt="Court of Arms" />      
-        <div class="logo-divider"></div>      
-        <img src="{% static 'images/devlinklogo.png' %}" alt="Devlink Logo" />
-      </a>
+    <a href="landing.html" class=" d-flex align-items-center me-auto" >
+        <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
+        <div class="logo-divider"></div>
+        <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
+    </a>
 
       
       <nav id="navmenu" class="navmenu">
@@ -268,6 +268,11 @@
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-about">
                 <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                    <img src="{% static 'images/court-of-arms.png' %}" height="50" alt="Court of Arms" />
+                    <div class="logo-divider"></div>
+                    <img src="{% static 'images/devlinklogo.png' %}" height="80" alt="Devlink Logo" />
+                </a>
+                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
                     <span class="sitename" style="color: #f8f9fa;">Devlink Kenya</span>
                 </a>
                 <p style="color: #d1d1e0;">Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
@@ -305,8 +310,8 @@
                 <p style="color: #d1d1e0;">P.O. Box 30025 - 00100</p>
                 <p style="color: #d1d1e0;">GPO Telposta Towers, Koinange Street</p>
                 <p style="color: #d1d1e0;">Nairobi, Kenya</p>
-                <p class="mt-4" style="color: #d1d1e0;"><strong>Phone:</strong> <span> +254 700 000 000</span></p>
-                <p style="color: #d1d1e0;"><strong>Email:</strong> <span>devlink@support.go.ke</span></p>
+                <p class="mt-4" ><strong>Phone:</strong> <span> <!-- +254 700 000 000 --> </span></p>
+                <p ><strong>Email:</strong> <span><!-- devlink@support.go.ke --></span></p>
             </div>
 
         </div>
