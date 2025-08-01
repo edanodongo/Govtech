@@ -10,23 +10,24 @@
     <link href="{% static 'css/event/main.css' %}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-  }
-</style>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 <div class="animated-bg">
     <div class="floating-particles" id="particles"></div>
 </div>
+<div id="codeRain"></div>
 
 <header>
     <nav>
         <a class="logo" href="#">Kenya Software Summit 2025</a>
         <ul class="nav-links">
-            <li><a href="#breakfast">Breakfast</a></li>
+            <li><a href="#breakfast">Home</a></li>
             <li><a href="#agenda">Agenda</a></li>
             <li><a href="#panelist">Panelist</a></li>
             <li><a href="#summit">Summit</a></li>
@@ -86,8 +87,8 @@
                     "Join Kenya's most influential tech leaders for an exclusive morning of meaningful conversations,
                     strategic discussions, and networking over a premium breakfast experience."
                 </p>
-                <a class="cta-button" href="#" id="confirmAttendanceBtn">Confirm Attendance</a>
-                <a class="cta-button secondary" href="#agenda">View Agenda</a>
+                <a class="cta-button" href="#agenda">View Agenda</a>
+                <a class="cta-button" href="#panelist" id="confirmAttendanceBtn">View Panelist</a>
             </div>
         </div>
     </div>
@@ -140,7 +141,8 @@
             <div class="agenda-time">7:30 AM - 8:30 AM</div>
             <div class="agenda-content">
                 <div class="agenda-title">Panel Discussion</div>
-                <div class="agenda-description">"Fuelling Kenya's Software Revolution: Ecosystem Builders in Action"</div>
+                <div class="agenda-description">"Fuelling Kenya's Software Revolution: Ecosystem Builders in Action"
+                </div>
                 <div class="agenda-facilitator">Moderated by Josephine Ndambuki, KoTDA</div>
             </div>
         </div>
@@ -189,114 +191,114 @@
     <div class="panelist-table-container">
         <table class="panelist-table">
             <thead>
-                <tr>
-                    <th>Panelist</th>
-                    <th>Organization & Role</th>
-                    <th>Topic Focus</th>
-                    <th>Key Discussion Points</th>
-                </tr>
+            <tr>
+                <th>Panelist</th>
+                <th>Organization & Role</th>
+                <th>Topic Focus</th>
+                <th>Key Discussion Points</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="panelist-name">
-                        <div class="panelist-avatar">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <strong>Brian Omwenga</strong>
-                    </td>
-                    <td class="panelist-org">
-                        Team Lead<br>
-                        <span class="org-name">Tech Innovators Network (THiNK)</span>
-                    </td>
-                    <td class="topic-focus">
-                        "Scaling Software Start-ups in Kenya: Challenges and Catalysts"
-                    </td>
-                    <td class="discussion-points">
-                        • Talent & funding challenges<br>
-                        • Software IP rights<br>
-                        • Web hosting & cloud services
-                    </td>
-                </tr>
-                <tr>
-                    <td class="panelist-name">
-                        <div class="panelist-avatar">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <strong>Eng. Dr. Julius Butime</strong>
-                    </td>
-                    <td class="panelist-org">
-                        Dean, School of Computing<br>
-                        <span class="org-name">Strathmore University</span>
-                    </td>
-                    <td class="topic-focus">
-                        "Building an AI-Ready Workforce: Education, Skills, and Mindsets"
-                    </td>
-                    <td class="discussion-points">
-                        • Curriculum alignment<br>
-                        • Emerging technologies<br>
-                        • AI TRiSM Framework
-                    </td>
-                </tr>
-                <tr>
-                    <td class="panelist-name">
-                        <div class="panelist-avatar">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <strong>Johnny Falla</strong>
-                    </td>
-                    <td class="panelist-org">
-                        Innovation & Technology<br>
-                        <span class="org-name">Equity Group Foundation</span>
-                    </td>
-                    <td class="topic-focus">
-                        "Why Now? Investing in Kenya's Software and AI Talent"
-                    </td>
-                    <td class="discussion-points">
-                        • Success metrics<br>
-                        • Investment trends<br>
-                        • Market opportunities
-                    </td>
-                </tr>
-                <tr>
-                    <td class="panelist-name">
-                        <div class="panelist-avatar">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <strong>Catherine Muraga</strong>
-                    </td>
-                    <td class="panelist-org">
-                        Managing Director<br>
-                        <span class="org-name">Microsoft ADC & Engineering</span>
-                    </td>
-                    <td class="topic-focus">
-                        "The Case for Setting Up in Kenya: Talent, Innovation, and Opportunity"
-                    </td>
-                    <td class="discussion-points">
-                        • Global partnerships<br>
-                        • BPO opportunities<br>
-                        • Regional potential
-                    </td>
-                </tr>
-                <tr>
-                    <td class="panelist-name">
-                        <div class="panelist-avatar">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <strong>Francis Nderitu</strong>
-                    </td>
-                    <td class="panelist-org">
-                        Founder<br>
-                        <span class="org-name">KeepITCool</span>
-                    </td>
-                    <td class="topic-focus">
-                        "From Nairobi to the World: Unlocking Global Opportunities"
-                    </td>
-                    <td class="discussion-points">
-                        • Software exports<br>
-                        • Open-source contributions<br>
-                        • Global success stories
-                    </td>
-                </tr>
+            <tr>
+                <td class="panelist-name">
+                    <div class="panelist-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <strong>Brian Omwenga</strong>
+                </td>
+                <td class="panelist-org">
+                    Team Lead<br>
+                    <span class="org-name">Tech Innovators Network (THiNK)</span>
+                </td>
+                <td class="topic-focus">
+                    "Scaling Software Start-ups in Kenya: Challenges and Catalysts"
+                </td>
+                <td class="discussion-points">
+                    • Talent & funding challenges<br>
+                    • Software IP rights<br>
+                    • Web hosting & cloud services
+                </td>
+            </tr>
+            <tr>
+                <td class="panelist-name">
+                    <div class="panelist-avatar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <strong>Eng. Dr. Julius Butime</strong>
+                </td>
+                <td class="panelist-org">
+                    Dean, School of Computing<br>
+                    <span class="org-name">Strathmore University</span>
+                </td>
+                <td class="topic-focus">
+                    "Building an AI-Ready Workforce: Education, Skills, and Mindsets"
+                </td>
+                <td class="discussion-points">
+                    • Curriculum alignment<br>
+                    • Emerging technologies<br>
+                    • AI TRiSM Framework
+                </td>
+            </tr>
+            <tr>
+                <td class="panelist-name">
+                    <div class="panelist-avatar">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <strong>Johnny Falla</strong>
+                </td>
+                <td class="panelist-org">
+                    Innovation & Technology<br>
+                    <span class="org-name">Equity Group Foundation</span>
+                </td>
+                <td class="topic-focus">
+                    "Why Now? Investing in Kenya's Software and AI Talent"
+                </td>
+                <td class="discussion-points">
+                    • Success metrics<br>
+                    • Investment trends<br>
+                    • Market opportunities
+                </td>
+            </tr>
+            <tr>
+                <td class="panelist-name">
+                    <div class="panelist-avatar">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <strong>Catherine Muraga</strong>
+                </td>
+                <td class="panelist-org">
+                    Managing Director<br>
+                    <span class="org-name">Microsoft ADC & Engineering</span>
+                </td>
+                <td class="topic-focus">
+                    "The Case for Setting Up in Kenya: Talent, Innovation, and Opportunity"
+                </td>
+                <td class="discussion-points">
+                    • Global partnerships<br>
+                    • BPO opportunities<br>
+                    • Regional potential
+                </td>
+            </tr>
+            <tr>
+                <td class="panelist-name">
+                    <div class="panelist-avatar">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <strong>Francis Nderitu</strong>
+                </td>
+                <td class="panelist-org">
+                    Founder<br>
+                    <span class="org-name">KeepITCool</span>
+                </td>
+                <td class="topic-focus">
+                    "From Nairobi to the World: Unlocking Global Opportunities"
+                </td>
+                <td class="discussion-points">
+                    • Software exports<br>
+                    • Open-source contributions<br>
+                    • Global success stories
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -357,8 +359,8 @@
     <div class="summit-preview">
         <div class="preview-card">
             <i class="fas fa-calendar-check"></i>
-            <h3>October 27, 2025</h3>
-            <p>Two days after our exclusive breakfast, join hundreds of developers for the main event</p>
+            <h3>October 22, 2025 - October 24, 2025</h3>
+            <p>Join hundreds of developers, tech innovators, industry players and entrepreneurs for the main event</p>
         </div>
 
         <div class="preview-card">
@@ -372,6 +374,13 @@
             <h3>World-Class Speakers</h3>
             <p>International and local experts sharing cutting-edge insights and technologies</p>
         </div>
+
+        <div class="preview-card">
+            <i class="fas fa-utensils"></i>
+            <h3>Meals Available</h3>
+            <p>Enjoy complimentary tea breaks and lunch during the summit sessions</p>
+        </div>
+
     </div>
 
     <div style="margin-top: 3rem;">
@@ -407,7 +416,7 @@
 <script>
     // Summit Countdown Timer
     function updateSummitCountdown() {
-        const summitDate = new Date('2025-10-27T09:00:00').getTime();
+        const summitDate = new Date('2025-10-22T09:00:00').getTime();
         const now = new Date().getTime();
         const timeLeft = summitDate - now;
 
@@ -430,38 +439,6 @@
     setInterval(updateSummitCountdown, 1000);
     updateSummitCountdown();
 
-    // QR Code Modal functionality
-    const modal = document.getElementById('qrModal');
-    const confirmBtn = document.getElementById('confirmAttendanceBtn');
-    const closeBtn = document.getElementById('closeModal');
-
-    confirmBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    });
-
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-
     // Floating Particles Animation
     function createParticle() {
         const particle = document.createElement('div');
@@ -482,6 +459,35 @@
     }
 
     setInterval(createParticle, 800);
+
+    function createCodeRain() {
+        const codeChars = [
+            '0', '1', '{', '}', '(', ')', ';', '=', '+', '-', '*', '/',
+            '<', '>', '?', ':', '[', ']', 'if', 'for', 'var', 'let'
+        ];
+        const codeRain = document.getElementById('codeRain');
+
+        for (let i = 0; i < 50; i++) {
+            const span = document.createElement('span');
+            span.className = 'code-rain';
+            span.textContent = codeChars[Math.floor(Math.random() * codeChars.length)];
+
+            span.style.left = `${Math.random() * 100}%`;
+            span.style.top = `-${Math.random() * 50}px`;
+            span.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            span.style.animationDelay = `${Math.random() * 3}s`;
+            span.style.fontSize = `${Math.random() * 8 + 12}px`;
+
+            codeRain.appendChild(span);
+
+            setTimeout(() => {
+                span.remove();
+            }, 9000); // slightly more than max animation time
+        }
+    }
+
+    setInterval(createCodeRain, 1500);
+    createCodeRain();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

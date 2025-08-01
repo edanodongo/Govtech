@@ -267,7 +267,7 @@
 
         .detail-label {
             font-size: 0.9rem;
-            color: var(--text-light);
+           color: var(--secondary-gold);
             margin-bottom: 0.3rem;
         }
 
@@ -710,14 +710,13 @@ a {
 
 /* Panelist Section Styling */
 .panelist {
-  background-color: #000; /* Black background */
-  color: #FFD700; /* Gold text */
+  color: #FFE89D; /* Gold text */
   padding: 4rem 2rem;
   text-align: center;
 }
 
 .panelist h2, .panelist h3, .panelist h4 {
-  color: #FFD700;
+  color: #FFE89D;
 }
 
 .panelist p {
@@ -734,8 +733,7 @@ a {
 }
 
 .panel-info-card {
-  background-color: #111;
-  border: 1px solid #FFD700;
+  border: 1px solid #FFE89D;
   padding: 1.5rem;
   border-radius: 0.75rem;
   flex: 1;
@@ -751,25 +749,23 @@ a {
 .panelist-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #111;
-  color: #FFD700;
+  color: #FFE89D;
 }
 
 .panelist-table th,
 .panelist-table td {
-  border: 1px solid #FFD700;
+  border: 1px solid #FFE89D;
   padding: 1rem;
   text-align: left;
   vertical-align: top;
 }
 
 .panelist-table th {
-  background-color: #222;
 }
 
 .panelist-avatar i {
   margin-right: 0.5rem;
-  color: #FFD700;
+  color: #FFE89D;
 }
 
 /* Outcomes Grid */
@@ -785,8 +781,7 @@ a {
 }
 
 .outcome-item {
-  background-color: #111;
-  border: 1px solid #FFD700;
+  border: 1px solid #FFE89D;
   border-radius: 0.75rem;
   padding: 1.5rem;
 }
@@ -794,10 +789,43 @@ a {
 .outcome-item i {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #FFD700;
+  color: #FFE89D;
 }
 
 .outcome-item h4 {
   margin: 0.5rem 0;
+}
+
+#codeRain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none; /* lets users click through */
+}
+
+.code-rain {
+  position: absolute;
+  color: #FFD700; /* Gold */
+  font-family: 'Courier New', monospace;
+  opacity: 0.4;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
