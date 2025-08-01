@@ -17,6 +17,9 @@ from dashboard.models import Notification
 def landing(request):
     return render(request, 'landingpage/landing.html')
 
+def landingEvent(request):
+    return render(request, 'landingpage/index.html')
+
 
 def register_view(request):
     countries = Country.objects.all().order_by('nationality')
