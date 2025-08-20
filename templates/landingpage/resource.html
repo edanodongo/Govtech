@@ -35,7 +35,7 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a href="landing.html" class=" d-flex align-items-center me-auto" >
+    <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
         <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
         <div class="logo-divider"></div>
         <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
@@ -43,7 +43,7 @@
 
     <nav id="navmenu" class="navmenu">
         <ul>
-        <li><a href="{% url 'landing' %}" class="active" >Home</a></li>
+        <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
         </li>
         <li><a href="{% url 'resource' %}" ><span>Resource Hub</span></a>
         </li>
@@ -81,7 +81,7 @@
         <h1>Resource Hub</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'portalHome' %}">Home</a></li>
             <li class="current">Resource Hub</li>
             <li>Resource Hub</li>
           </ol>
@@ -242,12 +242,12 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-about">
-                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
                     <img src="{% static 'images/court-of-arms.png' %}" height="50" alt="Court of Arms" />
                     <div class="logo-divider"></div>
                     <img src="{% static 'images/devlinklogo.png' %}" height="80" alt="Devlink Logo" />
                 </a>
-                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
                     <span class="sitename">Devlink Kenya</span>
                 </a>
                 <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
@@ -261,7 +261,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4 >Useful Links</h4>
                 <ul>
-                    <li><a href="{% url 'landing' %}" >Home</a></li>
+                    <li><a href="{% url 'portalHome' %}" >Home</a></li>
                     <li><a href="{% url 'resource' %}" >Resources</a></li>
                     <li><a href="{% url 'guidelines' %}" >Startup support</a></li>
                     <li><a href="{% url 'collaboration' %}" >Collaboration and innovation</a></li>

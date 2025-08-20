@@ -7,6 +7,35 @@
 <div class="container mt-4">
   <h2>Platform Statistics</h2>
 
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card flex-row align-items-center">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-3">
+              <span class="badge bg-light-primary border border-primary fs-3"><i class="ti ti-trending-up"></i></span>
+            </div>
+            <div>
+              <h6 class="mb-1 f-w-400 text-muted">Software Firms</h6>
+              <h4 class="mb-0">{{ total_companies }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card flex-row align-items-center">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-3">
+              <span class="badge bg-light-success border border-success fs-3"><i class="ti ti-trending-up"></i></span>
+            </div>
+            <div>
+              <h6 class="mb-1 f-w-400 text-muted">Developers</h6>
+              <h4 class="mb-0">{{ total_individuals }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <!-- Filter Form -->
   <form method="get" class="mb-4 p-3 border rounded bg-light">
     <div class="row g-3">

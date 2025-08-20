@@ -35,7 +35,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <a href="landing.html" class=" d-flex align-items-center me-auto" >
+    <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
         <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
         <div class="logo-divider"></div>
         <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
@@ -44,7 +44,7 @@
       
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{% url 'landing' %}" class="active">Home</a></li>
+          <li><a href="{% url 'portalHome' %}" class="active">Home</a></li>
 
           <li><a href="{% url 'resource' %}"><span>Resource Hub</span></a></li>
           <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> </a>
@@ -66,7 +66,7 @@
               <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
             </ul>
           </li>
-          <li><a href="{% url 'landing' %}" >Contact Us</a></li>
+          <li><a href="{% url 'portalHome' %}" >Contact Us</a></li>
 
          
 
@@ -86,7 +86,7 @@
         <h1>Collaboration & Innovation</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'portalHome' %}">Home</a></li>
             <li class="current">Collaboration & Innovation</li>
             <li>Collaboration & Innovation</li>
           </ol>
@@ -267,12 +267,12 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-about">
-                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
                     <img src="{% static 'images/court-of-arms.png' %}" height="50" alt="Court of Arms" />
                     <div class="logo-divider"></div>
                     <img src="{% static 'images/devlinklogo.png' %}" height="80" alt="Devlink Logo" />
                 </a>
-                <a href="{% url 'landing' %}" class="logo d-flex align-items-center">
+                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
                     <span class="sitename" style="color: #f8f9fa;">Devlink Kenya</span>
                 </a>
                 <p style="color: #d1d1e0;">Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
@@ -286,7 +286,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4 style="color: #f8f9fa;">Useful Links</h4>
                 <ul>
-                    <li><a href="{% url 'landing' %}" style="color: #d1d1e0;">Home</a></li>
+                    <li><a href="{% url 'portalHome' %}" style="color: #d1d1e0;">Home</a></li>
                     <li><a href="{% url 'resource' %}" style="color: #d1d1e0;">Resources</a></li>
                     <li><a href="{% url 'guidelines' %}" style="color: #d1d1e0;">Startup support</a></li>
                     <li><a href="{% url 'collaboration' %}" style="color: #d1d1e0;">Collaboration and innovation</a></li>
