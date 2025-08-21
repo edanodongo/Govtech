@@ -26,5 +26,4 @@ urlpatterns = [
     path('technical/', views.technical, name='technical'),
     path('monetization/', views.monetization, name='monetization'),
     path('complete/', views.complete, name='complete'),
-    path('statistics/', views.statistics, name='statistics'),
 ]

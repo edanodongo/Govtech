@@ -14,8 +14,58 @@ from .models import *
 from dashboard.models import Notification
 
 
+from django.utils.timezone import now
+from django.db.models import Min
+
+def get_total_hours_since_start():
+    earliest = SignupUser.objects.aggregate(Min('dateCreated'))['dateCreated__min']
+    if not earliest:
+        return 0  # No records, so zero hours elapsed
+    delta = now() - earliest
+    total_hours = delta.total_seconds() / 3600  # Convert seconds to hours
+    return round(total_hours, 2)  # Optionally round to 2 decimal places
+
+
+from django.shortcuts import render
+from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+from .forms import StatisticsFilterForm
+
+from django.db.models import Count, Q
+from django.shortcuts import render
+from .models import SignupUser
+
+
 def landing(request):
-    return render(request, 'landingpage/landing.html')
+    counts = SignupUser.objects.aggregate(
+        count_1=Count('id', filter=Q(accountType=1)),
+        count_2=Count('id', filter=Q(accountType=2))
+    )
+    total = SignupUser.objects.filter(accountType__in=[1, 2]).count()
+    total_hours = get_total_hours_since_start()
+    
+    individualDev = SignupUser.objects.filter(accountType=1).distinct()
+    company = SignupUser.objects.filter(accountType=2).distinct()
+    form = StatisticsFilterForm(request.GET or None)
+    
+    print("Counts:", counts)
+    print("Total:", total)
+    print("Total Hours:", total_hours)
+    print("Individual Developers:", individualDev.count())
+    print("Companies:", company.count())
+    
+    context = {
+        'counts': counts,
+        'form': form,
+        'total': total,
+        'total_hours': total_hours,
+        'individualDev': individualDev,
+        'company': company,
+        'company_count': counts['count_2'],
+        'dev_count': counts['count_1'],
+    }
+
+    return render(request, 'landingpage/landing.html', context)
 
 def landingEvent(request):
     return render(request, 'landingpage/index.html')
@@ -455,53 +505,6 @@ def collaboration(request):
 
 def technical(request):
     return render(request, 'landingpage/technical.html')
-
-from django.utils.timezone import now
-from django.db.models import Min
-
-def get_total_hours_since_start():
-    earliest = SignupUser.objects.aggregate(Min('dateCreated'))['dateCreated__min']
-    if not earliest:
-        return 0  # No records, so zero hours elapsed
-    delta = now() - earliest
-    total_hours = delta.total_seconds() / 3600  # Convert seconds to hours
-    return round(total_hours, 2)  # Optionally round to 2 decimal places
-
-
-from django.shortcuts import render
-from django.db.models import Count
-from django.contrib.auth.decorators import login_required
-from .forms import StatisticsFilterForm
-
-from django.db.models import Count, Q
-from django.shortcuts import render
-from .models import SignupUser
-
-def statistics(request):
-    counts = SignupUser.objects.aggregate(
-        count_1=Count('id', filter=Q(accountType=1)),
-        count_2=Count('id', filter=Q(accountType=2))
-    )
-    total = SignupUser.objects.filter(accountType__in=[1, 2]).count()
-    total_hours = get_total_hours_since_start()
-    
-    individualDev = SignupUser.objects.filter(accountType=1).distinct()
-    company = SignupUser.objects.filter(accountType=2).distinct()
-    form = StatisticsFilterForm(request.GET or None)
-    
-    context = {
-        'counts': counts,
-        'form': form,
-        'total': total,
-        'total_hours': total_hours,
-        'individualDev': individualDev,
-        'company': company,
-        'company_count': counts['count_2'],
-        'dev_count': counts['count_1'],
-    }
-
-    return render(request, 'landingpage/landing.html', context)
-
 
 
 def signup(request):
