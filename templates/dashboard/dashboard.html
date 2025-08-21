@@ -17,7 +17,11 @@
 <div class="container mt-4">
   <!-- Welcome Section -->
   <div class="alert alert-info">
-    <strong>Welcome, {{ user.username }}!</strong> Your profile is {{ profile_completion }}% complete.
+    {% if request.session.userType == 1 %}
+      Welcome, <strong>{{ request.session.fName }} {{ request.session.lName }}</strong> Your profile is <strong>{{ profile_completion }}% </strong> complete.
+    {% else %}
+      Welcome, <strong>{{ request.session.company }}</strong> Your profile is <strong>{{ profile_completion }}% </strong> complete.
+    {% endif %}
   </div>
 
   <!-- Dashboard Cards -->

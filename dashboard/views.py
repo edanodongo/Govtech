@@ -450,7 +450,12 @@ from .forms import StatisticsFilterForm
 from .models import Registration, IndividualDev
 
 # @login_required
-def statistics(request):
+def dashboard_stats(request):
+    
+    # Basic totals
+    total_companies = Registration.objects.count()
+    total_individuals = IndividualDev.objects.count()
+    
     form = StatisticsFilterForm(request.GET or None)
     registrations = Registration.objects.all()
     developers = IndividualDev.objects.all()
@@ -478,6 +483,8 @@ def statistics(request):
     dev_by_industry = developers.values('industry').annotate(count=Count('industry')).order_by('-count')[:5]
 
     context = {
+        'total_companies': total_companies,
+        'total_individuals': total_individuals,
         'form': form,
         'company_count': registrations.count(),
         'dev_count': developers.count(),
