@@ -1,0 +1,889 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Monetization</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --default-color: #060606;
+            --heading-color: #060606;
+            --accent-color: #BD252D;
+            --surface-color: #ffffff;
+            --contrast-color: #ffffff;
+        }
+
+
+    /*--------------------------------------------------------------
+    # Global Header
+    --------------------------------------------------------------*/
+    .header {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 15px 0;
+    transition: all 0.5s;
+    z-index: 997;
+    }
+
+    .header .logo {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    }
+
+    .header .logo img {
+    height: 80px; /* Increased from 60px to 80px */
+    width: auto;
+    margin-right: 8px;
+    }
+
+    .header .logo-divider {
+    width: 3px;
+    height: 50px;
+    background: linear-gradient(to bottom,
+        #000000 0%,     /* Top color: Black */
+        #000000  28%,
+        #FFFFFF 28%, /* transparent 28%,    /* Gap 1 */
+        #FFFFFF 34%, /* transparent 34%, */
+        #BD272F 34%, /* Middle color: Red */
+        #BD272F 62%,
+        #FFFFFF 62%, /* transparent 62%,    /* Gap 2 */
+        #FFFFFF 68%, /* transparent 68%, */
+        #136B38 68%, /* Bottom color: Green */
+        #136B38 100%
+    );
+    margin: 0 12px;
+    }
+
+    .header .logo h1 {
+    font-size: 30px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+    }
+
+    .header .btn-getstarted,
+    .header .btn-getstarted:focus {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    font-size: 14px;
+    padding: 8px 25px;
+    margin: 0 0 0 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    }
+
+    .header .btn-getstarted:hover,
+    .header .btn-getstarted:focus:hover {
+    color: var(--contrast-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+    }
+
+    @media (max-width: 1200px) {
+    .header .logo {
+        order: 1;
+    }
+
+    .header .btn-getstarted {
+        order: 2;
+        margin: 0 15px 0 0;
+        padding: 6px 15px;
+    }
+
+    .header .navmenu {
+        order: 3;
+    }
+    }
+
+    /* Responsive logo and divider size for smaller screens */
+    @media (max-width: 768px) {
+    .header .logo img {
+        height: 50px;
+    }
+
+    .header .logo-divider {
+        height: 50px;
+    }
+
+    .header .logo h1 {
+        font-size: 24px;
+    }
+    }
+
+    .scrolled .header {
+    box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+    }
+
+    /*--------------------------------------------------------------
+    # Navigation Menu
+    --------------------------------------------------------------*/
+    /* Navmenu - Desktop */
+    @media (min-width: 1200px) {
+    .navmenu {
+        padding: 0;
+    }
+
+    .navmenu ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    .navmenu li {
+        position: relative;
+    }
+
+    .navmenu a,
+    .navmenu a:focus {
+        color: var(--nav-color);
+        padding: 18px 15px;
+        font-size: 16px;
+        font-family: var(--nav-font);
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+    .navmenu a i,
+    .navmenu a:focus i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+        transition: 0.3s;
+    }
+
+    .navmenu li:last-child a {
+        padding-right: 0;
+    }
+
+    .navmenu li:hover>a,
+    .navmenu .active,
+    .navmenu .active:focus {
+        color: var(--nav-hover-color);
+    }
+
+    .navmenu .dropdown ul {
+        margin: 0;
+        padding: 10px 0;
+        background: var(--nav-dropdown-background-color);
+        display: block;
+        position: absolute;
+        visibility: hidden;
+        left: 14px;
+        opacity: 0;
+        transition: 0.3s;
+        border-radius: 4px;
+        z-index: 99;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navmenu .dropdown ul li {
+        min-width: 200px;
+    }
+
+    .navmenu .dropdown ul a {
+        padding: 10px 20px;
+        font-size: 15px;
+        text-transform: none;
+        color: var(--nav-dropdown-color);
+    }
+
+    .navmenu .dropdown ul a i {
+        font-size: 12px;
+    }
+
+    .navmenu .dropdown ul a:hover,
+    .navmenu .dropdown ul .active:hover,
+    .navmenu .dropdown ul li:hover>a {
+        color: var(--nav-dropdown-hover-color);
+    }
+
+    .navmenu .dropdown:hover>ul {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navmenu .dropdown .dropdown ul {
+        top: 0;
+        left: -90%;
+        visibility: hidden;
+    }
+
+    .navmenu .dropdown .dropdown:hover>ul {
+        opacity: 1;
+        top: 0;
+        left: -100%;
+        visibility: visible;
+    }
+    }
+
+    /* Navmenu - Mobile */
+    @media (max-width: 1199px) {
+    .mobile-nav-toggle {
+        color: var(--nav-color);
+        font-size: 28px;
+        line-height: 0;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .navmenu {
+        padding: 0;
+        z-index: 9997;
+    }
+
+    .navmenu ul {
+        display: none;
+        list-style: none;
+        position: absolute;
+        inset: 60px 20px 20px 20px;
+        padding: 10px 0;
+        margin: 0;
+        border-radius: 6px;
+        background-color: var(--nav-mobile-background-color);
+        overflow-y: auto;
+        transition: 0.3s;
+        z-index: 9998;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navmenu a,
+    .navmenu a:focus {
+        color: var(--nav-dropdown-color);
+        padding: 10px 20px;
+        font-family: var(--nav-font);
+        font-size: 17px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+    .navmenu a i,
+    .navmenu a:focus i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: 0.3s;
+        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+
+    .navmenu a i:hover,
+    .navmenu a:focus i:hover {
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+    }
+
+    .navmenu a:hover,
+    .navmenu .active,
+    .navmenu .active:focus {
+        color: var(--nav-dropdown-hover-color);
+    }
+
+    .navmenu .active i,
+    .navmenu .active:focus i {
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+        transform: rotate(180deg);
+    }
+
+    .navmenu .dropdown ul {
+        position: static;
+        display: none;
+        z-index: 99;
+        padding: 10px 0;
+        margin: 10px 20px;
+        background-color: var(--nav-dropdown-background-color);
+        border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        box-shadow: none;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .navmenu .dropdown ul ul {
+        background-color: rgba(33, 37, 41, 0.1);
+    }
+
+    .navmenu .dropdown>.dropdown-active {
+        display: block;
+        background-color: rgba(33, 37, 41, 0.03);
+    }
+
+    .mobile-nav-active {
+        overflow: hidden;
+    }
+
+    .mobile-nav-active .mobile-nav-toggle {
+        color: #fff;
+        position: absolute;
+        font-size: 32px;
+        top: 15px;
+        right: 15px;
+        margin-right: 0;
+        z-index: 9999;
+    }
+
+    .mobile-nav-active .navmenu {
+        position: fixed;
+        overflow: hidden;
+        inset: 0;
+        background: rgba(33, 37, 41, 0.8);
+        transition: 0.3s;
+    }
+
+    .mobile-nav-active .navmenu>ul {
+        display: block;
+    }
+    }
+
+    /*--------------------------------------------------------------
+    # General Styling & Shared Classes
+    --------------------------------------------------------------*/
+    body {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-family: var(--default-font);
+    }
+
+    a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    }
+
+
+    a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    text-decoration: none;
+    }
+
+
+        body {
+            background-color: var(--background-color);
+            color: var(--default-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--accent-color), #9d1e24);
+            color: var(--contrast-color);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .platform-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(189, 37, 45, 0.15);
+        }
+
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), #9d1e24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--contrast-color);
+            font-size: 1.5rem;
+        }
+
+        .platform-title {
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .monetization-methods {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .monetization-methods h6 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent-color), #9d1e24);
+            border: none;
+            color: var(--contrast-color);
+            padding: 12px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(189, 37, 45, 0.3);
+            color: var(--contrast-color);
+        }
+
+        .section-title {
+            color: var(--heading-color);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-color), #9d1e24);
+            display: block;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--heading-color), #333);
+            color: var(--contrast-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .platform-card {
+                padding: 20px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation 
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-dollar-sign me-2"></i>Digital Monetization</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#platforms">Platforms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#guidelines">Guidelines</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    -->
+    
+  <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+        <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
+            <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
+            <div class="logo-divider"></div>
+            <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+            <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
+            </li>
+            <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
+            </li>
+            <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+                <ul>
+                <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+                <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+                <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+                </ul> 
+                {% comment %}
+                <ul>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Knowledge exchange forum</a></li>
+                <li><a href="#">Government hackathons and innovation challenges</a></li>
+                <li><a href="#">Engage in collaborative R&D projects</a></li>
+                <li><a href="#">Repository for government projects</a></li>
+                </ul> {% endcomment %}
+            </li>
+            <li class="dropdown"><a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
+                <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
+                <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
+                <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
+                <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
+                </ul>
+            </li>
+            <li><a >Contact Us</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted"  href="{% url 'login' %}"><i class="fa fa-user-plus"></i> Get Started</a>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center hero-content">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-4 fade-in">Digital Platform Monetization</h1>
+                    <p class="lead mb-4 fade-in">Comprehensive guide to monetizing your content across major social media platforms</p>
+                    <a href="#platforms" class="btn btn-accent btn-lg fade-in">Explore Platforms</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section id="platforms" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Platform Monetization</h2>
+            
+            <!-- TikTok -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h3 class="platform-title">TikTok</h3>
+                        <p>Kenya is not officially included in TikTok's Creator Fund program because of local advertising market conditions.</p>
+                        
+                        <div class="monetization-methods">
+                            <h6>Monetization Methods:</h6>
+                            <ul class="mb-0">
+                                <li>Sponsored content and brand deals with local or international brands</li>
+                                <li>Affiliate marketing by promoting products and earning commissions</li>
+                                <li>Virtual gifts and tips during live streams (must be 18+ and have at least 1,000 followers)</li>
+                                <li>Selling merchandise or products</li>
+                            </ul>
+                        </div>
+
+                        <h6 class="text-primary">Creator Rewards Program Requirements:</h6>
+                        <ul class="requirements-list">
+                            <li>Be at least 18 years old</li>
+                            <li>Have a minimum of 10,000 followers</li>
+                            <li>Have at least 100,000 video views in the last 30 days</li>
+                            <li>Complete profile with profile picture, bio, and contact info</li>
+                            <li>Post high-quality, original videos (at least one minute long)</li>
+                            <li>Have an account in good standing with no violations</li>
+                        </ul>
+                        
+                        <p><strong>Payment Options:</strong> PayPal or mobile money like M-Pesa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta Platforms -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <h3 class="platform-title">Facebook (Meta)</h3>
+                        
+                        <div class="monetization-methods">
+                            <h6>Monetization Methods:</h6>
+                            <ul class="mb-0">
+                                <li>In-Stream Ads on Facebook - Earn from ads in original videos</li>
+                                <li>Facebook Ads on Reels - Revenue sharing from Reels advertisements</li>
+                                <li>Facebook Stars - Virtual gifts during live streams</li>
+                            </ul>
+                        </div>
+
+                        <h6 class="text-primary">Requirements:</h6>
+                        <ul class="requirements-list">
+                            <li>Have a Facebook Page associated with your account</li>
+                            <li>Be at least 18 years old</li>
+                            <li>Valid payment method (credit/debit card or PayPal)</li>
+                            <li>Have at least 10,000 followers</li>
+                            <li>Generate at least 30,000 one-minute views on 3+ minute videos in past 60 days</li>
+                            <li>Post original content adhering to Monetization Eligibility Standards</li>
+                            <li>Facebook Page must be at least 90 days old</li>
+                            <li>Established presence for at least 30 days</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 class="platform-title">Instagram</h3>
+                        
+                        <div class="monetization-methods">
+                            <h6>Monetization Methods:</h6>
+                            <ul class="mb-0">
+                                <li>Instagram Reels Play Bonus - Payment based on performance and engagement</li>
+                                <li>Sponsored Content - Brand partnerships and collaborations</li>
+                                <li>Virtual Gifts - Live stream monetization through viewer gifts</li>
+                                <li>Creator Fund Programs - Direct payments for quality content</li>
+                                <li>Shopping Features - Product tagging and affiliate commissions</li>
+                            </ul>
+                        </div>
+
+                        <h6 class="text-primary">Requirements:</h6>
+                        <ul class="requirements-list">
+                            <li>Be at least 18 years old</li>
+                            <li>Use a Creator or Business professional account</li>
+                            <li>Have at least 10,000 followers for subscriptions and Reels monetization</li>
+                            <li>Live in a region where Instagram monetization features are available</li>
+                            <li>Have a bank or PayPal account for payment processing</li>
+                            <li>Follow Instagram's Community Guidelines and Monetization Policies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp Business -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="platform-title">WhatsApp Business</h3>
+                        
+                        <div class="monetization-methods">
+                            <h6>Monetization Methods:</h6>
+                            <ul class="mb-0">
+                                <li>WhatsApp Business API - Businesses pay for messaging services</li>
+                                <li>Digital Product Sales - E-books, guides, templates, tutorials</li>
+                                <li>Consultation Services - One-on-one coaching and advice sessions</li>
+                                <li>Paid Communities - Premium WhatsApp groups with subscription fees</li>
+                                <li>Affiliate Marketing - Product recommendations through status updates</li>
+                                <li>Customer Service Solutions - Professional communication tools</li>
+                            </ul>
+                        </div>
+
+                        <h6 class="text-primary">Requirements:</h6>
+                        <ul class="requirements-list">
+                            <li>WhatsApp Business account setup</li>
+                            <li>Verified business information</li>
+                            <li>Customer base willing to engage via WhatsApp</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Threads -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fas fa-at"></i>
+                        </div>
+                        <h3 class="platform-title">Threads</h3>
+                        
+                        <div class="monetization-methods">
+                            <h6>Monetization Methods (New):</h6>
+                            <ul class="mb-0">
+                                <li>Threads Bonus Program - Performance-based payments for popular posts</li>
+                                <li>Brand Partnerships - Sponsored content and influencer collaborations</li>
+                                <li>Content Creation Services - Writing and content strategy for businesses</li>
+                                <li>Community Building - Paid access to exclusive discussion groups</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guidelines Section -->
+    <section id="guidelines" class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+        <div class="container">
+            <h2 class="section-title">Content and Monetization Guidelines</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="platform-card fade-in">
+                        <div class="platform-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="platform-title">Meta Platform Guidelines</h3>
+                        
+                        <h6 class="text-primary">Content Requirements:</h6>
+                        <ul class="requirements-list">
+                            <li>Content must be original and not violate copyright or intellectual property rights</li>
+                            <li>Content should not include hateful, violent, sexually explicit, misleading, or fraudulent material</li>
+                            <li>Compliance with Meta's Partner Monetization Policies, Community Standards, and Content Monetization Policies is mandatory</li>
+                            <li>Avoid engagement baiting, misinformation, and content that doesn't comply with advertiser-friendly guidelines</li>
+                            <li>Pages and accounts with repeated violations can lose access to monetization features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2025 Digital Monetization Guide. Built with Django & Bootstrap.</p>
+                    <p class="mb-0">Stay updated with the latest monetization opportunities across all platforms.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add visible class to hero elements immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section .fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 500);
+        });
+
+        // Mobile navbar auto-collapse
+        document.querySelectorAll('.navbar-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

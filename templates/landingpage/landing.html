@@ -33,7 +33,7 @@
   
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+<header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
     <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
@@ -46,9 +46,14 @@
         <ul>
         <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
         </li>
-        <li><a href="{% url 'resource' %}" ><span>Resource Hub</span></a>
+        <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
         </li>
-        <li class="dropdown"><a href="{% url 'collaboration' %}"  ><span>Collaboration & Innovation</span> </a>
+        <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+            <ul>
+            <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+            <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+            <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+            </ul> 
             {% comment %}
             <ul>
             <li><a href="#">Community</a></li>
@@ -156,9 +161,9 @@
                     <a href="#" class="timeline">
                         <div class="timeline-icon"><i class="fa fa-sign-in-alt"></i></div> <!-- Login -->
                         <div class="timeline-content">
-                            <h3 class="title">Login</h3>
+                            <h3 class="title">Access</h3>
                             <p class="description">
-                                Once approved, you can log in at any time using your email and password. From your dashboard, you can access support services and resources.
+                                Once approved, you can access services at any time. From the landing page, you can access support services and resources.
                             </p>
                         </div>
                     </a>
@@ -389,29 +394,29 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ total }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Users</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ counts.count_2 }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Software Companies</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{ total_hours }}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Hours Of Support</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ counts.count_1 }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Developers</p>
             </div>
           </div><!-- End Stats Item -->
 

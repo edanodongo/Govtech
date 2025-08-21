@@ -222,7 +222,6 @@ h6 {
   z-index: 997;
 }
 
-
 .header .logo-divider {
   width: 3px;
   height: 50px;
@@ -240,8 +239,6 @@ h6 {
   );
   margin: 0 12px;
 }
-
-
 
 .header .logo h1 {
   font-size: 30px;

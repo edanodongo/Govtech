@@ -450,7 +450,7 @@ from .forms import StatisticsFilterForm
 from .models import Registration, IndividualDev
 
 # @login_required
-def statistics(request):
+def dashboard_stats(request):
     
     # Basic totals
     total_companies = Registration.objects.count()
