@@ -37,6 +37,12 @@ def get_form(step):
     }
     return forms.get(step)
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from datetime import date
+from landingPage.models import SignupUser
+from dashboard.models import Registration
+from .forms import Step1Form, Step2Form
 
 def multi_step_registration(request, step):
     step = int(step)
@@ -47,7 +53,7 @@ def multi_step_registration(request, step):
             if form.is_valid():
                 step1_data = form.cleaned_data.copy()
 
-                # Convert date to string
+                # Convert date to string for session
                 if isinstance(step1_data.get('date_of_establishment'), date):
                     step1_data['date_of_establishment'] = step1_data['date_of_establishment'].isoformat()
 
@@ -71,23 +77,32 @@ def multi_step_registration(request, step):
                     step1_data['date_of_establishment'] = date.fromisoformat(step1_data['date_of_establishment'])
 
                 all_data = {**step1_data, **form.cleaned_data}
-                Registration.objects.create(**all_data)
+
+                # ✅ Tie Registration to logged-in SignupUser
+                signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
+                Registration.objects.create(user=signup_user, **all_data)
 
                 # Clean up session
                 del request.session['step1_data']
                 messages.success(request, "Registration complete!")
-                return redirect('dashboard_view')  # Optional success page
+                return redirect('dashboard_view')
         else:
             form = Step2Form()
         return render(request, 'dashboard/register/step2.html', {'form': form, 'step': step})
 
 
+from django.shortcuts import render, redirect, get_object_or_404
+from dashboard.forms import IndividualForm
+from landingPage.models import SignupUser
+
 def individual_reg(request):
     if request.method == 'POST':
         form = IndividualForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard_view')  # Optional success page
+            individual = form.save(commit=False)
+            individual.user = SignupUser.objects.get(email=request.session.get("email"))  # attach logged-in user
+            individual.save()
+            return redirect('dashboard_view')
     else:
         form = IndividualForm()
 
@@ -417,8 +432,42 @@ def viewMynotifications(request, pk):
         'notification': notification
     })
 
+from django.shortcuts import render
+from .models import IndividualDev
+
+from django.shortcuts import render, get_object_or_404
+from landingPage.models import SignupUser
+from .models import IndividualDev
+
+
+# Show all dev profiles for one SignupUser (by email)
+def user_individual_devs(request, mail):
+    user = get_object_or_404(SignupUser, mail=mail)
+    devs = user.individual_devs.all()
+    return render(request, "dashboard/application_status.html", {"user": user, "devs": devs})
+
+
+from django.shortcuts import render, get_object_or_404
+from landingPage.models import SignupUser
+from dashboard.models import IndividualDev, Registration
+
 def application_status(request):
-    return render(request, "dashboard/application_status.html")
+    # Get the logged-in SignupUser via email stored in session
+    signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
+
+    # Individual developer applications
+    devs = IndividualDev.objects.filter(user=signup_user)
+
+    # Company registrations
+    regs = Registration.objects.filter(user=signup_user)
+
+    return render(request, "dashboard/application_status.html", {
+        "signup_user": signup_user,   # pass explicitly
+        "devs": devs,
+        "regs": regs
+    })
+
+
 
 # Startup Toolkit View
 # @login_required
@@ -497,3 +546,42 @@ def dashboard_stats(request):
 
     return render(request, 'dashboard/statistics.html', context)
 
+
+
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import IndividualDev, Registration
+from .forms import IndividualDevForm, RegistrationForm
+from landingPage.models import SignupUser
+
+# Edit IndividualDev
+def edit_dev(request, pk):
+    dev = get_object_or_404(IndividualDev, pk=pk, user__email=request.session.get("email"))
+
+    if request.method == "POST":
+        form = IndividualDevForm(request.POST, instance=dev)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Developer profile updated successfully!")
+            return redirect("application_status")
+    else:
+        form = IndividualDevForm(instance=dev)
+
+    return render(request, "dashboard/edit_dev.html", {"form": form, "dev": dev})
+
+
+# Edit Registration
+def edit_reg(request, pk):
+    reg = get_object_or_404(Registration, pk=pk, user__email=request.session.get("email"))
+
+    if request.method == "POST":
+        form = RegistrationForm(request.POST, instance=reg)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Company registration updated successfully!")
+            return redirect("application_status")
+    else:
+        form = RegistrationForm(instance=reg)
+
+    return render(request, "dashboard/edit_reg.html", {"form": form, "reg": reg})
