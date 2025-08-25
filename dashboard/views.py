@@ -509,6 +509,10 @@ def dashboard_stats(request):
     registrations = Registration.objects.all()
     developers = IndividualDev.objects.all()
 
+    # Fetch all IndividualDev and Registration records
+    devss = IndividualDev.objects.all()
+    regss = Registration.objects.all()
+    
     if form.is_valid():
         start = form.cleaned_data.get('start_date')
         end = form.cleaned_data.get('end_date')
@@ -542,6 +546,8 @@ def dashboard_stats(request):
         'company_by_model': list(company_by_model),
         'dev_by_nature': list(dev_by_nature),
         'dev_by_industry': list(dev_by_industry),
+        "devss": devss,
+        "regss": regss,
     }
 
     return render(request, 'dashboard/statistics.html', context)
@@ -585,3 +591,6 @@ def edit_reg(request, pk):
         form = RegistrationForm(instance=reg)
 
     return render(request, "dashboard/edit_reg.html", {"form": form, "reg": reg})
+
+
+
