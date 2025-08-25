@@ -4,7 +4,9 @@ from django.urls import path
 from .views import multi_step_registration, individual_reg, index, authlogout, \
     Myprofile, profileChange, saveEditProfile, mySupport, resetPassword, saveChangeMyPassword, dashboard_view, \
     notifications, markAsRead, viewMynotifications, application_status, startup_toolkit, legal_templates, \
-    collaboration_board, events_view, dashboard_stats  # DashboardData
+    collaboration_board, events_view, dashboard_stats, user_individual_devs  # DashboardData
+
+from . import views
 
 urlpatterns = [
     # path("", views.home, name="home"),
@@ -29,5 +31,7 @@ urlpatterns = [
     path('collaboration-board/', collaboration_board, name='collaboration_board'),
     path('events/', events_view, name='events'),
     path('statistics/', dashboard_stats, name='dashboard_stats'),
+    path("edit-dev/<int:pk>/", views.edit_dev, name="edit_dev"),
+    path("edit-reg/<int:pk>/", views.edit_reg, name="edit_reg"),
 
 ]

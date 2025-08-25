@@ -1,11 +1,15 @@
-# Create your models here.
-
-# models.py
 from django.db import models
-from landingPage.models import SignupUser
-
+from landingPage.models import SignupUser   # import SignupUser
 
 class Registration(models.Model):
+    # Tie directly to SignupUser
+    user = models.ForeignKey(
+        SignupUser,
+        on_delete=models.CASCADE,
+        related_name="registrations",   # same style as IndividualDev
+        null=True, blank=True
+    )
+
     # Step 1: Basic Company Information
     company_name = models.CharField(max_length=255)
     stage = models.CharField(max_length=50, choices=[
@@ -35,23 +39,34 @@ class Registration(models.Model):
     ], default='Software Development')
     specialization = models.CharField(max_length=255, default='Web Development')
     sector = models.CharField(max_length=100)
-    business_model = models.CharField(max_length=50, choices=[('B2B', 'B2B'), ('B2C', 'B2C'), ('SaaS', 'SaaS'),
-                                                              ('Marketplace', 'Marketplace')])
+    business_model = models.CharField(max_length=50, choices=[
+        ('B2B', 'B2B'),
+        ('B2C', 'B2C'),
+        ('SaaS', 'SaaS'),
+        ('Marketplace', 'Marketplace')
+    ])
     website = models.URLField(blank=True, null=True)
 
     def __str__(self):
-        return self.company_name
+        return f"{self.company_name} ({self.user.email})"
 
 
-from django.db import models
+
+
+
 
 
 class IndividualDev(models.Model):
+    user = models.ForeignKey(
+        'landingPage.SignupUser',
+        on_delete=models.CASCADE,
+        related_name="dev_profiles",
+        null=True, blank=True
+    )
     first_name = models.CharField(max_length=255)
     second_name = models.CharField(max_length=255)
     id_number = models.CharField(max_length=20)
     website = models.URLField(blank=True, null=True)
-    mail = models.EmailField()
     contact = models.CharField(max_length=20)
     industry = models.CharField(max_length=100)
     address = models.TextField()
@@ -64,8 +79,14 @@ class IndividualDev(models.Model):
     ], default='Software Development')
     description = models.TextField()
 
+    @property
+    def email(self):
+        return self.user.email if self.user else None   # ✅ avoid crashing
+
     def __str__(self):
         return f"{self.first_name} {self.second_name}"
+
+
 
 class Notification(models.Model):
     user = models.ForeignKey(SignupUser, on_delete=models.CASCADE)

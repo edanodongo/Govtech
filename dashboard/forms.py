@@ -36,6 +36,7 @@ from .models import IndividualDev
 class IndividualForm(forms.ModelForm):
     class Meta:
         model = IndividualDev
+        exclude = ['user']  # don't let user set this
         fields = '__all__'  # or list them explicitly if needed
 
         widgets = {
@@ -68,3 +69,23 @@ class StatisticsFilterForm(forms.Form):
         required=False,
         widget=forms.TextInput(attrs={'placeholder': 'e.g. Fintech', 'class': 'form-control'})
     )
+
+
+
+from django import forms
+from .models import IndividualDev, Registration
+
+class IndividualDevForm(forms.ModelForm):
+    class Meta:
+        model = IndividualDev
+        fields = ["first_name", "second_name", "id_number", "industry", "nature"]
+
+class RegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Registration
+        fields = [
+            "company_name", "stage", "official_email", "phone_number", 
+            "registration_number", "contact_person", "date_of_establishment", 
+            "tax_identification_number", "employees", "company_description",
+            "nature", "specialization", "sector", "business_model", "website"
+        ]

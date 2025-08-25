@@ -6,7 +6,6 @@
 
   <div class="row justify-content-start">
     {% for project in collaboration_projects %}
-    <div class="col-md-8">
       <div class="card mb-4 shadow-sm border-primary">
         <div class="card-body">
           <h5 class="card-title text-success text-start">{{ project.title }}</h5>
@@ -20,7 +19,6 @@
           {% endif %}
         </div>
       </div>
-    </div>
     {% empty %}
     <div class="col-12">
       <p class="alert alert-info text-start">No collaboration projects available.</p>
