@@ -45,9 +45,14 @@
         <ul>
         <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
         </li>
-        <li><a href="{% url 'resource' %}" ><span>Resource Hub</span></a>
+        <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
         </li>
-        <li class="dropdown"><a href="{% url 'collaboration' %}"  ><span>Collaboration & Innovation</span> </a>
+        <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+            <ul>
+            <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+            <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+            <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+            </ul> 
             {% comment %}
             <ul>
             <li><a href="#">Community</a></li>

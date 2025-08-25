@@ -47,13 +47,7 @@ def landing(request):
     individualDev = SignupUser.objects.filter(accountType=1).distinct()
     company = SignupUser.objects.filter(accountType=2).distinct()
     form = StatisticsFilterForm(request.GET or None)
-    
-    print("Counts:", counts)
-    print("Total:", total)
-    print("Total Hours:", total_hours)
-    print("Individual Developers:", individualDev.count())
-    print("Companies:", company.count())
-    
+        
     context = {
         'counts': counts,
         'form': form,

@@ -33,58 +33,59 @@
 
 </head>
 <body>
-    <!-- Loading Bar -->
-    <div class="loading-bar" id="loadingBar"></div>
+<!-- Loading Bar -->
+<div class="loading-bar" id="loadingBar"></div>
 
-    <!-- Navigation -->
-    <header id="header" class="header d-flex align-items-center sticky-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+<!-- Navigation -->     
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
+    <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
             <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
             <div class="logo-divider"></div>
             <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
-        </a>
+    </a>
 
-        <nav id="navmenu" class="navmenu">
+        
+    <nav id="navmenu" class="navmenu">
             <ul>
             <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
             </li>
             <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
             </li>
-            <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
-                <ul>
-                <li><a href="{% url 'resource' %}">Resource Hub</a></li>
-                <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
-                <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
-                </ul> 
-                {% comment %}
-                <ul>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Knowledge exchange forum</a></li>
-                <li><a href="#">Government hackathons and innovation challenges</a></li>
-                <li><a href="#">Engage in collaborative R&D projects</a></li>
-                <li><a href="#">Repository for government projects</a></li>
-                </ul> {% endcomment %}
+            <li class="dropdown" style="position: relative;">
+                    <a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+                    <ul style="background: #fff !important; opacity: 1 !important; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                    <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+                    <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+                    <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+                    </ul> 
+                    {% comment %}
+                    <ul>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Knowledge exchange forum</a></li>
+                    <li><a href="#">Government hackathons and innovation challenges</a></li>
+                    <li><a href="#">Engage in collaborative R&D projects</a></li>
+                    <li><a href="#">Repository for government projects</a></li>
+                    </ul> {% endcomment %}
             </li>
-            <li class="dropdown"><a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
-                <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
-                <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
-                <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
-                <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
-                </ul>
+            <li class="dropdown" style="position: relative;">
+                    <a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul style="background: #fff !important; opacity: 1 !important; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                    <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
+                    <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
+                    <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
+                    <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
+                    <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
+                    </ul>
             </li>
-            <li><a href="{% url 'complete' %}" >Contact Us</a></li>
+            <li><a >Contact Us</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+    </nav>
 
-        <a class="btn-getstarted"  href="{% url 'login' %}"><i class="fa fa-user-plus"></i> Get Started</a>
-
-        </div>
-    </header>
+    </div>
+</header>
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -580,7 +581,7 @@
             });
         });
 
-        // Platform Card Tilt Effect (Desktop Only)
+        {% comment %} // Platform Card Tilt Effect (Desktop Only)
         if (window.innerWidth > 768) {
             document.querySelectorAll('.platform-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -601,7 +602,7 @@
                     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
                 });
             });
-        }
+        } {% endcomment %}
 
         // Enhanced Performance Features
         const createScrollProgress = () => {

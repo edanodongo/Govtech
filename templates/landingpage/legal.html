@@ -42,38 +42,40 @@
         </a>
 
 
-      <nav id="navmenu" class="navmenu">
+    <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{% url 'portalHome' %}" class="active">Home</a></li>
-
-          <li><a href="{% url 'resource' %}"><span>Resource Hub</span> </a></li>
-          <li class="dropdown"><a href="{% url 'collaboration' %}"><span>Collaboration & Innovation</span> </a>
+        <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
+        </li>
+        <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
+        </li>
+        <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+            <ul>
+            <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+            <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+            <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+            </ul> 
             {% comment %}
             <ul>
-               <li><a href="#">Community</a></li>
-              <li><a href="#">Knowledge exchange forum</a></li>
-              <li><a href="#">Government hackathons and innovation challenges</a></li>
-              <li><a href="#">Engage in collaborative R&D projects</a></li>
-              <li><a href="#">Repository for government projects</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Knowledge exchange forum</a></li>
+            <li><a href="#">Government hackathons and innovation challenges</a></li>
+            <li><a href="#">Engage in collaborative R&D projects</a></li>
+            <li><a href="#">Repository for government projects</a></li>
             </ul> {% endcomment %}
-          </li>
-          <li class="dropdown"><a href="#"><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        </li>
+        <li class="dropdown"><a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
-              <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
-              <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
-              <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
-              <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
+            <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
+            <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
+            <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
+            <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
+            <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
             </ul>
-          </li>
-          <li><a href="{% url 'portalHome' %}" >Contact Us</a></li>
-
-         
-
-          
+        </li>
+        <li><a >Contact Us</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    </nav>
 
     </div>
   </header>
