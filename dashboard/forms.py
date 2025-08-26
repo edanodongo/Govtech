@@ -1,9 +1,18 @@
 # forms.py
 from django import forms
+from django import forms
+from .models import IndividualDev, Registration
 
+# -----------------------------
+# Step 1 Form (company details)
+# -----------------------------
 class Step1Form(forms.Form):
     company_name = forms.CharField(max_length=255, required=True)
-    stage = forms.ChoiceField(choices=[('Sole Proprietorship', 'Sole Proprietorship'), ('Limited Liability Company (LLC)', 'Limited Liability Company (LLC)'), ('Limited Liability Partnership (LLP)', 'Limited Liability Partnership (LLP)')], required=True)
+    stage = forms.ChoiceField(choices=[
+        ('Sole Proprietorship', 'Sole Proprietorship'),
+        ('Limited Liability Company (LLC)', 'Limited Liability Company (LLC)'),
+        ('Limited Liability Partnership (LLP)', 'Limited Liability Partnership (LLP)')
+    ], required=True)
     official_email = forms.EmailField(required=True)
     phone_number = forms.CharField(max_length=20, required=True)
     registration_number = forms.CharField(max_length=255, required=True)
@@ -11,11 +20,27 @@ class Step1Form(forms.Form):
     date_of_establishment = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     physical_address = forms.CharField(widget=forms.Textarea, required=True)
 
+    def clean_company_name(self):
+        company_name = self.cleaned_data.get("company_name", "").strip()
+        if Registration.objects.filter(company_name__iexact=company_name).exists():
+            raise forms.ValidationError(
+                f"A company with the name '{company_name}' already exists."
+            )
+        return company_name
 
+
+# -----------------------------
+# Step 2 Form (extra details)
+# -----------------------------
 class Step2Form(forms.Form):
     tax_identification_number = forms.CharField(max_length=100, required=True)
     employees = forms.IntegerField(min_value=1, required=True)
-    business_model = forms.ChoiceField(choices=[('B2B', 'B2B'), ('B2C', 'B2C'), ('SaaS', 'SaaS'), ('Marketplace', 'Marketplace')], required=True)
+    business_model = forms.ChoiceField(choices=[
+        ('B2B', 'B2B'),
+        ('B2C', 'B2C'),
+        ('SaaS', 'SaaS'),
+        ('Marketplace', 'Marketplace')
+    ], required=True)
     company_description = forms.CharField(widget=forms.Textarea, required=True)
     nature = forms.ChoiceField(choices=[
         ('Software Development', 'Software Development'),
@@ -23,21 +48,20 @@ class Step2Form(forms.Form):
         ('Mobile Apps', 'Mobile Apps'),
         ('Desktop Apps', 'Desktop Apps'),
         ('IoT Apps', 'IoT Apps')
-        ])
+    ])
     specialization = forms.CharField(max_length=255, required=True)
     sector = forms.CharField(max_length=100, required=True)
     website = forms.URLField(required=False)
 
 
-from django import forms
-from .models import IndividualDev
-
-
+# -----------------------------
+# Individual Developer Form
+# -----------------------------
 class IndividualForm(forms.ModelForm):
     class Meta:
         model = IndividualDev
-        exclude = ['user']  # don't let user set this
-        fields = '__all__'  # or list them explicitly if needed
+        exclude = ['user']
+        fields = '__all__'
 
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -50,6 +74,26 @@ class IndividualForm(forms.ModelForm):
             'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get("first_name", "").strip()
+        second_name = cleaned_data.get("second_name", "").strip()
+
+        if first_name and second_name:
+            exists = IndividualDev.objects.filter(
+                first_name__iexact=first_name,
+                second_name__iexact=second_name
+            )
+            if self.instance.pk:  # exclude self when editing
+                exists = exists.exclude(pk=self.instance.pk)
+
+            if exists.exists():
+                raise forms.ValidationError(
+                    f"A developer with the name {first_name} {second_name} already exists."
+                )
+
+        return cleaned_data
 
 
 class StatisticsFilterForm(forms.Form):
