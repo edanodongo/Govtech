@@ -44,6 +44,35 @@ from landingPage.models import SignupUser
 from dashboard.models import Registration
 from .forms import Step1Form, Step2Form
 
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from datetime import date
+from landingPage.models import SignupUser
+from dashboard.models import IndividualDev, Registration
+from dashboard.forms import IndividualForm, Step1Form, Step2Form
+
+# -----------------------------
+# IndividualDev Registration
+# -----------------------------
+def individual_reg(request):
+    if request.method == 'POST':
+        form = IndividualForm(request.POST)
+        if form.is_valid():
+            individual = form.save(commit=False)
+            individual.user = SignupUser.objects.get(email=request.session.get("email"))
+            individual.save()
+            messages.success(request, "Developer profile created successfully.")
+            return redirect('dashboard_view')
+    else:
+        form = IndividualForm()
+
+    return render(request, "dashboard/register/individual.html", {'form': form})
+
+
+# -----------------------------
+# Multi-step Registration
+# -----------------------------
 def multi_step_registration(request, step):
     step = int(step)
 
@@ -78,7 +107,6 @@ def multi_step_registration(request, step):
 
                 all_data = {**step1_data, **form.cleaned_data}
 
-                # ✅ Tie Registration to logged-in SignupUser
                 signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
                 Registration.objects.create(user=signup_user, **all_data)
 
@@ -89,24 +117,6 @@ def multi_step_registration(request, step):
         else:
             form = Step2Form()
         return render(request, 'dashboard/register/step2.html', {'form': form, 'step': step})
-
-
-from django.shortcuts import render, redirect, get_object_or_404
-from dashboard.forms import IndividualForm
-from landingPage.models import SignupUser
-
-def individual_reg(request):
-    if request.method == 'POST':
-        form = IndividualForm(request.POST)
-        if form.is_valid():
-            individual = form.save(commit=False)
-            individual.user = SignupUser.objects.get(email=request.session.get("email"))  # attach logged-in user
-            individual.save()
-            return redirect('dashboard_view')
-    else:
-        form = IndividualForm()
-
-    return render(request, "dashboard/register/individual.html", {'form': form})
 
 
 def authlogout(request):

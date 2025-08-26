@@ -1,16 +1,20 @@
 from django.db import models
 from landingPage.models import SignupUser   # import SignupUser
+from django.db import models
+from django.db.models import UniqueConstraint
+from django.db.models.functions import Lower
 
+# -----------------------------
+# Registration model
+# -----------------------------
 class Registration(models.Model):
-    # Tie directly to SignupUser
     user = models.ForeignKey(
-        SignupUser,
+        'landingPage.SignupUser',
         on_delete=models.CASCADE,
-        related_name="registrations",   # same style as IndividualDev
+        related_name="registrations",
         null=True, blank=True
     )
 
-    # Step 1: Basic Company Information
     company_name = models.CharField(max_length=255)
     stage = models.CharField(max_length=50, choices=[
         ('Idea', 'Idea'),
@@ -26,7 +30,6 @@ class Registration(models.Model):
     date_of_establishment = models.DateField()
     physical_address = models.TextField()
 
-    # Step 2: Business Details
     tax_identification_number = models.CharField(max_length=100)
     employees = models.IntegerField()
     company_description = models.TextField()
@@ -47,15 +50,21 @@ class Registration(models.Model):
     ])
     website = models.URLField(blank=True, null=True)
 
+    class Meta:
+        constraints = [
+            UniqueConstraint(
+                Lower('company_name'),
+                name='unique_company_name_ci'
+            )
+        ]
+
     def __str__(self):
         return f"{self.company_name} ({self.user.email})"
 
 
-
-
-
-
-
+# -----------------------------
+# IndividualDev model
+# -----------------------------
 class IndividualDev(models.Model):
     user = models.ForeignKey(
         'landingPage.SignupUser',
@@ -81,11 +90,19 @@ class IndividualDev(models.Model):
 
     @property
     def email(self):
-        return self.user.email if self.user else None   # ✅ avoid crashing
+        return self.user.email if self.user else None
 
     def __str__(self):
         return f"{self.first_name} {self.second_name}"
 
+    class Meta:
+        constraints = [
+            UniqueConstraint(
+                Lower('first_name'),
+                Lower('second_name'),
+                name='unique_fullname_ci'
+            )
+        ]
 
 
 class Notification(models.Model):

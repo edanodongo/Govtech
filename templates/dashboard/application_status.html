@@ -21,7 +21,7 @@
       <!-- Developer Registrations Table -->
       {% if devs %}
         <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Developer Profiles</h4>
+          <h4 class="mb-0">Developer Profiles Summary</h4>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
@@ -51,7 +51,7 @@
                     <span class="badge bg-warning text-dark">pending</span>
                   </td>
                   <td>
-                    <a href="{% url 'edit_dev' dev.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'edit_dev' dev.id %}" class="btn btn-sm btn-outline-secondary">Update</a>
                   </td>
                 </tr>
                 {% endfor %}
@@ -68,7 +68,7 @@
       <!-- Company Registrations Table -->
       {% if regs %}      
         <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Profile Summary</h4>
+          <h4 class="mb-0">Company Profiles Summary</h4>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
@@ -106,7 +106,7 @@
                     <span class="badge bg-warning text-dark">pending</span>
                   </td>
                   <td>
-                    <a href="{% url 'edit_reg' reg.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'edit_reg' reg.id %}" class="btn btn-sm btn-outline-secondary">Update</a>
                   </td>
                 </tr>
                 {% endfor %}
@@ -126,7 +126,7 @@
 
 
     <div class="card-header bg-primary text-white">
-      <h4 class="mb-0">Profile Summary</h4>
+      <h4 class="mb-0">Company Profiles Summary</h4>
     </div>
     <div class="card-body">
       <table class="table table-bordered mb-3">

@@ -251,7 +251,8 @@
                     text: data.message
                 }).then(() => {
                     if (data.status === 'success') {
-                        window.location.href = "{% url 'login' %}";
+                        // window.location.href = "{% url 'login' %}";
+                        window.location.href = "{% url 'complete' %}";
                     }
                 });
             });
