@@ -18,18 +18,18 @@ from django.utils.safestring import mark_safe
 
 from startup.helper import *
 from .forms import IndividualForm
-from .forms import Step1Form, Step2Form  # You'll need to create these forms
+from .forms import Step1Form, Step2Form  
 from .models import *
 
-
+# View to get dashboard
 def dashboard_data(request):
     return render(request, "dashboard/dashboard.html")
 
-
+# View to get the index page
 def index(request):
     return render(request, "dashboard/index.html")
 
-
+# Function to get the appropriate form class for each step
 def get_form(step):
     forms = {
         1: Step1Form,
@@ -118,7 +118,7 @@ def multi_step_registration(request, step):
             form = Step2Form()
         return render(request, 'dashboard/register/step2.html', {'form': form, 'step': step})
 
-
+# View to logout user
 def authlogout(request):
     try:
         # Clear the session
@@ -134,7 +134,7 @@ def authlogout(request):
         # Handle any errors that occur during logout
         return JsonResponse({'status': 'error', 'message': f'Error during logout: {str(e)}'})
 
-
+# View to get user profile
 def Myprofile(request):
     myId = request.session.get('id')
     myInfo = SignupUser.objects.get(id=myId)
@@ -153,7 +153,7 @@ def Myprofile(request):
 
     return render(request, 'dashboard/myprofile.html', data)
 
-
+# View to change profile
 def profileChange(request):
     myId = request.session.get('id')
     myInfo = SignupUser.objects.get(id=myId)
@@ -178,7 +178,7 @@ def profileChange(request):
 
     return render(request, 'dashboard/editProfile.html', data)
 
-
+# View to save edited profile
 def saveEditProfile(request):
     myId = request.session.get('id')
     userType = request.session.get('userType')
@@ -267,101 +267,16 @@ def saveEditProfile(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
 
-
+# View to get user support
 def mySupport(request):
     return render(request, 'dashboard/support.html')
 
-
+# View to reset password
 def resetPassword(request):
     return render(request, 'dashboard/myPassword.html')
 
 
-def dashboard_view(request):
-    # Basic totals
-    total_companies = Registration.objects.count()
-    total_individuals = IndividualDev.objects.count()
-
-    # Pie/Bar/Doughnut chart data
-    company_nature = Registration.objects.values('nature').annotate(count=Count('nature'))
-    business_model = Registration.objects.values('business_model').annotate(count=Count('business_model'))
-    stage = Registration.objects.values('stage').annotate(count=Count('stage'))
-
-    # Line chart: Companies by year
-    establishment_years = Registration.objects.dates('date_of_establishment', 'year')
-    year_counts = {
-        year.year: Registration.objects.filter(date_of_establishment__year=year.year).count()
-        for year in establishment_years
-    }
-
-    # Monthly registration data for comparison
-    def monthly_data_for_year(year):
-        monthly_counts = (
-            Registration.objects.filter(date_of_establishment__year=year)
-            .annotate(month=ExtractMonth('date_of_establishment'))
-            .values('month')
-            .annotate(count=Count('id'))
-        )
-        month_data = {entry['month']: entry['count'] for entry in monthly_counts}
-        return [month_data.get(i, 0) for i in range(1, 13)]
-
-    # Set your desired years for comparison (can be dynamic)
-    available_years = range(2020, 2025)
-    all_years_data = {
-        str(year): monthly_data_for_year(year) for year in available_years
-    }
-
-    # Month labels (Jan–Dec)
-    month_labels = [month_name[i] for i in range(1, 13)]
-
-    years_qs = (Registration.objects
-                .annotate(year=ExtractYear('date_of_establishment'))
-                .values_list('year', flat=True)
-                .distinct()
-                .order_by('-year')[:10])  # LIMIT TO 10 RECENT YEARS
-    available_years = sorted(list(years_qs))  # sorted ascending
-
-    year_counts = {
-        year: Registration.objects.filter(date_of_establishment__year=year).count()
-        for year in available_years
-    }
-
-    # Breakdown of companies by nature and year for comparison chart
-    comparison_data = {}
-    for year in available_years:
-        year_data = Registration.objects.filter(date_of_establishment__year=year).values('nature').annotate(
-            count=Count('id'))
-        comparison_data[year] = {item['nature']: item['count'] for item in year_data}
-
-    context = {
-        'total_companies': total_companies,
-        'total_individuals': total_individuals,
-
-        # Chart labels and data
-        'company_nature_labels': mark_safe(json.dumps([entry['nature'] for entry in company_nature])),
-        'company_nature_data': mark_safe(json.dumps([entry['count'] for entry in company_nature])),
-
-        'business_model_labels': mark_safe(json.dumps([entry['business_model'] for entry in business_model])),
-        'business_model_data': mark_safe(json.dumps([entry['count'] for entry in business_model])),
-
-        'stage_labels': mark_safe(json.dumps([entry['stage'] for entry in stage])),
-        'stage_data': mark_safe(json.dumps([entry['count'] for entry in stage])),
-
-        'year_labels': mark_safe(json.dumps(list(year_counts.keys()))),
-        'year_data': mark_safe(json.dumps(list(year_counts.values()))),
-
-        # Monthly comparison
-        'month_labels': mark_safe(json.dumps(month_labels)),
-        'all_years_data': mark_safe(json.dumps(all_years_data)),
-        'available_years': mark_safe(json.dumps(list(available_years))),
-
-        'available_years': available_years,
-        'comparison_data': mark_safe(json.dumps(comparison_data)),
-
-    }
-
-    return render(request, 'dashboard/dashboard.html', context)
-
-
+# View to change password
 def saveChangeMyPassword(request):
     myId = request.session.get('id')
 
@@ -424,12 +339,14 @@ def notifications(request):
     }
     return render(request, 'dashboard/viewNotification.html',data)
 
+# Mark a notification as read
 def markAsRead(request, pk):
     notification = get_object_or_404(Notification, pk=pk)
     notification.is_read = True
     notification.save()
     return redirect('notifications')  # or wherever you want to redirect
 
+# View a single notification
 def viewMynotifications(request, pk):
     notification = get_object_or_404(Notification, pk=pk)
 
@@ -461,6 +378,7 @@ from django.shortcuts import render, get_object_or_404
 from landingPage.models import SignupUser
 from dashboard.models import IndividualDev, Registration
 
+# View to show application status for the logged-in user
 def application_status(request):
     # Get the logged-in SignupUser via email stored in session
     signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
@@ -509,6 +427,7 @@ from .forms import StatisticsFilterForm
 from .models import Registration, IndividualDev
 
 # @login_required
+# Display statistics on the statistics page
 def dashboard_stats(request):
     
     # Basic totals

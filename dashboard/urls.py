@@ -1,36 +1,31 @@
 
 from django.urls import path
 
-from .views import multi_step_registration, individual_reg, index, authlogout, \
-    Myprofile, profileChange, saveEditProfile, mySupport, resetPassword, saveChangeMyPassword, dashboard_view, \
-    notifications, markAsRead, viewMynotifications, application_status, startup_toolkit, legal_templates, \
-    collaboration_board, events_view, dashboard_stats, user_individual_devs  # DashboardData
-
 from . import views
 
 urlpatterns = [
     # path("", views.home, name="home"),
-    path('SoftwareFirm/', multi_step_registration, name='multi_step'),
-    path('step/<int:step>/', multi_step_registration, name='multi_step'),
-    path('individual/', individual_reg, name='individual_reg'),
-    path('', dashboard_view, name='dashboard_view'),
-    path("index/", index, name="index"),
-    path("authlogout/", authlogout, name="authlogout"),
-    path('Myprofile/', Myprofile, name='Myprofile'),
-    path('editProfile/', profileChange, name='editProfile'),
-    path('saveEditProfile/', saveEditProfile, name='saveEditProfile'),
-    path('mySupport/', mySupport, name='mySupport'),
-    path('changeMyPassword/', resetPassword, name='changeMyPassword'),
-    path('saveChangeMyPassword/', saveChangeMyPassword, name='saveChangeMyPassword'),
-    path('notifications/', notifications, name='notifications'),
-    path('markAsRead/<int:pk>/', markAsRead, name='markAsRead'),
-    path('viewMynotifications/<int:pk>/', viewMynotifications, name='viewMynotifications'),
-    path('application_status/', application_status, name='application_status'),
-    path('startup-toolkit/', startup_toolkit, name='startup_toolkit'),
-    path('legal-templates/', legal_templates, name='legal_templates'),
-    path('collaboration-board/', collaboration_board, name='collaboration_board'),
-    path('events/', events_view, name='events'),
-    path('statistics/', dashboard_stats, name='dashboard_stats'),
+    path('SoftwareFirm/', views.multi_step_registration, name='multi_step'),
+    path('step/<int:step>/', views.multi_step_registration, name='multi_step'),
+    path('individual/', views.individual_reg, name='individual_reg'),
+    path('', views.dashboard_data, name='dashboard_view'),
+    path("index/", views.index, name="index"),
+    path("authlogout/", views.authlogout, name="authlogout"),
+    path('Myprofile/', views.Myprofile, name='Myprofile'),
+    path('editProfile/', views.profileChange, name='editProfile'),
+    path('saveEditProfile/', views.saveEditProfile, name='saveEditProfile'),
+    path('mySupport/', views.mySupport, name='mySupport'),
+    path('changeMyPassword/', views.resetPassword, name='changeMyPassword'),
+    path('saveChangeMyPassword/', views.saveChangeMyPassword, name='saveChangeMyPassword'),
+    path('notifications/', views.notifications, name='notifications'),
+    path('markAsRead/<int:pk>/', views.markAsRead, name='markAsRead'),
+    path('viewMynotifications/<int:pk>/', views.viewMynotifications, name='viewMynotifications'),
+    path('application_status/', views.application_status, name='application_status'),
+    path('startup-toolkit/', views.startup_toolkit, name='startup_toolkit'),
+    path('legal-templates/', views.legal_templates, name='legal_templates'),
+    path('collaboration-board/', views.collaboration_board, name='collaboration_board'),
+    path('events/', views.events_view, name='events'),
+    path('statistics/', views.dashboard_stats, name='dashboard_stats'),
     path("edit-dev/<int:pk>/", views.edit_dev, name="edit_dev"),
     path("edit-reg/<int:pk>/", views.edit_reg, name="edit_reg"),
 
