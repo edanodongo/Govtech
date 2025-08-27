@@ -61,22 +61,26 @@ def landing(request):
 
     return render(request, 'landingpage/landing.html', context)
 
+# View for event page
 def landingEvent(request):
     return render(request, 'landingpage/index.html')
 
+# View for monetization page
 def monetization(request):
     return render(request, 'landingpage/monetization.html')
 
+# View for registration complete page
 def complete(request):
     return render(request, 'dashboard/register/completed.html')
 
+# View for registration page (country, county & gender selection)
 def register_view(request):
     countries = Country.objects.all().order_by('nationality')
     counties = County.objects.all().order_by('name')
     genders = gender.objects.all().order_by('name')
     return render(request, 'landingpage/register.html', {'countries': countries, 'counties': counties, 'genders': genders})
 
-
+# View for registration page (subcounty selection)
 def get_subcounties(request):
     county_id = request.GET.get('county_id')
     subcounties = Subcounty.objects.filter(county_id=county_id).values('id', 'name')
@@ -87,7 +91,7 @@ def get_subcounties(request):
 def login_view(request):
     return render(request, 'landingpage/login.html')
 
-
+# View for signup page
 def signup(request):
     if request.method == 'POST':
         account_type = request.POST.get('account_type')  # '1' for individual, '2' for company
@@ -207,7 +211,7 @@ def signup(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
-
+# View for user login
 def authlogin(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -242,7 +246,7 @@ def authlogin(request):
                 attempt.save()
                 return JsonResponse({'status': 'error', 'message': 'Invalid credentials.'})
 
-                # ✅ Check if password change is required
+                # Check if password change is required
             if user_obj.pswdchange == 1:
                 return JsonResponse({
                     'status': 'force_change',
@@ -292,11 +296,11 @@ def authlogin(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
-
+# View for forgot password
 def forgetPassword(request):
     return render(request, 'landingpage/forgetPassword.html')
 
-
+# View for verification link
 def verificationLink(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -363,11 +367,11 @@ def verificationLink(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
-
+# View for OTP verification
 def otpVerification(request):
     return render(request, 'landingpage/otp.html')
 
-
+# View for OTP verification
 def verifyOTP(request):
     if request.method == 'POST':
         otp = request.POST.get('otp')
@@ -399,11 +403,11 @@ def verifyOTP(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
-
+# View for change password
 def ChangePassword(request):
     return render(request, 'landingpage/changePassword.html')
 
-
+# View for save forget my password
 def saveForgetMyPassword(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -438,13 +442,13 @@ def saveForgetMyPassword(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
-
+# View for force password change
 def force_password_change(request):
     email = request.GET.get('email')
     userId = request.GET.get('userId')
     return render(request, 'landingpage/changeForcePassword.html', {'user_id': userId, 'email': email})
 
-
+# View for save forget my password force
 def saveForgetMyPasswordForce(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -477,30 +481,35 @@ def saveForgetMyPasswordForce(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
-
+# View for portals
 def portals(request):
     return render(request, 'landingpage/portals.html')
 
-
+# View for guidelines
 def guidelines(request):
     return render(request, 'landingpage/guidelines.html')
 
+# View for cost page
 def cost(request):
     return render(request, 'landingpage/cost.html')
 
+# View for legal page
 def legal(request):
     return render(request, 'landingpage/legal.html')
 
+# View for resource page
 def resource(request):
     return render(request, 'landingpage/resource.html')
 
+# View for collaboration page
 def collaboration(request):
     return render(request, 'landingpage/collaboration.html')
 
+# View for technical page
 def technical(request):
     return render(request, 'landingpage/technical.html')
 
-
+# View for signup page
 def signup(request):
     if request.method == 'POST':
         account_type = request.POST.get('account_type')  # '1' for individual, '2' for company

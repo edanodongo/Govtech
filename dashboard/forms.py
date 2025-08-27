@@ -5,6 +5,7 @@ from .models import IndividualDev, Registration
 
 # -----------------------------
 # Step 1 Form (company details)
+# Form to create a new registration
 # -----------------------------
 class Step1Form(forms.Form):
     company_name = forms.CharField(max_length=255, required=True)
@@ -31,6 +32,7 @@ class Step1Form(forms.Form):
 
 # -----------------------------
 # Step 2 Form (extra details)
+# Form to create a new registration
 # -----------------------------
 class Step2Form(forms.Form):
     tax_identification_number = forms.CharField(max_length=100, required=True)
@@ -56,6 +58,7 @@ class Step2Form(forms.Form):
 
 # -----------------------------
 # Individual Developer Form
+# Form to create a new individual developer
 # -----------------------------
 class IndividualForm(forms.ModelForm):
     class Meta:
@@ -95,7 +98,7 @@ class IndividualForm(forms.ModelForm):
 
         return cleaned_data
 
-
+# Form for filtering statistics
 class StatisticsFilterForm(forms.Form):
     start_date = forms.DateField(
         required=False,
@@ -119,11 +122,13 @@ class StatisticsFilterForm(forms.Form):
 from django import forms
 from .models import IndividualDev, Registration
 
+# Form to edit an existing individual developer
 class IndividualDevForm(forms.ModelForm):
     class Meta:
         model = IndividualDev
         fields = ["first_name", "second_name", "id_number", "industry", "nature"]
 
+# Form to edit an existing registration
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration
