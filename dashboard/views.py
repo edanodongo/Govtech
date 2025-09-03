@@ -18,18 +18,18 @@ from django.utils.safestring import mark_safe
 
 from startup.helper import *
 from .forms import IndividualForm
-from .forms import Step1Form, Step2Form  # You'll need to create these forms
+from .forms import Step1Form, Step2Form  
 from .models import *
 
-
+# View to get dashboard
 def dashboard_data(request):
     return render(request, "dashboard/dashboard.html")
 
-
+# View to get the index page
 def index(request):
     return render(request, "dashboard/index.html")
 
-
+# Function to get the appropriate form class for each step
 def get_form(step):
     forms = {
         1: Step1Form,
@@ -37,7 +37,42 @@ def get_form(step):
     }
     return forms.get(step)
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from datetime import date
+from landingPage.models import SignupUser
+from dashboard.models import Registration
+from .forms import Step1Form, Step2Form
 
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from datetime import date
+from landingPage.models import SignupUser
+from dashboard.models import IndividualDev, Registration
+from dashboard.forms import IndividualForm, Step1Form, Step2Form
+
+# -----------------------------
+# IndividualDev Registration
+# -----------------------------
+def individual_reg(request):
+    if request.method == 'POST':
+        form = IndividualForm(request.POST)
+        if form.is_valid():
+            individual = form.save(commit=False)
+            individual.user = SignupUser.objects.get(email=request.session.get("email"))
+            individual.save()
+            messages.success(request, "Developer profile created successfully.")
+            return redirect('dashboard_view')
+    else:
+        form = IndividualForm()
+
+    return render(request, "dashboard/register/individual.html", {'form': form})
+
+
+# -----------------------------
+# Multi-step Registration
+# -----------------------------
 def multi_step_registration(request, step):
     step = int(step)
 
@@ -47,7 +82,7 @@ def multi_step_registration(request, step):
             if form.is_valid():
                 step1_data = form.cleaned_data.copy()
 
-                # Convert date to string
+                # Convert date to string for session
                 if isinstance(step1_data.get('date_of_establishment'), date):
                     step1_data['date_of_establishment'] = step1_data['date_of_establishment'].isoformat()
 
@@ -71,29 +106,19 @@ def multi_step_registration(request, step):
                     step1_data['date_of_establishment'] = date.fromisoformat(step1_data['date_of_establishment'])
 
                 all_data = {**step1_data, **form.cleaned_data}
-                Registration.objects.create(**all_data)
+
+                signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
+                Registration.objects.create(user=signup_user, **all_data)
 
                 # Clean up session
                 del request.session['step1_data']
                 messages.success(request, "Registration complete!")
-                return redirect('dashboard_view')  # Optional success page
+                return redirect('dashboard_view')
         else:
             form = Step2Form()
         return render(request, 'dashboard/register/step2.html', {'form': form, 'step': step})
 
-
-def individual_reg(request):
-    if request.method == 'POST':
-        form = IndividualForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard_view')  # Optional success page
-    else:
-        form = IndividualForm()
-
-    return render(request, "dashboard/register/individual.html", {'form': form})
-
-
+# View to logout user
 def authlogout(request):
     try:
         # Clear the session
@@ -109,7 +134,7 @@ def authlogout(request):
         # Handle any errors that occur during logout
         return JsonResponse({'status': 'error', 'message': f'Error during logout: {str(e)}'})
 
-
+# View to get user profile
 def Myprofile(request):
     myId = request.session.get('id')
     myInfo = SignupUser.objects.get(id=myId)
@@ -128,7 +153,7 @@ def Myprofile(request):
 
     return render(request, 'dashboard/myprofile.html', data)
 
-
+# View to change profile
 def profileChange(request):
     myId = request.session.get('id')
     myInfo = SignupUser.objects.get(id=myId)
@@ -153,7 +178,7 @@ def profileChange(request):
 
     return render(request, 'dashboard/editProfile.html', data)
 
-
+# View to save edited profile
 def saveEditProfile(request):
     myId = request.session.get('id')
     userType = request.session.get('userType')
@@ -242,130 +267,16 @@ def saveEditProfile(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
 
-
+# View to get user support
 def mySupport(request):
     return render(request, 'dashboard/support.html')
 
-
+# View to reset password
 def resetPassword(request):
     return render(request, 'dashboard/myPassword.html')
 
 
-def dashboard_view(request):
-    # Basic totals
-    total_companies = Registration.objects.count()
-    total_individuals = IndividualDev.objects.count()
-
-    # Pie/Bar/Doughnut chart data
-    company_nature = Registration.objects.values('nature').annotate(count=Count('nature'))
-    business_model = Registration.objects.values('business_model').annotate(count=Count('business_model'))
-    stage = Registration.objects.values('stage').annotate(count=Count('stage'))
-
-    # Line chart: Companies by year
-    establishment_years = Registration.objects.dates('date_of_establishment', 'year')
-    year_counts = {
-        year.year: Registration.objects.filter(date_of_establishment__year=year.year).count()
-        for year in establishment_years
-    }
-
-    # Monthly registration data for comparison
-    def monthly_data_for_year(year):
-        monthly_counts = (
-            Registration.objects.filter(date_of_establishment__year=year)
-            .annotate(month=ExtractMonth('date_of_establishment'))
-            .values('month')
-            .annotate(count=Count('id'))
-        )
-        month_data = {entry['month']: entry['count'] for entry in monthly_counts}
-        return [month_data.get(i, 0) for i in range(1, 13)]
-
-    # Set your desired years for comparison (can be dynamic)
-    available_years = range(2020, 2025)
-    all_years_data = {
-        str(year): monthly_data_for_year(year) for year in available_years
-    }
-
-    # Month labels (Jan–Dec)
-    month_labels = [month_name[i] for i in range(1, 13)]
-
-    years_qs = (Registration.objects
-                .annotate(year=ExtractYear('date_of_establishment'))
-                .values_list('year', flat=True)
-                .distinct()
-                .order_by('-year')[:10])  # LIMIT TO 10 RECENT YEARS
-    available_years = sorted(list(years_qs))  # sorted ascending
-
-    year_counts = {
-        year: Registration.objects.filter(date_of_establishment__year=year).count()
-        for year in available_years
-    }
-
-    # Breakdown of companies by nature and year for comparison chart
-    comparison_data = {}
-    for year in available_years:
-        year_data = Registration.objects.filter(date_of_establishment__year=year).values('nature').annotate(
-            count=Count('id'))
-        comparison_data[year] = {item['nature']: item['count'] for item in year_data}
-
-    context = {
-        'total_companies': total_companies,
-        'total_individuals': total_individuals,
-
-        # Chart labels and data
-        'company_nature_labels': mark_safe(json.dumps([entry['nature'] for entry in company_nature])),
-        'company_nature_data': mark_safe(json.dumps([entry['count'] for entry in company_nature])),
-
-        'business_model_labels': mark_safe(json.dumps([entry['business_model'] for entry in business_model])),
-        'business_model_data': mark_safe(json.dumps([entry['count'] for entry in business_model])),
-
-        'stage_labels': mark_safe(json.dumps([entry['stage'] for entry in stage])),
-        'stage_data': mark_safe(json.dumps([entry['count'] for entry in stage])),
-
-        'year_labels': mark_safe(json.dumps(list(year_counts.keys()))),
-        'year_data': mark_safe(json.dumps(list(year_counts.values()))),
-
-        # Monthly comparison
-        'month_labels': mark_safe(json.dumps(month_labels)),
-        'all_years_data': mark_safe(json.dumps(all_years_data)),
-        'available_years': mark_safe(json.dumps(list(available_years))),
-
-        'available_years': available_years,
-        'comparison_data': mark_safe(json.dumps(comparison_data)),
-
-    }
-
-    return render(request, 'dashboard/dashboard.html', context)
-
-
-'''
-def dashboard_view(request):
-    total_companies = Registration.objects.count()
-    total_individuals = IndividualDev.objects.count()
-
-    company_nature = Registration.objects.values('nature').annotate(count=Count('nature'))
-    business_model = Registration.objects.values('business_model').annotate(count=Count('business_model'))
-    stage = Registration.objects.values('stage').annotate(count=Count('stage'))
-
-    establishment_years = Registration.objects.dates('date_of_establishment', 'year')
-    year_counts = {year.year: Registration.objects.filter(date_of_establishment__year=year.year).count() for year in establishment_years}
-
-    context = {
-        'total_companies': total_companies,
-        'total_individuals': total_individuals,
-        'company_nature_labels': mark_safe(json.dumps([entry['nature'] for entry in company_nature])),
-        'company_nature_data': mark_safe(json.dumps([entry['count'] for entry in company_nature])),
-        'business_model_labels': mark_safe(json.dumps([entry['business_model'] for entry in business_model])),
-        'business_model_data': mark_safe(json.dumps([entry['count'] for entry in business_model])),
-        'stage_labels': mark_safe(json.dumps([entry['stage'] for entry in stage])),
-        'stage_data': mark_safe(json.dumps([entry['count'] for entry in stage])),
-        'year_labels': mark_safe(json.dumps(list(year_counts.keys()))),
-        'year_data': mark_safe(json.dumps(list(year_counts.values()))),
-    }
-
-    return render(request, 'dashboard.html', context)
-'''
-
-
+# View to change password
 def saveChangeMyPassword(request):
     myId = request.session.get('id')
 
@@ -428,12 +339,14 @@ def notifications(request):
     }
     return render(request, 'dashboard/viewNotification.html',data)
 
+# Mark a notification as read
 def markAsRead(request, pk):
     notification = get_object_or_404(Notification, pk=pk)
     notification.is_read = True
     notification.save()
     return redirect('notifications')  # or wherever you want to redirect
 
+# View a single notification
 def viewMynotifications(request, pk):
     notification = get_object_or_404(Notification, pk=pk)
 
@@ -446,5 +359,167 @@ def viewMynotifications(request, pk):
         'notification': notification
     })
 
+from django.shortcuts import render
+from .models import IndividualDev
+
+from django.shortcuts import render, get_object_or_404
+from landingPage.models import SignupUser
+from .models import IndividualDev
+
+
+# Show all dev profiles for one SignupUser (by email)
+def user_individual_devs(request, mail):
+    user = get_object_or_404(SignupUser, mail=mail)
+    devs = user.individual_devs.all()
+    return render(request, "dashboard/application_status.html", {"user": user, "devs": devs})
+
+
+from django.shortcuts import render, get_object_or_404
+from landingPage.models import SignupUser
+from dashboard.models import IndividualDev, Registration
+
+# View to show application status for the logged-in user
 def application_status(request):
-    return render(request, "dashboard/application_status.html")
+    # Get the logged-in SignupUser via email stored in session
+    signup_user = get_object_or_404(SignupUser, email=request.session.get("email"))
+
+    # Individual developer applications
+    devs = IndividualDev.objects.filter(user=signup_user)
+
+    # Company registrations
+    regs = Registration.objects.filter(user=signup_user)
+
+    return render(request, "dashboard/application_status.html", {
+        "signup_user": signup_user,   # pass explicitly
+        "devs": devs,
+        "regs": regs
+    })
+
+
+
+# Startup Toolkit View
+# @login_required
+def startup_toolkit(request):
+    return render(request, 'dashboard/startup_toolkit.html')
+
+# Legal Templates View
+# @login_required
+def legal_templates(request):
+    return render(request, 'dashboard/legal_templates.html')
+
+# Collaboration Board View
+# @login_required
+def collaboration_board(request):
+    projects = CollaborationProject.objects.all()
+    return render(request, 'dashboard/collaboration_board.html', {'collaboration_projects': projects})
+
+# Events View
+# @login_required
+def events_view(request):
+    events = Event.objects.all()
+    return render(request, 'dashboard/events.html', {'events': events})
+
+
+from django.shortcuts import render
+from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+from .forms import StatisticsFilterForm
+from .models import Registration, IndividualDev
+
+# @login_required
+# Display statistics on the statistics page
+def dashboard_stats(request):
+    
+    # Basic totals
+    total_companies = Registration.objects.count()
+    total_individuals = IndividualDev.objects.count()
+    
+    form = StatisticsFilterForm(request.GET or None)
+    registrations = Registration.objects.all()
+    developers = IndividualDev.objects.all()
+
+    # Fetch all IndividualDev and Registration records
+    devss = IndividualDev.objects.all()
+    regss = Registration.objects.all()
+    
+    if form.is_valid():
+        start = form.cleaned_data.get('start_date')
+        end = form.cleaned_data.get('end_date')
+        sector = form.cleaned_data.get('sector')
+        industry = form.cleaned_data.get('industry')
+
+        if start:
+            registrations = registrations.filter(date_of_establishment__gte=start)
+        if end:
+            registrations = registrations.filter(date_of_establishment__lte=end)
+        if sector:
+            registrations = registrations.filter(sector__icontains=sector)
+        if industry:
+            developers = developers.filter(industry__icontains=industry)
+
+    company_by_stage = registrations.values('stage').annotate(count=Count('stage'))
+    company_by_nature = registrations.values('nature').annotate(count=Count('nature'))
+    company_by_model = registrations.values('business_model').annotate(count=Count('business_model'))
+
+    dev_by_nature = developers.values('nature').annotate(count=Count('nature'))
+    dev_by_industry = developers.values('industry').annotate(count=Count('industry')).order_by('-count')[:5]
+
+    context = {
+        'total_companies': total_companies,
+        'total_individuals': total_individuals,
+        'form': form,
+        'company_count': registrations.count(),
+        'dev_count': developers.count(),
+        'company_by_stage': list(company_by_stage),
+        'company_by_nature': list(company_by_nature),
+        'company_by_model': list(company_by_model),
+        'dev_by_nature': list(dev_by_nature),
+        'dev_by_industry': list(dev_by_industry),
+        "devss": devss,
+        "regss": regss,
+    }
+
+    return render(request, 'dashboard/statistics.html', context)
+
+
+
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import IndividualDev, Registration
+from .forms import IndividualDevForm, RegistrationForm
+from landingPage.models import SignupUser
+
+# Edit IndividualDev
+def edit_dev(request, pk):
+    dev = get_object_or_404(IndividualDev, pk=pk, user__email=request.session.get("email"))
+
+    if request.method == "POST":
+        form = IndividualDevForm(request.POST, instance=dev)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Developer profile updated successfully!")
+            return redirect("application_status")
+    else:
+        form = IndividualDevForm(instance=dev)
+
+    return render(request, "dashboard/edit_dev.html", {"form": form, "dev": dev})
+
+
+# Edit Registration
+def edit_reg(request, pk):
+    reg = get_object_or_404(Registration, pk=pk, user__email=request.session.get("email"))
+
+    if request.method == "POST":
+        form = RegistrationForm(request.POST, instance=reg)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Company registration updated successfully!")
+            return redirect("application_status")
+    else:
+        form = RegistrationForm(instance=reg)
+
+    return render(request, "dashboard/edit_reg.html", {"form": form, "reg": reg})
+
+
+

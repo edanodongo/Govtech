@@ -14,20 +14,73 @@ from .models import *
 from dashboard.models import Notification
 
 
-def landing(request):
-    return render(request, 'landingpage/landing.html')
+from django.utils.timezone import now
+from django.db.models import Min
 
+def get_total_hours_since_start():
+    earliest = SignupUser.objects.aggregate(Min('dateCreated'))['dateCreated__min']
+    if not earliest:
+        return 0  # No records, so zero hours elapsed
+    delta = now() - earliest
+    total_hours = delta.total_seconds() / 3600  # Convert seconds to hours
+    return round(total_hours, 2)  # Optionally round to 2 decimal places
+
+
+from django.shortcuts import render
+from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+from .forms import StatisticsFilterForm
+
+from django.db.models import Count, Q
+from django.shortcuts import render
+from .models import SignupUser
+
+
+def landing(request):
+    counts = SignupUser.objects.aggregate(
+        count_1=Count('id', filter=Q(accountType=1)),
+        count_2=Count('id', filter=Q(accountType=2))
+    )
+    total = SignupUser.objects.filter(accountType__in=[1, 2]).count()
+    total_hours = get_total_hours_since_start()
+    
+    individualDev = SignupUser.objects.filter(accountType=1).distinct()
+    company = SignupUser.objects.filter(accountType=2).distinct()
+    form = StatisticsFilterForm(request.GET or None)
+        
+    context = {
+        'counts': counts,
+        'form': form,
+        'total': total,
+        'total_hours': total_hours,
+        'individualDev': individualDev,
+        'company': company,
+        'company_count': counts['count_2'],
+        'dev_count': counts['count_1'],
+    }
+
+    return render(request, 'landingpage/landing.html', context)
+
+# View for event page
 def landingEvent(request):
     return render(request, 'landingpage/index.html')
 
+# View for monetization page
+def monetization(request):
+    return render(request, 'landingpage/monetization.html')
 
+# View for registration complete page
+def complete(request):
+    return render(request, 'dashboard/register/completed.html')
+
+# View for registration page (country, county & gender selection)
 def register_view(request):
     countries = Country.objects.all().order_by('nationality')
     counties = County.objects.all().order_by('name')
     genders = gender.objects.all().order_by('name')
     return render(request, 'landingpage/register.html', {'countries': countries, 'counties': counties, 'genders': genders})
 
-
+# View for registration page (subcounty selection)
 def get_subcounties(request):
     county_id = request.GET.get('county_id')
     subcounties = Subcounty.objects.filter(county_id=county_id).values('id', 'name')
@@ -38,7 +91,7 @@ def get_subcounties(request):
 def login_view(request):
     return render(request, 'landingpage/login.html')
 
-
+# View for signup page
 def signup(request):
     if request.method == 'POST':
         account_type = request.POST.get('account_type')  # '1' for individual, '2' for company
@@ -158,7 +211,7 @@ def signup(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
-
+# View for user login
 def authlogin(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -193,7 +246,7 @@ def authlogin(request):
                 attempt.save()
                 return JsonResponse({'status': 'error', 'message': 'Invalid credentials.'})
 
-                # ✅ Check if password change is required
+                # Check if password change is required
             if user_obj.pswdchange == 1:
                 return JsonResponse({
                     'status': 'force_change',
@@ -243,11 +296,11 @@ def authlogin(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
-
+# View for forgot password
 def forgetPassword(request):
     return render(request, 'landingpage/forgetPassword.html')
 
-
+# View for verification link
 def verificationLink(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -314,11 +367,11 @@ def verificationLink(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
-
+# View for OTP verification
 def otpVerification(request):
     return render(request, 'landingpage/otp.html')
 
-
+# View for OTP verification
 def verifyOTP(request):
     if request.method == 'POST':
         otp = request.POST.get('otp')
@@ -350,11 +403,11 @@ def verifyOTP(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
-
+# View for change password
 def ChangePassword(request):
     return render(request, 'landingpage/changePassword.html')
 
-
+# View for save forget my password
 def saveForgetMyPassword(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -389,13 +442,13 @@ def saveForgetMyPassword(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
-
+# View for force password change
 def force_password_change(request):
     email = request.GET.get('email')
     userId = request.GET.get('userId')
     return render(request, 'landingpage/changeForcePassword.html', {'user_id': userId, 'email': email})
 
-
+# View for save forget my password force
 def saveForgetMyPasswordForce(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -428,25 +481,151 @@ def saveForgetMyPasswordForce(request):
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method or missing session ID.'})
 
-
+# View for portals
 def portals(request):
     return render(request, 'landingpage/portals.html')
 
-
+# View for guidelines
 def guidelines(request):
     return render(request, 'landingpage/guidelines.html')
 
+# View for cost page
 def cost(request):
     return render(request, 'landingpage/cost.html')
 
+# View for legal page
 def legal(request):
     return render(request, 'landingpage/legal.html')
 
+# View for resource page
 def resource(request):
     return render(request, 'landingpage/resource.html')
 
+# View for collaboration page
 def collaboration(request):
     return render(request, 'landingpage/collaboration.html')
 
+# View for technical page
 def technical(request):
     return render(request, 'landingpage/technical.html')
+
+# View for signup page
+def signup(request):
+    if request.method == 'POST':
+        account_type = request.POST.get('account_type')  # '1' for individual, '2' for company
+
+        # Initialize fields
+        first_name = ''
+        last_name = ''
+        company_name = ''
+        genderName = None
+        nationality = None
+
+        # Individual details
+        if account_type == '1':
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            genderName = request.POST.get('gender')
+            nationality = request.POST.get('nationality')
+        else:
+            company_name = request.POST.get('company_name')
+            nationality = 73  # Default for companies
+
+        # Common details
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        county = request.POST.get('county')
+        subCounty = request.POST.get('subcounty')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+
+        # Password match check
+        if password != confirm_password:
+            return JsonResponse({'status': 'error', 'message': 'Passwords do not match.'})
+
+        # Password strength check
+        if not is_strong_password(password):
+            return JsonResponse({'status': 'error',
+                                 'message': 'Password must be at least 8 characters long and include a capital letter, number, and symbol.'})
+
+        # Encrypt the password
+        encrypted_password = make_password(password)
+
+
+        try:
+            # Save user to DB
+            user = SignupUser.objects.create(
+                email=email,
+                password=encrypted_password,
+                fName=first_name,
+                lName=last_name,
+                phone=phone,
+                nationality=nationality,
+                county=county,
+                subcounty=subCounty,
+                gender=genderName,
+                accountType=account_type,
+                company=company_name
+            )
+
+            # Add notification
+            title = "Account created successfully"
+            message = (
+                "You have successfully created your account. "
+                "Proceed to make the relevant applications."
+            )
+            result = notification_insert(title, message, user.id, Notification)
+            if result['status'] != 'success':
+                print("Notification insert failed:", result['message'])
+
+            # Prepare email
+            subject = "Your Devlink Platform Account Details"
+            from_email = f"Devlink Team <{settings.DEFAULT_FROM_EMAIL}>"
+
+            # Plain text content
+            text_content = (
+                f"Dear User,\n\n"
+                f"Your account on the Devlink Startup Ecosystem Platform has been created successfully.\n\n"
+                f"Here are your login credentials:\n"
+                f"Email: {email}\n"
+                f"Password: {password}\n\n"
+                f"For security, please log in and change your password as soon as possible.\n\n"
+                f"Regards,\n"
+                f"The Devlink Team"
+            )
+
+            # HTML content
+            html_content = f"""
+                <html>
+                <body>
+                    <p>Dear User,</p>
+                    <p>Your account on the <strong>Devlink Startup Ecosystem Platform</strong> has been created successfully.</p>
+                    <p><strong>Your login credentials are:</strong></p>
+                    <ul>
+                        <li><strong>Email:</strong> {email}</li>
+                        <li><strong>Password:</strong> <code style="font-size: 16px;">{password}</code></li>
+                    </ul>
+                    <p>For your security, please log in and change your password as soon as possible.</p>
+                    <br>
+                    <p style="font-size: 14px; color: #888;">— The Devlink Team</p>
+                </body>
+                </html>
+            """
+
+            # Send email
+            email_msg = EmailMultiAlternatives(subject, text_content, from_email, [email])
+            email_msg.attach_alternative(html_content, "text/html")
+            # email_msg.send(fail_silently=False)
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Registration successful.'
+            })
+
+        except IntegrityError:
+            return JsonResponse({'status': 'error', 'message': 'An account with this email already exists.'})
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Error occurred: {e}'})
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
+
