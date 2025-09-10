@@ -3,513 +3,592 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Devlink Kenya</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Devlink Kenya</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{% static 'images/cos.ico' %}" rel="icon">
-  <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
-  
-  <!-- Fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Favicons -->
+    <link href="{% static 'images/cos.ico' %}" rel="icon">
+    <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="{% static 'css/landing/main.css' %}" rel="stylesheet">
-  
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'css/landing/main.css' %}" rel="stylesheet">
+
 <body class="index-page">
 
-<header id="header" class="header d-flex align-items-center sticky-top">
+<header class="header d-flex align-items-center sticky-top" id="header">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a href="{% url 'portalHome' %}" class=" d-flex align-items-center me-auto" >
-        <img src="{% static 'images/court of arms.png' %}"  height="70" alt="Court of Arms" />
-        <div class="logo-divider"></div>
-        <img src="{% static 'images/devlinklogo.png' %}"  height="90" alt="Devlink Logo" />
-    </a>
+        <a class=" d-flex align-items-center me-auto" href="{% url 'portalHome' %}">
+            <img alt="Court of Arms" height="70" src="{% static 'images/court of arms.png' %}"/>
+            <div class="logo-divider"></div>
+            <img alt="Devlink Logo" height="90" src="{% static 'images/devlinklogo.png' %}"/>
+        </a>
 
-    <nav id="navmenu" class="navmenu">
-        <ul>
-        <li><a href="{% url 'portalHome' %}" class="active" >Home</a></li>
-        </li>
-        <li><a href="{% url 'monetization' %}" ><span>Digital Monetization</span></a>
-        </li>
-        <li class="dropdown"><a href="#"><span>Resources</span><i class="bi bi-chevron-down toggle-dropdown"></i> </a>
+        <nav class="navmenu" id="navmenu">
             <ul>
-            <li><a href="{% url 'resource' %}">Resource Hub</a></li>
-            <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
-            <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
-            </ul> 
-            {% comment %}
-            <ul>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Knowledge exchange forum</a></li>
-            <li><a href="#">Government hackathons and innovation challenges</a></li>
-            <li><a href="#">Engage in collaborative R&D projects</a></li>
-            <li><a href="#">Repository for government projects</a></li>
-            </ul> {% endcomment %}
-        </li>
-        <li class="dropdown"><a href="#" ><span>Startup Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-            <li><a href="{% url 'guidelines' %}" >Guide for Software Startup Requirements</a></li>
-            <li><a href="{% url 'portals' %}" >Links to Supporting Government Portals</a></li>
-            <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
-            <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
-            <li><a href="{% url 'technical' %}"  >Technical and Infrastructure Setup for Software</a></li>
+                <li><a class="active" href="{% url 'portalHome' %}">Home</a></li>
+                </li>
+                <li><a href="{% url 'monetization' %}"><span>Digital Monetization</span></a>
+                </li>
+                <li class="dropdown"><a href="#"><span>Resources</span><i
+                        class="bi bi-chevron-down toggle-dropdown"></i> </a>
+                    <ul>
+                        <li><a href="{% url 'resource' %}">Resource Hub</a></li>
+                        <li><a href="{% url 'collaboration' %}">Collaboration & Innovation</a></li>
+                        <li><a href="{% url 'summit' %}">Kenya Software Summit</a></li>
+                    </ul>
+                    {% comment %}
+                    <ul>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Knowledge exchange forum</a></li>
+                        <li><a href="#">Government hackathons and innovation challenges</a></li>
+                        <li><a href="#">Engage in collaborative R&D projects</a></li>
+                        <li><a href="#">Repository for government projects</a></li>
+                    </ul>
+                    {% endcomment %}
+                </li>
+                <li class="dropdown"><a href="#"><span>Startup Support</span> <i
+                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        <li><a href="{% url 'guidelines' %}">Guide for Software Startup Requirements</a></li>
+                        <li><a href="{% url 'portals' %}">Links to Supporting Government Portals</a></li>
+                        <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+                        <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+                        <li><a href="{% url 'technical' %}">Technical and Infrastructure Setup for Software</a></li>
+                    </ul>
+                </li>
+                <li><a>Contact Us</a></li>
             </ul>
-        </li>
-        <li><a >Contact Us</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-    <!--
-    <a class="btn-getstarted"  href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Get Started</a>
-    -->
+        <!--
+        <a class="btn-getstarted"  href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Get Started</a>
+        -->
 
-    <a class="btn-getstarted"  href="{% url 'login' %}"><i class="fa fa-user-plus"></i> Get Started</a>
+        <a class="btn-getstarted" href="{% url 'login' %}"><i class="fa fa-user-plus"></i> Get Started</a>
     </div>
 </header>
-  <main class="main">
+<main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section class="hero section" id="hero">
 
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>Devlink Kenya</h1>
-            <p>Kenya’s Software Ecosystem Platform provides structured support for software startups, developers, and established firms. It facilitates registration, offers access to essential resources, and promotes collaboration and innovation across the tech landscape. Click Get Started to Register as a Software startup or firm.</p>
-            
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{% static 'images/hero-img.png' %}" class="img-fluid animated" alt="Hero Image">
-          </div>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                    <h1>Devlink Kenya</h1>
+                    <p>Kenya’s Software Ecosystem Platform provides structured support for software startups,
+                        developers, and established firms. It facilitates registration, offers access to essential
+                        resources, and promotes collaboration and innovation across the tech landscape. Click Get
+                        Started to Register as a Software startup or firm.</p>
+
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+                    <img alt="Hero Image" class="img-fluid animated" src="{% static 'images/hero-img.png' %}">
+                </div>
+            </div>
         </div>
-      </div>
 
     </section><!-- /Hero Section -->
 
 
     <!-- About Section -->
-    <section id="about" class="about section accent-background">
+    <section class="about section accent-background" id="about">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row justify-content-center mb-5">
-          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="section-heading">About us</h2>
-            <p class="lead">The Government Software Industry Portal is a national portal established to facilitate cooperation between the Government of Kenya and the local software industry. It is a single-window interface for the registered software firms and individual developers to get access to government business opportunities, training, policy details, and innovation and digital transformation resources.</p> <br>
-            <p class="lead">The portal promotes Kenyan software specialists in enhancing Kenya's digital agenda through ease of access to public sector contracts, reducing compliance procedures, and pushing national technology initiative engagement. It further promotes transparency, capacity building, and development of local content aligned with Kenya's Vision 2030 and the Digital Master Plan 2022–2032. </p> <br>
-            <p class="lead" >Regardless of whether you are a start-up, technology business, freelance developer, or government agency, the Software Industry Portal provides the networks and tools to build a prosperous, safe, and accessible digital economy for all.</p>
-          </div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="section-heading">About us</h2>
+                    <p class="lead">The Government Software Industry Portal is a national portal established to
+                        facilitate cooperation between the Government of Kenya and the local software industry. It is a
+                        single-window interface for the registered software firms and individual developers to get
+                        access to government business opportunities, training, policy details, and innovation and
+                        digital transformation resources.</p> <br>
+                    <p class="lead">The portal promotes Kenyan software specialists in enhancing Kenya's digital agenda
+                        through ease of access to public sector contracts, reducing compliance procedures, and pushing
+                        national technology initiative engagement. It further promotes transparency, capacity building,
+                        and development of local content aligned with Kenya's Vision 2030 and the Digital Master Plan
+                        2022–2032. </p> <br>
+                    <p class="lead">Regardless of whether you are a start-up, technology business, freelance developer,
+                        or government agency, the Software Industry Portal provides the networks and tools to build a
+                        prosperous, safe, and accessible digital economy for all.</p>
+                </div>
+            </div>
+
         </div>
-
-      </div>
 
     </section><!-- /About Section -->
 
     <!-- Registration flow Section -->
-    <section id="registration-flow" class="registration-flow section light-background">
+    <section class="registration-flow section light-background" id="registration-flow">
         <div class="container section-title" data-aos="fade-up">
-          <h2>Software firm registration Process</h2>
-          <p class="lead">The registration process for software firms and individual developers is designed to be straightforward and efficient, ensuring that you can quickly access the resources and opportunities available on the Devlink Kenya platform.
-            From your dashboard, you can: Manage your profile or company page, Access support services and resources, Connect with other developers and startups, Track engagement and platform activity
-          </p>
+            <h2>Software firm registration Process</h2>
+            <p class="lead">The registration process for software firms and individual developers is designed to be
+                straightforward and efficient, ensuring that you can quickly access the resources and opportunities
+                available on the Devlink Kenya platform.
+                From your dashboard, you can: Manage your profile or company page, Access support services and
+                resources, Connect with other developers and startups, Track engagement and platform activity
+            </p>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="main-timeline">
-                    <a href="#" class="timeline">
-                        <div class="timeline-icon"><i class="fa fa-user-plus"></i></div> <!-- Registration -->
-                        <div class="timeline-content">
-                            <h3 class="title">Registration</h3>
-                            <p class="description">
-                                Begin by selecting your registration type: Software Start-up/Established Software Firm, Individual Software Developer
-                            </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-timeline">
+                        <a class="timeline" href="#">
+                            <div class="timeline-icon"><i class="fa fa-user-plus"></i></div> <!-- Registration -->
+                            <div class="timeline-content">
+                                <h3 class="title">Registration</h3>
+                                <p class="description">
+                                    Begin by selecting your registration type: Software Start-up/Established Software
+                                    Firm, Individual Software Developer
+                                </p>
+                            </div>
+                        </a>
+                        <a class="timeline" href="#">
+                            <div class="timeline-icon"><i class="fa fa-tasks"></i></div> <!-- Fill Requirements -->
+                            <div class="timeline-content">
+                                <h3 class="title">Fill Requirements</h3>
+                                <p class="description">
+                                    Once verified, you’ll be prompted to complete your profile based on your selected
+                                    category.
+                                </p>
+                            </div>
+                        </a>
+                        <a class="timeline" href="#">
+                            <div class="timeline-icon"><i class="fa fa-hourglass-half"></i></div>
+                            <!-- Pending/approval -->
+                            <div class="timeline-content">
+                                <h3 class="title">Pending/Approval</h3>
+                                <p class="description">
+                                    After submitting your information: Your profile will be reviewed on the platform and
+                                    then approved
+                                </p>
+                            </div>
+                        </a>
+                        <a class="timeline" href="#">
+                            <div class="timeline-icon"><i class="fa fa-sign-in-alt"></i></div> <!-- Login -->
+                            <div class="timeline-content">
+                                <h3 class="title">Access</h3>
+                                <p class="description">
+                                    Once approved, you can access services at any time. From the landing page, you can
+                                    access support services and resources.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Registration flow Section -->
+
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-title text-center mb-5">
+                <h2>Our Core Values</h2>
+                <p>At Devlink Kenya, we are driven by a set of core values that guide our actions and shape our culture.
+                    These principles are the foundation of our commitment to excellence, innovation, and
+                    collaboration.</p>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-box">
+                            <div class="icon-container">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h3>Innovation</h3>
+                            <p>Pioneering solutions that challenge conventional thinking and create new opportunities
+                                for success.</p>
                         </div>
-                    </a>
-                    <a href="#" class="timeline">
-                        <div class="timeline-icon"><i class="fa fa-tasks"></i></div> <!-- Fill Requirements -->
-                        <div class="timeline-content">
-                            <h3 class="title">Fill Requirements</h3>
-                            <p class="description">
-                                Once verified, you’ll be prompted to complete your profile based on your selected category.
-                            </p>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-box">
+                            <div class="icon-container">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <h3>Growth</h3>
+                            <p>Facilitating sustainable expansion through strategic planning and calculated
+                                execution.</p>
                         </div>
-                    </a>
-                    <a href="#" class="timeline">
-                        <div class="timeline-icon"><i class="fa fa-hourglass-half"></i></div> <!-- Pending/approval -->
-                        <div class="timeline-content">
-                            <h3 class="title">Pending/Approval</h3>
-                            <p class="description">
-                                After submitting your information: Your profile will be reviewed on the platform and then approved
-                            </p>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-box">
+                            <div class="icon-container">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3>Integrity</h3>
+                            <p>Upholding the highest standards of ethics, transparency and accountability in all our
+                                endeavors.</p>
                         </div>
-                    </a>
-                    <a href="#" class="timeline">
-                        <div class="timeline-icon"><i class="fa fa-sign-in-alt"></i></div> <!-- Login -->
-                        <div class="timeline-content">
-                            <h3 class="title">Access</h3>
-                            <p class="description">
-                                Once approved, you can access services at any time. From the landing page, you can access support services and resources.
-                            </p>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-box">
+                            <div class="icon-container">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h3>Collaboration</h3>
+                            <p>Working alongside our clients as partners to achieve mutual growth and shared
+                                success.</p>
                         </div>
-                    </a>
+                    </div>
+                </div>
+
+            </div>
+
+    </section><!-- /About Section -->
+
+
+    <!-- Call To Action Section -->
+    <section class="call-to-action section accent-background" id="call-to-action">
+
+        <div class="container">
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-xl-10">
+                    <div class="text-center">
+                        <h3>Call To Action</h3>
+                        <p>Are you a developer looking for real opportunities, a business in need of software solutions,
+                            or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with
+                            demand, empowering innovation through collaboration. Join today and be part of Kenya’s
+                            thriving tech ecosystem where ideas become solutions.</p>
+
+                    </div>
                 </div>
             </div>
         </div>
 
-        </div>  
-    </section>
-    <!-- Registration flow Section -->
-
-    
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center mb-5">
-          <h2>Our Core Values</h2>
-          <p>At Devlink Kenya, we are driven by a set of core values that guide our actions and shape our culture. These principles are the foundation of our commitment to excellence, innovation, and collaboration.</p>
-
-        <div class="row g-4 mb-5">
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-box">
-              <div class="icon-container">
-                <i class="bi bi-lightbulb"></i>
-              </div>
-              <h3>Innovation</h3>
-              <p>Pioneering solutions that challenge conventional thinking and create new opportunities for success.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-box">
-              <div class="icon-container">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h3>Growth</h3>
-              <p>Facilitating sustainable expansion through strategic planning and calculated execution.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-box">
-              <div class="icon-container">
-                <i class="bi bi-shield-check"></i>
-              </div>
-              <h3>Integrity</h3>
-              <p>Upholding the highest standards of ethics, transparency and accountability in all our endeavors.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-box">
-              <div class="icon-container">
-                <i class="bi bi-people-fill"></i>
-              </div>
-              <h3>Collaboration</h3>
-              <p>Working alongside our clients as partners to achieve mutual growth and shared success.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section accent-background">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Are you a developer looking for real opportunities, a business in need of software solutions, or a client ready to bring your digital ideas to life? Devlink Kenya connects talent with demand, empowering innovation through collaboration. Join today and be part of Kenya’s thriving tech ecosystem where ideas become solutions.</p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
     </section><!-- /Call To Action Section -->
-    
-            
+
+
     <!-- How We Work Section -->
-    <section id="how-we-work" class="how-we-work section">
+    <section class="how-we-work section" id="how-we-work">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">        
-        <h2>Standard Contracts and Legal Templates</h2>
-        <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with partners, clients, freelancers, investors, and employees. Having the right legal documents in place is crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
-      </div><!-- End Section Title -->
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Standard Contracts and Legal Templates</h2>
+            <p class="lead">Setting up a tech startup or working as a software developer often involves dealing with
+                partners, clients, freelancers, investors, and employees. Having the right legal documents in place is
+                crucial to protect your intellectual property, clarify expectations, and reduce legal risks.</p><br>
+        </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="steps-wrapper">
+            <div class="steps-wrapper">
 
-          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-check2-circle"></i>
-              </div>
-              <div class="step-info">
-                <h3> Why Standard Contracts Matter: </h3>
-                <ul>
-                    <li><span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span></li>
-                    <li><span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span></li>
-                    <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span></li>
-                    <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span></li>
-                </ul>
-              </div>
+                <div class="step-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="bi bi-check2-circle"></i>
+                        </div>
+                        <div class="step-info">
+                            <h3> Why Standard Contracts Matter: </h3>
+                            <ul>
+                                <li>
+                                    <span><strong> Protect your ideas and code</strong> – Avoid IP theft or misuse </span>
+                                </li>
+                                <li>
+                                    <span><strong>Clarify terms and expectations</strong> – Prevent future disputes</span>
+                                </li>
+                                <li><span><strong>Enable professionalism</strong> – Present yourself as a credible, reliable partner</span>
+                                </li>
+                                <li><span><strong>Ensure compliance</strong> – Meet basic legal requirements and investor expectation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- End Step Item -->
+
+                <a class="read-more" href="{% url 'legal' %}"><span>Read More</span><i
+                        class="bi bi-arrow-right"></i></a>
             </div>
-          </div><!-- End Step Item -->
 
-        <a href="{% url 'legal' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
         </div>
-
-      </div>
 
     </section><!-- /How We Work Section -->
 
 
-  
     <!-- Stats Section -->
-    <section id="stats" class="stats section">
+    <section class="stats section" id="stats">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
+            <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="{{ total }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Users</p>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span class="purecounter" data-purecounter-duration="1"
+                              data-purecounter-end="{{ total }}" data-purecounter-start="0"></span>
+                        <p>Users</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span class="purecounter" data-purecounter-duration="1"
+                              data-purecounter-end="{{ counts.count_2 }}" data-purecounter-start="0"></span>
+                        <p>Software Companies</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span class="purecounter" data-purecounter-duration="1"
+                              data-purecounter-end="{{ total_hours }}" data-purecounter-start="0"></span>
+                        <p>Hours Of Support</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span class="purecounter" data-purecounter-duration="1"
+                              data-purecounter-end="{{ counts.count_1 }}" data-purecounter-start="0"></span>
+                        <p>Developers</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
             </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="{{ counts.count_2 }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Software Companies</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="{{ total_hours }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="{{ counts.count_1 }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Developers</p>
-            </div>
-          </div><!-- End Stats Item -->
 
         </div>
-
-      </div>
 
     </section><!-- /Stats Section -->
 
- 
+
     <!-- Services Section -->
-    <section id="services" class="services section light-background">
+    <section class="services section light-background" id="services">
 
         <div class="row justify-content-center mb-5">
-          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="section-heading">Guide for Software Start-up Requirements</h2>
-            <p class="lead">Starting a software business in Kenya requires a mix of legal compliance, strategic planning, and technical readiness. This guide provides a detailed roadmap to help individual developers, small teams, and growing startups establish a strong foundation for success in the local and global tech ecosystem.</p>
-          </div>
+            <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="section-heading">Guide for Software Start-up Requirements</h2>
+                <p class="lead">Starting a software business in Kenya requires a mix of legal compliance, strategic
+                    planning, and technical readiness. This guide provides a detailed roadmap to help individual
+                    developers, small teams, and growing startups establish a strong foundation for success in the local
+                    and global tech ecosystem.</p>
+            </div>
         </div>
         <!-- End Section Title -->
 
-      <div class="container">
+        <div class="container">
 
-        <div class="row gy-4">
+            <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-                <h3>Business Structure and Legal Registration</h3>
-              <p>Choosing the right legal structure is the first step toward building a credible and scalable business.</p>
-            <br>
-            <ul style="list-style: none; padding-left: 0; text-align: left;">
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Sole Proprietorship </strong> – Ideal for freelancers and solo developers</span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Partnership</strong> – For small teams co-owning the business</span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Private Limited Company (Ltd)</strong> – Best for startups seeking to scale, attract investors, or sign enterprise contracts</span>
-                </li>
-            </ul>
-            </p>
-            <span>BRS Registration Process via <a href="https://brs.ecitizen.go.ke/auth" ></i>eCitizen </span></a>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item  position-relative">
+                        <h3>Business Structure and Legal Registration</h3>
+                        <p>Choosing the right legal structure is the first step toward building a credible and scalable
+                            business.</p>
+                        <br>
+                        <ul style="list-style: none; padding-left: 0; text-align: left;">
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Sole Proprietorship </strong> – Ideal for freelancers and solo developers</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Partnership</strong> – For small teams co-owning the business</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Private Limited Company (Ltd)</strong> – Best for startups seeking to scale, attract investors, or sign enterprise contracts</span>
+                            </li>
+                        </ul>
+                        </p>
+                        <span>BRS Registration Process via <a href="https://brs.ecitizen.go.ke/auth"></i>
+                            eCitizen </span></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-item position-relative">
+                        <h3>Tax Registration and Compliance</h3>
+                        <p>Registering your business with the Kenya Revenue Authority (KRA) is mandatory. KRA
+                            Requirements</p>
+                        <p>KRA Requirements:</p>
+                        <br>
+                        <ul style="list-style: none; padding-left: 0; text-align: left;">
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong> Obtain a KRA PIN for the business and all directors/shareholders </strong></span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Tax obligations such as;</strong>Income Tax, Value Added Tax (VAT), Pay-As-You-Earn (PAYE) (if employing staff)</span>
+                            </li>
+                        </ul>
+                        File returns monthly/annually using <a href="https://itax.kra.go.ke/"></i><span>iTax </span></a>
+                        </p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-item position-relative">
+                        <h3>Intellectual Property (IP) Protection</h3>
+                        <p>As a software developer or company, safeguarding your ideas, code, and brand is vital. How to
+                            Protect Your IP in Kenya</p>
+                        <p>How to Protect Your IP in Kenya</p>
+                        <br>
+                        <ul style="list-style: none; padding-left: 0; text-align: left;">
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Trademarks (logos, names)</strong> – Register via <a
+                                        href="https://kipi.go.ke/trade-marks"></i><span>KIPI </span></a> </span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Patents </strong> – For unique algorithms or tech innovations</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Copyright </strong> – Automatically granted for original code, but formal registration adds legal protection</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"
+                                   style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
+                                <span><strong>Non-Disclosure Agreements (NDAs) </strong> – Use when pitching or collaborating</span>
+                            </li>
+                        </ul>
+                        <span><strong>Tip: </strong>Kenya follows a "first to file" system for trademarks—register early!</span>
+                        </p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <a class="read-more" href="{% url 'guidelines' %}"><span>Read More</span><i
+                        class="bi bi-arrow-right"></i></a>
+
             </div>
-          </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-                <h3>Tax Registration and Compliance</h3>
-              <p>Registering your business with the Kenya Revenue Authority (KRA) is mandatory. KRA Requirements</p>
-              <p>KRA Requirements:</p>
-            <br>
-            <ul style="list-style: none; padding-left: 0; text-align: left;">
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong> Obtain a KRA PIN for the business and all directors/shareholders </strong></span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Tax obligations such as;</strong>Income Tax, Value Added Tax (VAT), Pay-As-You-Earn (PAYE) (if employing staff)</span>
-                </li>
-            </ul>
-            File returns monthly/annually using <a href="https://itax.kra.go.ke/" ></i><span>iTax </span></a>
-            </p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-                <h3>Intellectual Property (IP) Protection</h3>
-              <p>As a software developer or company, safeguarding your ideas, code, and brand is vital. How to Protect Your IP in Kenya</p>
-              <p>How to Protect Your IP in Kenya</p>
-            <br>
-            <ul style="list-style: none; padding-left: 0; text-align: left;">
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Trademarks (logos, names)</strong> – Register via <a href="https://kipi.go.ke/trade-marks" ></i><span>KIPI </span></a> </span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Patents </strong> – For unique algorithms or tech innovations</span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Copyright </strong> – Automatically granted for original code, but formal registration adds legal protection</span>
-                </li>
-                <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                    <i class="bi bi-check-circle" style="color: #198754; margin-right: 8px; font-size: 1.2em;"></i>
-                    <span><strong>Non-Disclosure Agreements (NDAs) </strong> – Use when pitching or collaborating</span>
-                </li>
-            </ul>
-            <span><strong>Tip: </strong>Kenya follows a "first to file" system for trademarks—register early!</span>
-            </p>
-            </div>
-          </div><!-- End Service Item -->
-          
-          <a href="{% url 'guidelines' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          
         </div>
-
-      </div>
 
     </section><!-- /Services Section -->
 
-  </main>
+</main>
 
-<footer id="footer" class="footer">
+<footer class="footer" id="footer">
 
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-about">
-                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
-                    <img src="{% static 'images/court-of-arms.png' %}" height="50" alt="Court of Arms" />
+                <a class="logo d-flex align-items-center" href="{% url 'portalHome' %}">
+                    <img alt="Court of Arms" height="50" src="{% static 'images/court-of-arms.png' %}"/>
                     <div class="logo-divider"></div>
-                    <img src="{% static 'images/devlinklogo.png' %}" height="80" alt="Devlink Logo" />
+                    <img alt="Devlink Logo" height="80" src="{% static 'images/devlinklogo.png' %}"/>
                 </a>
-                <a href="{% url 'portalHome' %}" class="logo d-flex align-items-center">
+                <a class="logo d-flex align-items-center" href="{% url 'portalHome' %}">
                     <span class="sitename">Devlink Kenya</span>
                 </a>
-                <p >Connects you to the right opportunities and partnerships, empowering progress every step of the way.</p>
+                <p>Connects you to the right opportunities and partnerships, empowering progress every step of the
+                    way.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a aria-label="Follow us on X (Twitter)" href="https://x.com/MoICTKenya" target="_blank">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a aria-label="Follow us on Facebook" href="https://www.facebook.com/MoICTKE" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a aria-label="Connect with us on LinkedIn"
+                       href="https://www.linkedin.com/company/ministry-of-information-communications-and-the-digital-economy/" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a aria-label="Email us" href="mailto:information@ict.go.ke">
+                        <i class="bi bi-envelope"></i>
+                    </a>
                 </div>
+
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
-                <h4 >Useful Links</h4>
+                <h4>Useful Links</h4>
                 <ul>
-                    <li><a href="{% url 'portalHome' %}" >Home</a></li>
-                    <li><a href="{% url 'resource' %}" >Resources</a></li>
-                    <li><a href="{% url 'guidelines' %}" >Startup support</a></li>
-                    <li><a href="{% url 'collaboration' %}" >Collaboration and innovation</a></li>
+                    <li><a href="{% url 'portalHome' %}">Home</a></li>
+                    <li><a href="{% url 'resource' %}">Resources</a></li>
+                    <li><a href="{% url 'guidelines' %}">Startup support</a></li>
+                    <li><a href="{% url 'collaboration' %}">Collaboration and innovation</a></li>
                     <li><a href="{% url 'monetization' %}">Monetization</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
-                <h4 >More info</h4>
+                <h4>More info</h4>
                 <ul>
-                    <li><a href="{% url 'guidelines' %}" >Software Startup Requirements</a></li>
-                    <li><a href="{% url 'portals' %}" >Supporting Government Portals</a></li>
-                    <li><a href="{% url 'legal' %}" >Standard Contracts and Legal Templates</a></li>
-                    <li><a href="{% url 'cost' %}" >Cost Optimization for Startups</a></li>
-                    <li><a href="{% url 'login' %}" >Software firm registration</a></li>
+                    <li><a href="{% url 'guidelines' %}">Software Startup Requirements</a></li>
+                    <li><a href="{% url 'portals' %}">Supporting Government Portals</a></li>
+                    <li><a href="{% url 'legal' %}">Standard Contracts and Legal Templates</a></li>
+                    <li><a href="{% url 'cost' %}">Cost Optimization for Startups</a></li>
+                    <li><a href="{% url 'login' %}">Software firm registration</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                <h4 >Contact Us</h4>
-                <p >P.O. Box 30025 - 00100</p>
-                <p >GPO Telposta Towers, Koinange Street</p>
-                <p >Nairobi, Kenya</p>
-                <p class="mt-4" ><strong>Phone:</strong> <span> <!-- +254 700 000 000 --> </span></p>
-                <p ><strong>Email:</strong> <span><!-- devlink@support.go.ke --></span></p>
+                <h4>Contact Us</h4>
+                <p>P.O. Box 30025 - 00100</p>
+                <p>GPO Telposta Towers, Koinange Street</p>
+                <p>Nairobi, Kenya</p>
+                <p class="mt-4"><strong>Phone:</strong> <span> <!-- +254 700 000 000 --> </span></p>
+                <p><strong>Email:</strong> <span><!-- devlink@support.go.ke --></span></p>
             </div>
 
         </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-        <p >© <span>Copyright</span> <strong class="px-1 sitename" style="color: #f8f9fa;">Devlink</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename" style="color: #f8f9fa;">Devlink</strong> <span>All Rights Reserved</span>
+        </p>
     </div>
 
 </footer>
 
-  <!-- Scroll Top -->
-  <a id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Scroll Top -->
+<a class="scroll-top d-flex align-items-center justify-content-center" id="scroll-top"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<!-- Preloader -->
+<div id="preloader"></div>
 
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
-  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  
-  <!-- Main JS File -->
-  <script src="{% static 'js/landing/main.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'js/landing/main.js' %}"></script>
 
 </body>
 
