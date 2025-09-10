@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="en">
 <!-- [Head] start -->
 
@@ -62,7 +62,7 @@
             <div class="auth-form">
                 <div class="text-center mb-4">
                     <a class="navbar-brand d-flex flex-wrap justify-content-center align-items-center gap-3" href="/">
-                        <img alt="court of arms"height="80" src="{% static 'images/court-of-arms.png' %}"/>
+                        <img alt="court of arms" height="80" src="{% static 'images/court-of-arms.png' %}"/>
                         <div class="logo-divider"></div>
                         <img alt="Devlink Logo" height="110" src="{% static 'images/devlinklogo.png' %}"/>
                     </a>
@@ -75,13 +75,16 @@
                                 <h3 class="mb-0"><b>Login</b></h3>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label">Email</label>
-                                <input class="form-control" name="email" placeholder="Email" required type="email">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control" id="email" name="email" placeholder="Email" required
+                                       type="email">
                             </div>
+
                             <div class="form-group mb-3">
-                                <label class="form-label">Password</label>
+                                <label for="password" class="form-label">Password</label>
                                 <div class="input-group">
-                                    <input class="form-control" id="password" name="password" placeholder="Enter password" required type="password">
+                                    <input class="form-control" id="password" name="password"
+                                           placeholder="Enter password" required type="password">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                                             <i class="fa-solid fa-eye" id="togglePasswordIcon"></i>
